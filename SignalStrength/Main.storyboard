@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -121,6 +122,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Cav-A5-BIX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XNc-Xb-Ijx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-aK-hJM">
@@ -145,10 +147,10 @@
                                 <exclude reference="gzc-aK-hJM"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="LUV-2t-b5o"/>
                                 <exclude reference="Faq-rL-Qpg"/>
                                 <exclude reference="J6u-Cl-cf2"/>
                                 <exclude reference="uCL-Bd-nqY"/>
-                                <exclude reference="LUV-2t-b5o"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -156,10 +158,10 @@
                                 <include reference="gzc-aK-hJM"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="LUV-2t-b5o"/>
                                 <include reference="Faq-rL-Qpg"/>
                                 <include reference="J6u-Cl-cf2"/>
                                 <include reference="uCL-Bd-nqY"/>
-                                <include reference="LUV-2t-b5o"/>
                             </mask>
                         </variation>
                     </view>

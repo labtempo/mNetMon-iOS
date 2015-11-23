@@ -28,12 +28,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
-        
+        self.locationManager.requestAlwaysAuthorization()
         let operadora = self.netInfo.subscriberCellularProvider
         
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        for r:Read in AppData.sharedInstance.reads {
+            let pin = MKPointAnnotation()
+            pin.coordinate = r.location.coordinate
+            pin.title = r.ID.description
+            self.mapView.addAnnotation(pin)
+        }
+    }
     
     @IBAction func switchValueChanged(sender: UISwitch) {
         if (recordLocationSwitch.on){
