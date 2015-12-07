@@ -10,7 +10,7 @@ import Foundation
 
 class AppData{
     static let sharedInstance = AppData()
-    
     var reads = [Read]()
+    
     
 }
