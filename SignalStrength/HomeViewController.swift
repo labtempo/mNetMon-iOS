@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     
     @IBOutlet weak var mapView: MKMapView!
@@ -22,12 +22,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         for r:Read in AppData.sharedInstance.reads {
-            let pin = MKPointAnnotation()
-            pin.coordinate = r.location.coordinate
-            pin.title = r.ID.description
-            self.mapView.addAnnotation(pin)
+            
+            let pin = MyPointAnnotation(pSignalQuality: r.signalStrength.signalQuality)
+            
+            pin.coordinate.latitude = r.latitude
+            pin.coordinate.latitude = r.longitude
+            
+            mapView.addAnnotation(pin)
+            
         }
     }
+    
+
+    
     
     @IBAction func switchValueChanged(sender: UISwitch) {
        

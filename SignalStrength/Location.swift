@@ -27,8 +27,9 @@ class Location:NSObject, CLLocationManagerDelegate{
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let cellularInfoInstance = CellularInfo()
-        // read.init() FIX ME
-        let read = Read(pID: AppData.sharedInstance.reads.count, pLocation: self.locationManager.location! , pSignalStrength: Float(cellularInfoInstance.getSignalStrength()!), pCarrierName: cellularInfoInstance.getCarrierName())
+        let signalStrengthValue = SignalStrengthValue(pSignalValue: cellularInfoInstance.getSignalStrength()!)
+        
+        let read = Read(pID: AppData.sharedInstance.reads.count, pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
         AppData.sharedInstance.reads.append(read)
         AppDAO.sharedInstance.saveAppData()
     }

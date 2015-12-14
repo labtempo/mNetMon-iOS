@@ -20,6 +20,11 @@
 		B07110411C034E99005451C3 /* AppDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103D1C034E99005451C3 /* AppDAO.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
 		BE7E6A911C1633D00091EF1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* Location.swift */; };
+		BEBA55361C1F3FFD001C2428 /* MyPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */; };
+		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
+		BEBA553C1C1F460A001C2428 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55381C1F460A001C2428 /* orange.png */; };
+		BEBA553D1C1F460A001C2428 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55391C1F460A001C2428 /* red.png */; };
+		BEBA553E1C1F460A001C2428 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA553A1C1F460A001C2428 /* yellow.png */; };
 		BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBAB0AF1C16379A0096990C /* CellularInfo.swift */; };
 		BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBAB0B11C163D800096990C /* SignalStrengthValue.swift */; };
 		BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBAB0B31C163E230096990C /* SignalQuality.swift */; };
@@ -40,6 +45,11 @@
 		B071103D1C034E99005451C3 /* AppDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDAO.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPointAnnotation.swift; sourceTree = "<group>"; };
+		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
+		BEBA55381C1F460A001C2428 /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orange.png; path = Colors/orange.png; sourceTree = "<group>"; };
+		BEBA55391C1F460A001C2428 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red.png; path = Colors/red.png; sourceTree = "<group>"; };
+		BEBA553A1C1F460A001C2428 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellow.png; path = Colors/yellow.png; sourceTree = "<group>"; };
 		BEBAB0AF1C16379A0096990C /* CellularInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularInfo.swift; sourceTree = "<group>"; };
 		BEBAB0B11C163D800096990C /* SignalStrengthValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalStrengthValue.swift; sourceTree = "<group>"; };
 		BEBAB0B31C163E230096990C /* SignalQuality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalQuality.swift; sourceTree = "<group>"; };
@@ -82,6 +92,10 @@
 				B07110301C034CA3005451C3 /* View */,
 				B071102F1C034C9E005451C3 /* Model */,
 				B07110241C034C82005451C3 /* Assets.xcassets */,
+				BEBA55371C1F460A001C2428 /* green.png */,
+				BEBA55381C1F460A001C2428 /* orange.png */,
+				BEBA55391C1F460A001C2428 /* red.png */,
+				BEBA553A1C1F460A001C2428 /* yellow.png */,
 			);
 			path = SignalStrength;
 			sourceTree = "<group>";
@@ -114,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				B07110381C034E84005451C3 /* HomeViewController.swift */,
+				BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */,
 				B07110421C035D58005451C3 /* LogViewController.swift */,
 			);
 			name = Controller;
@@ -183,10 +198,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07110351C034E74005451C3 /* Info.plist in Resources */,
+				BEBA553E1C1F460A001C2428 /* yellow.png in Resources */,
 				B07110371C034E7E005451C3 /* Main.storyboard in Resources */,
 				B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */,
+				BEBA553B1C1F460A001C2428 /* green.png in Resources */,
 				B07110251C034C82005451C3 /* Assets.xcassets in Resources */,
+				BEBA553D1C1F460A001C2428 /* red.png in Resources */,
 				B07110341C034E74005451C3 /* Database.plist in Resources */,
+				BEBA553C1C1F460A001C2428 /* orange.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +225,7 @@
 				B07110391C034E84005451C3 /* HomeViewController.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* Location.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
+				BEBA55361C1F3FFD001C2428 /* MyPointAnnotation.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
 				B071103E1C034E99005451C3 /* AppData.swift in Sources */,
 			);
