@@ -33,9 +33,8 @@ class Location:NSObject, CLLocationManagerDelegate{
         let cellularInfoInstance = CellularInfo()
         let signalStrengthValue = SignalStrengthValue(pSignalValue: cellularInfoInstance.getSignalStrength()!)
         
-        let read = Read(pID: AppData.sharedInstance.reads.count, pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
-        AppData.sharedInstance.reads.append(read)
-        AppDAO.sharedInstance.saveAppData()
+        let read = Read(pID: AppData.sharedInstance.getReads().count, pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
+        AppData.sharedInstance.addRead(read)
     }
     
     

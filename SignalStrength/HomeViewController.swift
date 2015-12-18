@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     
     override func viewWillAppear(animated: Bool) {
-        for r:Read in AppData.sharedInstance.reads {
+        for r:Read in AppData.sharedInstance.getReads() {
             let pin = MyPointAnnotation(pSignalQuality: r.signalStrength.signalQuality)
             pin.coordinate.latitude = r.latitude
             pin.coordinate.latitude = r.longitude

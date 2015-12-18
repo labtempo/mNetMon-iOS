@@ -20,9 +20,9 @@ class LogViewController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-        var text = "Number of reads: \(AppData.sharedInstance.reads.count) \n \n"
+        var text = "Number of reads: \(AppData.sharedInstance.getReads().count) \n \n"
         
-        for r:Read in AppData.sharedInstance.reads {
+        for r:Read in AppData.sharedInstance.getReads() {
             text += r.toString() + "\n \n"
         }
         
