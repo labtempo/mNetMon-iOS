@@ -9,31 +9,46 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class HomeViewController: UIViewController, MKMapViewDelegate {
 
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var recordLocationSwitch: UISwitch!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    @IBOutlet weak var authorizationStatusLabel: UILabel!
+    
+    
+    var updateTimer = NSTimer()
+    
     
     override func viewWillAppear(animated: Bool) {
         for r:Read in AppData.sharedInstance.reads {
-            
             let pin = MyPointAnnotation(pSignalQuality: r.signalStrength.signalQuality)
-            
             pin.coordinate.latitude = r.latitude
             pin.coordinate.latitude = r.longitude
-            
             mapView.addAnnotation(pin)
-            
+        }
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.updateTimer.invalidate()
+    }
+    
+    
+    func update(){
+        if (Location.sharedInstance.doesHaveFullCLAuthorization()){
+            self.authorizationStatusLabel.text = "Authorized"
+        } else {
+            self.authorizationStatusLabel.text = "Not Authorized"
         }
     }
     
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     
     @IBAction func switchValueChanged(sender: UISwitch) {

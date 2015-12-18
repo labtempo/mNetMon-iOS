@@ -21,8 +21,12 @@ class Location:NSObject, CLLocationManagerDelegate{
         self.locationManager.requestAlwaysAuthorization()
     }
     
-    func doesHaveCLAuthorization()->Bool{
-        return true
+    func doesHaveFullCLAuthorization()->Bool{
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
+            return true
+        } else {
+            return false
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
