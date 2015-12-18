@@ -19,6 +19,7 @@
 		B07110401C034E99005451C3 /* PListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103C1C034E99005451C3 /* PListManager.swift */; };
 		B07110411C034E99005451C3 /* AppDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103D1C034E99005451C3 /* AppDAO.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
+		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* Location.swift */; };
 		BEBA55361C1F3FFD001C2428 /* MyPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -44,6 +45,7 @@
 		B071103C1C034E99005451C3 /* PListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListManager.swift; sourceTree = "<group>"; };
 		B071103D1C034E99005451C3 /* AppDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDAO.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPointAnnotation.swift; sourceTree = "<group>"; };
 		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				B07110261C034C82005451C3 /* LaunchScreen.storyboard */,
 				B07110361C034E7E005451C3 /* Main.storyboard */,
+				BE4A82111C24A25800A3A96E /* AppColors.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				BE7E6A911C1633D00091EF1F /* Location.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
 				BEBA55361C1F3FFD001C2428 /* MyPointAnnotation.swift in Sources */,
+				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
 				B071103E1C034E99005451C3 /* AppData.swift in Sources */,
 			);
