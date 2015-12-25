@@ -37,10 +37,8 @@ class Read:NSObject, NSCoding{
     
     
     func toString()->String{
-    return "Read ID: \(self.ID) , Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength) , Carrier name: \(self.carrierName)"
+    return "Read ID: \(self.ID) , Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength.signalValue.description) , Carrier name: \(self.carrierName)"
     }
-    
-    
     
     
     //NSCoding Methods

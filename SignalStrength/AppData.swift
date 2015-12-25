@@ -12,7 +12,14 @@ class AppData{
     
     static let sharedInstance = AppData()
     
-    private var reads = [Read]()
+    private var reads:[Read]
+    
+    private var isCurrentlyReading:Bool
+    
+    init(){
+        self.reads = [Read]()
+        self.isCurrentlyReading = false
+    }
     
     func getReads()->[Read]{
         return self.reads
@@ -20,6 +27,18 @@ class AppData{
     
     func setReads(pReads:[Read]){
         self.reads = pReads
+    }
+    
+    func getIsCurrentlyReading()->Bool{
+        return self.isCurrentlyReading
+    }
+    
+    func setIsCurrentlyReading(pBool:Bool){
+        self.isCurrentlyReading = pBool
+    }
+    
+    func changeIsCurrentlyReadingStatus(){
+        self.isCurrentlyReading = !self.isCurrentlyReading
     }
     
     func addRead(pRead:Read){

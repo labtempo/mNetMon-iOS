@@ -19,9 +19,9 @@
 		B07110401C034E99005451C3 /* PListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103C1C034E99005451C3 /* PListManager.swift */; };
 		B07110411C034E99005451C3 /* AppDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103D1C034E99005451C3 /* AppDAO.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
+		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* Location.swift */; };
-		BEBA55361C1F3FFD001C2428 /* MyPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
 		BEBA553C1C1F460A001C2428 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55381C1F460A001C2428 /* orange.png */; };
 		BEBA553D1C1F460A001C2428 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55391C1F460A001C2428 /* red.png */; };
@@ -45,9 +45,9 @@
 		B071103C1C034E99005451C3 /* PListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListManager.swift; sourceTree = "<group>"; };
 		B071103D1C034E99005451C3 /* AppDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDAO.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPointAnnotation.swift; sourceTree = "<group>"; };
 		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
 		BEBA55381C1F460A001C2428 /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orange.png; path = Colors/orange.png; sourceTree = "<group>"; };
 		BEBA55391C1F460A001C2428 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red.png; path = Colors/red.png; sourceTree = "<group>"; };
@@ -108,11 +108,12 @@
 				B071103A1C034E99005451C3 /* AppData.swift */,
 				BE7E6A901C1633D00091EF1F /* Location.swift */,
 				BEBAB0B11C163D800096990C /* SignalStrengthValue.swift */,
+				B09218DD1C2CCAC600052BAE /* SignalConverter.swift */,
 				BEBAB0B31C163E230096990C /* SignalQuality.swift */,
 				BEBAB0AF1C16379A0096990C /* CellularInfo.swift */,
 				B071103B1C034E99005451C3 /* Read.swift */,
-				B071103C1C034E99005451C3 /* PListManager.swift */,
 				B071103D1C034E99005451C3 /* AppDAO.swift */,
+				B071103C1C034E99005451C3 /* PListManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -131,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				B07110381C034E84005451C3 /* HomeViewController.swift */,
-				BEBA55351C1F3FFD001C2428 /* MyPointAnnotation.swift */,
 				B07110421C035D58005451C3 /* LogViewController.swift */,
 			);
 			name = Controller;
@@ -227,8 +227,8 @@
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,
 				B07110391C034E84005451C3 /* HomeViewController.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* Location.swift in Sources */,
+				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
-				BEBA55361C1F3FFD001C2428 /* MyPointAnnotation.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
 				B071103E1C034E99005451C3 /* AppData.swift in Sources */,

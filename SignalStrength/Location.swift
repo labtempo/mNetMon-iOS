@@ -19,6 +19,7 @@ class Location:NSObject, CLLocationManagerDelegate{
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.startUpdatingLocation()
     }
     
     func doesHaveFullCLAuthorization()->Bool{
@@ -30,8 +31,9 @@ class Location:NSObject, CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("update locations")
         let cellularInfoInstance = CellularInfo()
-        let signalStrengthValue = SignalStrengthValue(pSignalValue: cellularInfoInstance.getSignalStrength()!)
+        let signalStrengthValue = SignalStrengthValue(pDBMValue: cellularInfoInstance.getSignalStrength()!)
         
         let read = Read(pID: AppData.sharedInstance.getReads().count, pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
         AppData.sharedInstance.addRead(read)

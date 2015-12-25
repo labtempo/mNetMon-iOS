@@ -15,16 +15,22 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var recordLocationSwitch: UISwitch!
+    @IBOutlet weak var recordLocationStatusView: UIView!
     
     @IBOutlet weak var authorizationStatusLabel: UILabel!
+    @IBOutlet weak var authorizationStatusView: UIView!
     
     
     var updateTimer = NSTimer()
     
     
     override func viewWillAppear(animated: Bool) {
+        self.recordLocationSwitch.on = AppData.sharedInstance.getIsCurrentlyReading()
+        self.update()
         for r:Read in AppData.sharedInstance.getReads() {
-            let pin = MyPointAnnotation(pSignalQuality: r.signalStrength.signalQuality)
+            print("iterating loop")
+            let pin = MKPointAnnotation()
+            pin.title = "Here!"
             pin.coordinate.latitude = r.latitude
             pin.coordinate.latitude = r.longitude
             mapView.addAnnotation(pin)
@@ -40,19 +46,33 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     func update(){
         if (Location.sharedInstance.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"
+            self.authorizationStatusView.backgroundColor = AppColors.myGreenColor
         } else {
             self.authorizationStatusLabel.text = "Not Authorized"
+            self.authorizationStatusView.backgroundColor = AppColors.myRedColor
+        }
+        
+        if (AppData.sharedInstance.getIsCurrentlyReading()){
+            self.recordLocationStatusView.backgroundColor = AppColors.myGreenColor
+        } else {
+            self.recordLocationStatusView.backgroundColor = AppColors.myRedColor
         }
     }
     
     
     override func viewDidLoad() {
+        self.mapView.delegate = self
         super.viewDidLoad()
     }
     
     
     @IBAction func switchValueChanged(sender: UISwitch) {
-       
+        AppData.sharedInstance.changeIsCurrentlyReadingStatus()
+        if (AppData.sharedInstance.getIsCurrentlyReading()){
+            Location.sharedInstance.startReading()
+        } else {
+            Location.sharedInstance.stopReading()
+        }
     }
     
 
