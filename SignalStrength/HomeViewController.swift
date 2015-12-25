@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController, MKMapViewDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var mapView: MKMapView!
@@ -30,9 +30,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         for r:Read in AppData.sharedInstance.getReads() {
             print("iterating loop")
             let pin = MKPointAnnotation()
-            pin.title = "Here!"
+            pin.title = r.ID.description
             pin.coordinate.latitude = r.latitude
-            pin.coordinate.latitude = r.longitude
+            pin.coordinate.longitude = r.longitude
             mapView.addAnnotation(pin)
         }
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -61,7 +61,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     
     override func viewDidLoad() {
-        self.mapView.delegate = self
         super.viewDidLoad()
     }
     

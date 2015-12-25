@@ -164,9 +164,6 @@
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WC-ht-LmJ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gfe-Qx-HVk"/>
-                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UD7-i4-ecd">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -196,18 +193,18 @@
                                 <exclude reference="UD7-i4-ecd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Wp9-IT-JMd"/>
-                                <exclude reference="fIG-Wx-oY6"/>
+                                <exclude reference="3ja-sH-BFF"/>
+                                <exclude reference="yx7-mK-OtD"/>
                                 <exclude reference="Da0-aO-vN6"/>
                                 <exclude reference="aXk-tP-eIT"/>
                                 <exclude reference="eeY-Zd-xU1"/>
+                                <exclude reference="Wp9-IT-JMd"/>
+                                <exclude reference="fIG-Wx-oY6"/>
                                 <exclude reference="2o3-BI-gLk"/>
                                 <exclude reference="ZTf-6T-lqK"/>
                                 <exclude reference="Pe5-Vn-xrM"/>
                                 <exclude reference="lSH-aD-E37"/>
                                 <exclude reference="ncK-g5-Umj"/>
-                                <exclude reference="3ja-sH-BFF"/>
-                                <exclude reference="yx7-mK-OtD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -218,18 +215,18 @@
                                 <include reference="UD7-i4-ecd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Wp9-IT-JMd"/>
-                                <include reference="fIG-Wx-oY6"/>
+                                <include reference="3ja-sH-BFF"/>
+                                <include reference="yx7-mK-OtD"/>
                                 <include reference="Da0-aO-vN6"/>
                                 <include reference="aXk-tP-eIT"/>
                                 <include reference="eeY-Zd-xU1"/>
+                                <include reference="Wp9-IT-JMd"/>
+                                <include reference="fIG-Wx-oY6"/>
                                 <include reference="2o3-BI-gLk"/>
                                 <include reference="ZTf-6T-lqK"/>
                                 <include reference="Pe5-Vn-xrM"/>
                                 <include reference="lSH-aD-E37"/>
                                 <include reference="ncK-g5-Umj"/>
-                                <include reference="3ja-sH-BFF"/>
-                                <include reference="yx7-mK-OtD"/>
                             </mask>
                         </variation>
                     </view>
