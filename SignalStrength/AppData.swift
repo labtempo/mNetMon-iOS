@@ -8,12 +8,13 @@
 
 import Foundation
 
+/*
+Singleton responsable for the management of the reads during the app execution
+*/
 class AppData{
     
     static let sharedInstance = AppData()
-    
     private var reads:[Read]
-    
     private var isCurrentlyReading:Bool
     
     init(){
@@ -41,6 +42,9 @@ class AppData{
         self.isCurrentlyReading = !self.isCurrentlyReading
     }
     
+    /*
+    Function used to add another read to the reads.
+    */
     func addRead(pRead:Read){
         let searchResult = searchInReads(pRead)
         if (searchResult > -1){
@@ -55,8 +59,12 @@ class AppData{
         AppDAO.sharedInstance.saveAppData()
     }
     
-    //if the current position already has a read, return the index of the read
-    //else return -1
+    /*
+    
+    If the app have already made another read in the same location as the parameter pRead location, return the index of the read
+    
+    else return -1
+    */
     private func searchInReads(pRead:Read)->Int{
         var index = 0
         for r:Read in self.reads{
@@ -67,6 +75,5 @@ class AppData{
         }
         return -1
     }
-    
     
 }

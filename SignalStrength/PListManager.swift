@@ -65,7 +65,5 @@ class PListManager{
             }
         }
     }
-    
-    
-    
+
 }

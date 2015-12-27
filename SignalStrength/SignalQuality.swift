@@ -11,13 +11,12 @@ import Foundation
 
 enum SignalQuality {
     
-    case verybad    //  1
-    case bad        //  2
-    case regular    //  3
-    case good       //  4
-    case verygood    // 5
-    
-    
+    case verybad
+    case bad
+    case regular
+    case good
+    case verygood
+
     /*
      muito ruim [ 0 ]
      ruim [ 1 - 8 ]

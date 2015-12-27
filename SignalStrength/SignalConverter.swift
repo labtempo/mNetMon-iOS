@@ -17,5 +17,4 @@ class SignalConverter{
     func ASUtoDBM(pASU:Int)->Int{
         return (pASU * 2) - 113
     }
-
 }

@@ -12,7 +12,6 @@ import CoreLocation
 class Location:NSObject, CLLocationManagerDelegate{
     
     static let sharedInstance = Location()
-
     private let locationManager = CLLocationManager()
  
     func startReading(){
@@ -31,18 +30,14 @@ class Location:NSObject, CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("update locations")
         let cellularInfoInstance = CellularInfo()
         let signalStrengthValue = SignalStrengthValue(pDBMValue: cellularInfoInstance.getSignalStrength()!)
-        
         let read = Read(pID: AppData.sharedInstance.getReads().count, pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
         AppData.sharedInstance.addRead(read)
     }
     
-    
     func stopReading(){
-    
+        self.locationManager.stopUpdatingLocation()
     }
-    
     
 }

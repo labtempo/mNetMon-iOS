@@ -9,8 +9,10 @@
 import UIKit
 import MapKit
 
+/*
+ViewController that controls the home screen
+*/
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
-
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -20,15 +22,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var authorizationStatusLabel: UILabel!
     @IBOutlet weak var authorizationStatusView: UIView!
     
-    
     var updateTimer = NSTimer()
-    
     
     override func viewWillAppear(animated: Bool) {
         self.recordLocationSwitch.on = AppData.sharedInstance.getIsCurrentlyReading()
         self.update()
         for r:Read in AppData.sharedInstance.getReads() {
-            print("iterating loop")
             let pin = MKPointAnnotation()
             pin.title = r.ID.description
             pin.coordinate.latitude = r.latitude
@@ -41,7 +40,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillDisappear(animated: Bool) {
         self.updateTimer.invalidate()
     }
-    
     
     func update(){
         if (Location.sharedInstance.doesHaveFullCLAuthorization()){
@@ -59,11 +57,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     
     @IBAction func switchValueChanged(sender: UISwitch) {
         AppData.sharedInstance.changeIsCurrentlyReadingStatus()
@@ -74,13 +70,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let alert = UIAlertController(title: "Memory Warning!", message: "From HomeViewController", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
-
-    
     
 }
-

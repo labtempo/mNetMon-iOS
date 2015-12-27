@@ -8,6 +8,7 @@
 import Foundation
 
 class SignalStrengthValue:NSObject, NSCoding{
+    
     var signalValue:Int
     var signalQuality:SignalQuality
     
@@ -21,19 +22,17 @@ class SignalStrengthValue:NSObject, NSCoding{
         self.signalQuality = SignalQuality.calculateSignalQuality(self.signalValue)
     }
     
-    //NSCoding Methods
+    //Beginning NSCoding Methods
     required convenience init?(coder decoder: NSCoder) {
-        
+
         guard let dSignalValue = decoder.decodeObjectForKey("signalValue") as? Int
             else {return nil }
         
         self.init(pSignalValue: dSignalValue)
     }
     
-    
     func encodeWithCoder(coder: NSCoder) {
         coder.encodeObject(self.signalValue, forKey: "signalValue")
     }
-
-
+    //End of NSCoding Methods
 }

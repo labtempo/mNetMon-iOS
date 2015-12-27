@@ -17,7 +17,6 @@ class Read:NSObject, NSCoding{
     var longitude:Double
     var signalStrength:SignalStrengthValue
     var carrierName:String
-
     
     init(pID:Int, pLatitude:Double, pLongitude:Double, pSignalStrength:SignalStrengthValue, pCarrierName:String){
         self.ID = pID
@@ -35,19 +34,15 @@ class Read:NSObject, NSCoding{
         self.carrierName = pCarrierName
     }
     
-    
     func toString()->String{
     return "Read ID: \(self.ID) , Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength.signalValue.description) , Carrier name: \(self.carrierName)"
     }
     
-    
-    //NSCoding Methods
+    //Beginning of NSCoding Methods
     required convenience init?(coder decoder: NSCoder) {
-        
         
         guard let dID = decoder.decodeObjectForKey("ID") as? Int
             else {return nil }
-        
         
         guard let dLatitude = decoder.decodeObjectForKey("latitude") as? Double
             else {return nil }
@@ -63,7 +58,6 @@ class Read:NSObject, NSCoding{
         
         
         self.init(pID: dID, pLatitude:dLatitude, pLongitude:dLongitude, pSignalStrength: dSignalStrength, pCarrierName:dCarrierName)
-        
     }
     
     
@@ -74,7 +68,6 @@ class Read:NSObject, NSCoding{
         coder.encodeObject(self.signalStrength, forKey: "signalStrength")
         coder.encodeObject(self.carrierName, forKey: "carrierName")
     }
-    
-
+    //End of NSCoding Methods
 
 }
