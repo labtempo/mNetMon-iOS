@@ -13,6 +13,11 @@ class Location:NSObject, CLLocationManagerDelegate{
     
     static let sharedInstance = Location()
     private let locationManager = CLLocationManager()
+    private var lastUserLocation:CLLocation?
+    
+    func getLastUserLocation()->CLLocation?{
+        return self.lastUserLocation
+    }
  
     func startReading(){
         self.locationManager.delegate = self
@@ -34,6 +39,7 @@ class Location:NSObject, CLLocationManagerDelegate{
         let signalStrengthValue = SignalStrengthValue(pDBMValue: cellularInfoInstance.getSignalStrength()!)
         let read = Read(pID: AppData.sharedInstance.getReads().count, pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
         AppData.sharedInstance.addRead(read)
+        self.lastUserLocation = self.locationManager.location
     }
     
     func stopReading(){

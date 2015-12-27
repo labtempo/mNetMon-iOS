@@ -21,11 +21,11 @@ class Read:NSObject, NSCoding{
     init(pID:Int, pLatitude:Double, pLongitude:Double, pSignalStrength:SignalStrengthValue, pCarrierName:String){
         self.ID = pID
         
-        let latitudeINT = (Int(pLatitude / 0.02))
-        let qLatitude = Double(latitudeINT) * 0.02
+        let latitudeINT = (Int(pLatitude / 0.002))
+        let qLatitude = Double(latitudeINT) * 0.002
         
-        let longitudeINT = (Int(pLongitude / 0.02))
-        let qLongitude = Double(longitudeINT) * 0.02
+        let longitudeINT = (Int(pLongitude / 0.002))
+        let qLongitude = Double(longitudeINT) * 0.002
         
         self.latitude = qLatitude
         self.longitude = qLongitude

@@ -27,9 +27,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(animated: Bool) {
         self.recordLocationSwitch.on = AppData.sharedInstance.getIsCurrentlyReading()
         self.update()
+        self.centerMapOnUser()
+        self.mapView.removeAnnotations(self.mapView.annotations)
         for r:Read in AppData.sharedInstance.getReads() {
             let pin = MKPointAnnotation()
-            pin.title = r.ID.description
+            pin.title = SignalQuality.signalQualityToString(r.signalStrength.signalQuality)
             pin.coordinate.latitude = r.latitude
             pin.coordinate.longitude = r.longitude
             mapView.addAnnotation(pin)
@@ -39,6 +41,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         self.updateTimer.invalidate()
+    }
+    
+    func centerMapOnUser(){
+        let lastUserLocation = Location.sharedInstance.getLastUserLocation()
+        if ((lastUserLocation) != nil){
+            let lastUserLocationCoord2d = CLLocationCoordinate2D(latitude: (lastUserLocation?.coordinate.latitude)!, longitude: (lastUserLocation?.coordinate.longitude)!)
+            self.mapView.setCenterCoordinate(lastUserLocationCoord2d, animated: true)
+        }
     }
     
     func update(){

@@ -68,7 +68,7 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.85170472566132105" green="1" blue="0.71946171022793359" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="EAt-jT-8Qe"/>
                                     <constraint firstItem="A6Q-rF-T9z" firstAttribute="centerX" secondItem="Dzd-OS-wvh" secondAttribute="centerX" id="KcW-Lm-LrN"/>
@@ -170,7 +170,7 @@
                                 <color key="backgroundColor" red="0.83604498914983949" green="1" blue="0.74163947809278641" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.82221875" green="0.82221875" blue="0.82221875" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="L2c-gg-hYG" firstAttribute="centerX" secondItem="BKD-Mx-9ZM" secondAttribute="centerX" constant="77" id="2o3-BI-gLk"/>
                             <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="UD7-i4-ecd" secondAttribute="bottom" id="3ja-sH-BFF"/>

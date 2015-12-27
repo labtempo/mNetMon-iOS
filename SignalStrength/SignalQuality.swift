@@ -38,4 +38,19 @@ enum SignalQuality {
         }
     }
     
+    static func signalQualityToString(pSignalQuality:SignalQuality)->String{
+        if (pSignalQuality == self.verybad){
+            return "Very Bad"
+        } else if (pSignalQuality == self.bad){
+            return "Bad"
+        } else if (pSignalQuality == self.regular){
+            return "Regular"
+        } else if (pSignalQuality == self.good){
+            return "Good"
+        } else if (pSignalQuality == self.verygood){
+            return "VeryGood"
+        }
+        return ""
+    }
+    
 }

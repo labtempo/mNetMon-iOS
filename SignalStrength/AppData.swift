@@ -48,7 +48,6 @@ class AppData{
     func addRead(pRead:Read){
         let searchResult = searchInReads(pRead)
         if (searchResult > -1){
-            reads.append(pRead)
             let firstRead = reads.removeAtIndex(searchResult)
             let alpha = 0.5
             let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - alpha) ) + ( Double(pRead.signalStrength.signalValue) * alpha )
