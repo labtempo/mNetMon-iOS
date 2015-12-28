@@ -175,8 +175,8 @@
                             <constraint firstItem="6WC-ht-LmJ" firstAttribute="top" secondItem="L2c-gg-hYG" secondAttribute="bottom" constant="8" id="Da0-aO-vN6"/>
                             <constraint firstItem="Dzd-OS-wvh" firstAttribute="centerX" secondItem="BKD-Mx-9ZM" secondAttribute="centerX" constant="-77" id="Wp9-IT-JMd"/>
                             <constraint firstItem="L2c-gg-hYG" firstAttribute="top" secondItem="rfg-OG-GnW" secondAttribute="bottom" constant="10" id="ZTf-6T-lqK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6WC-ht-LmJ" secondAttribute="trailing" id="aXk-tP-eIT"/>
-                            <constraint firstItem="6WC-ht-LmJ" firstAttribute="leading" secondItem="BKD-Mx-9ZM" secondAttribute="leadingMargin" id="eeY-Zd-xU1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6WC-ht-LmJ" secondAttribute="trailing" constant="-5" id="aXk-tP-eIT"/>
+                            <constraint firstItem="6WC-ht-LmJ" firstAttribute="leading" secondItem="BKD-Mx-9ZM" secondAttribute="leadingMargin" constant="-5" id="eeY-Zd-xU1"/>
                             <constraint firstItem="Dzd-OS-wvh" firstAttribute="top" secondItem="rfg-OG-GnW" secondAttribute="bottom" constant="10" id="fIG-Wx-oY6"/>
                             <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="5" id="yx7-mK-OtD"/>
                         </constraints>
