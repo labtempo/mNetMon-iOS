@@ -12,7 +12,7 @@ import MapKit
 /*
 ViewController that controls the home screen
 */
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,10 +30,22 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.centerMapOnUser()
         self.mapView.removeAnnotations(self.mapView.annotations)
         for r:Read in AppData.sharedInstance.getReads() {
-            let pin = MKPointAnnotation()
-            pin.title = SignalQuality.signalQualityToString(r.signalStrength.signalQuality)
+            
+            
+            var pin:ColorPointAnnotation
+            
+            switch (r.signalStrength.signalQuality){
+            case .verybad: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryBadColor)
+            case .bad: pin = ColorPointAnnotation(pinColor: AppColors.signalBadColor)
+            case .regular: pin = ColorPointAnnotation(pinColor: AppColors.signalRegularColor)
+            case .good: pin = ColorPointAnnotation(pinColor: AppColors.signalGoodColor)
+            case .verygood: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryGoodColor)
+            }
+            
+            pin.title = r.signalStrength.signalValue.description
             pin.coordinate.latitude = r.latitude
             pin.coordinate.longitude = r.longitude
+            
             mapView.addAnnotation(pin)
         }
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -78,6 +90,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             Location.sharedInstance.stopReading()
         }
+    }
+    
+    //MKMapViewDelegate Method - View For Annotation
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            let colorPointAnnotation = annotation as! ColorPointAnnotation
+            pinView?.pinTintColor = colorPointAnnotation.pinColor
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+        return pinView
     }
     
     override func didReceiveMemoryWarning() {

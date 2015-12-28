@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
 		B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110261C034C82005451C3 /* LaunchScreen.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101D1C034C82005451C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07110241C034C82005451C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B07110381C034E84005451C3 /* HomeViewController.swift */,
+				B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */,
 				B07110421C035D58005451C3 /* LogViewController.swift */,
 			);
 			name = Controller;
@@ -222,6 +225,7 @@
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B07110401C034E99005451C3 /* PListManager.swift in Sources */,
+				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,
 				BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */,
 				B07110411C034E99005451C3 /* AppDAO.swift in Sources */,
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,

@@ -15,4 +15,10 @@ Class that stores the UIColors used in this application
 class AppColors{
     static let myGreenColor = UIColor(colorLiteralRed: 217/255, green: 255/255, blue: 183/255, alpha: 1)
     static let myRedColor = UIColor(colorLiteralRed: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+    
+    static let signalVeryGoodColor = UIColor(colorLiteralRed: 122/255, green: 220/255, blue: 69/255, alpha: 1)
+    static let signalGoodColor = UIColor(colorLiteralRed: 141/255, green: 202/255, blue: 90/255, alpha: 1)
+    static let signalRegularColor = UIColor(colorLiteralRed: 203/255, green: 189/255, blue: 86/255, alpha: 1)
+    static let signalBadColor = UIColor(colorLiteralRed: 204/255, green: 123/255, blue: 92/255, alpha: 1)
+    static let signalVeryBadColor = UIColor(colorLiteralRed: 218/255, green: 71/255, blue: 60/255, alpha: 1)
 }
