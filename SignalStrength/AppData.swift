@@ -53,6 +53,7 @@ class AppData{
             let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - alpha) ) + ( Double(pRead.signalStrength.signalValue) * alpha )
             let signalStrenght = SignalStrengthValue(pSignalValue: Int(newSignalValue))
             pRead.signalStrength = signalStrenght
+            pRead.ID = firstRead.ID
         }
         reads.append(pRead)
         AppDAO.sharedInstance.saveAppData()
