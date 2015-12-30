@@ -24,6 +24,7 @@ class Location:NSObject, CLLocationManagerDelegate{
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
+        self.locationManager.allowsBackgroundLocationUpdates = true
     }
     
     func doesHaveFullCLAuthorization()->Bool{
