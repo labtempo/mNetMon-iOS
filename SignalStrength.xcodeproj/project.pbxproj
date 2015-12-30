@@ -12,7 +12,6 @@
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
 		B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110261C034C82005451C3 /* LaunchScreen.storyboard */; };
 		B07110341C034E74005451C3 /* Database.plist in Resources */ = {isa = PBXBuildFile; fileRef = B07110321C034E74005451C3 /* Database.plist */; };
-		B07110351C034E74005451C3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B07110331C034E74005451C3 /* Info.plist */; };
 		B07110371C034E7E005451C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110361C034E7E005451C3 /* Main.storyboard */; };
 		B07110391C034E84005451C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110381C034E84005451C3 /* HomeViewController.swift */; };
 		B071103E1C034E99005451C3 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103A1C034E99005451C3 /* AppData.swift */; };
@@ -21,6 +20,7 @@
 		B07110411C034E99005451C3 /* AppDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103D1C034E99005451C3 /* AppDAO.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
+		B0B6B2951C33E80300530860 /* ReadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B2941C33E80300530860 /* ReadsTests.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* Location.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -48,6 +48,7 @@
 		B071103D1C034E99005451C3 /* AppDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDAO.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
+		B0B6B2941C33E80300530860 /* ReadsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadsTests.swift; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 				BEBAB0B31C163E230096990C /* SignalQuality.swift */,
 				BEBAB0AF1C16379A0096990C /* CellularInfo.swift */,
 				B071103B1C034E99005451C3 /* Read.swift */,
+				B0B6B2941C33E80300530860 /* ReadsTests.swift */,
 				B071103D1C034E99005451C3 /* AppDAO.swift */,
 				B071103C1C034E99005451C3 /* PListManager.swift */,
 			);
@@ -167,7 +169,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Henrique do Prado Linhares";
 				TargetAttributes = {
 					B07110191C034C82005451C3 = {
@@ -203,7 +205,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B07110351C034E74005451C3 /* Info.plist in Resources */,
 				BEBA553E1C1F460A001C2428 /* yellow.png in Resources */,
 				B07110371C034E7E005451C3 /* Main.storyboard in Resources */,
 				B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */,
@@ -235,6 +236,7 @@
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
+				B0B6B2951C33E80300530860 /* ReadsTests.swift in Sources */,
 				B071103E1C034E99005451C3 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

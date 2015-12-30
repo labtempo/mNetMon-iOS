@@ -48,14 +48,15 @@ class AppData{
     func addRead(pRead:Read){
         let searchResult = searchInReads(pRead)
         if (searchResult > -1){
-            let firstRead = reads.removeAtIndex(searchResult)
+            let firstRead = reads[searchResult]
             let alpha = 0.5
             let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - alpha) ) + ( Double(pRead.signalStrength.signalValue) * alpha )
-            let signalStrenght = SignalStrengthValue(pSignalValue: Int(newSignalValue))
-            pRead.signalStrength = signalStrenght
-            pRead.ID = firstRead.ID
+            let newSignalStrength = SignalStrengthValue(pASUValue: Int(newSignalValue))
+            reads[searchResult].signalStrength = newSignalStrength
+            
+        } else {
+            reads.append(pRead)
         }
-        reads.append(pRead)
         AppDAO.sharedInstance.saveAppData()
     }
     

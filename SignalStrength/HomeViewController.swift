@@ -94,6 +94,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     //MKMapViewDelegate Method - View For Annotation
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        print("# VIEW FOR ANNOTATION CALLED #")
+        
         if annotation is MKUserLocation {
             return nil
         }

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppDAO.sharedInstance.readAppData()
         } else {
             AppDAO.sharedInstance.saveAppData()
+            AppData.sharedInstance.setReads(ReadsTests().getReads())
             PListManager.sharedInstance.writePlist("Database", key: "databaseExists", data: true)
         }
         

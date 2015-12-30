@@ -12,9 +12,9 @@ class SignalStrengthValue:NSObject, NSCoding{
     var signalValue:Int
     var signalQuality:SignalQuality
     
-    init(pSignalValue:Int){
-        self.signalValue = pSignalValue
-        self.signalQuality = SignalQuality.calculateSignalQuality(pSignalValue)
+    init(pASUValue:Int){
+        self.signalValue = pASUValue
+        self.signalQuality = SignalQuality.calculateSignalQuality(pASUValue)
     }
     
     init(pDBMValue:Int){
@@ -28,7 +28,7 @@ class SignalStrengthValue:NSObject, NSCoding{
         guard let dSignalValue = decoder.decodeObjectForKey("signalValue") as? Int
             else {return nil }
         
-        self.init(pSignalValue: dSignalValue)
+        self.init(pASUValue: dSignalValue)
     }
     
     func encodeWithCoder(coder: NSCoder) {
