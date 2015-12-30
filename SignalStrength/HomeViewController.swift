@@ -93,6 +93,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     //MKMapViewDelegate Method - View For Annotation
+    //Without using reusable pins
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        let colorPointAnnotation = annotation as! ColorPointAnnotation
+        pinView.pinTintColor = colorPointAnnotation.pinColor
+        pinView.annotation = annotation
+        return pinView
+    }
+    
+
+    /* MKMapViewDelegate Method - View For Annotation
+    Using Reusable identifiers to build pins
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         print("# VIEW FOR ANNOTATION CALLED #")
         
@@ -110,7 +125,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             pinView?.annotation = annotation
         }
         return pinView
-    }
+    } */
+    
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
