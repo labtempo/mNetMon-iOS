@@ -23,32 +23,44 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var authorizationStatusView: UIView!
     
     var updateTimer = NSTimer()
+    var currentLayer:Int = 1
     
     override func viewWillAppear(animated: Bool) {
         self.recordLocationSwitch.on = AppData.sharedInstance.getIsCurrentlyReading()
         self.update()
         self.centerMapOnUser()
+        self.drawMapWithPinsFromReads(LayerManager.getLayer1Reads())
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+    }
+    
+    
+    
+    func drawMapWithPinsFromReads(pReads:[Read]){
         self.mapView.removeAnnotations(self.mapView.annotations)
-        for r:Read in AppData.sharedInstance.getReads() {
-            
+        for r:Read in pReads {
             
             var pin:ColorPointAnnotation
             
             switch (r.signalStrength.signalQuality){
-            case .verybad: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryBadColor)
-            case .bad: pin = ColorPointAnnotation(pinColor: AppColors.signalBadColor)
-            case .regular: pin = ColorPointAnnotation(pinColor: AppColors.signalRegularColor)
-            case .good: pin = ColorPointAnnotation(pinColor: AppColors.signalGoodColor)
-            case .verygood: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryGoodColor)
+                case .verybad: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryBadColor)
+                case .bad: pin = ColorPointAnnotation(pinColor: AppColors.signalBadColor)
+                case .regular: pin = ColorPointAnnotation(pinColor: AppColors.signalRegularColor)
+                case .good: pin = ColorPointAnnotation(pinColor: AppColors.signalGoodColor)
+                case .verygood: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryGoodColor)
             }
             
-            pin.title = r.signalStrength.signalValue.description
+            pin.title = r.ID.description
             pin.coordinate.latitude = r.latitude
             pin.coordinate.longitude = r.longitude
             
+            
             mapView.addAnnotation(pin)
         }
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+    }
+
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        let pin = view.annotation as! ColorPointAnnotation
+        print(pin.title)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -63,7 +75,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("Latitude Delta : " + self.mapView.region.span.latitudeDelta.description)
+        print("Longitude Delta : " + self.mapView.region.span.longitudeDelta.description)
+        let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
+        print ("Delta Coeficient :"+deltaCoeficient.description)
+        if (deltaCoeficient < 1){
+            if (self.currentLayer != 1){
+                self.drawMapWithPinsFromReads(LayerManager.getLayer1Reads())
+            }
+        } else {
+            self.drawMapWithPinsFromReads(LayerManager.getLayer2Reads())
+        }
+        
+    }
+
+    
     func update(){
+        
         if (Location.sharedInstance.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"
             self.authorizationStatusView.backgroundColor = AppColors.myGreenColor
