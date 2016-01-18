@@ -168,33 +168,92 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="drJ-H2-aP5"/>
                                 </connections>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plr-u0-Wip">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJO-S9-EZX">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="334" id="Hwj-ig-BJB"/>
+                                            <constraint firstAttribute="height" constant="21" id="KgC-AJ-d1u"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Hwj-ig-BJB"/>
+                                                <exclude reference="KgC-AJ-d1u"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Hwj-ig-BJB"/>
+                                                <include reference="KgC-AJ-d1u"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pJO-S9-EZX" firstAttribute="centerY" secondItem="plr-u0-Wip" secondAttribute="centerY" id="IES-c8-6ZT"/>
+                                    <constraint firstItem="pJO-S9-EZX" firstAttribute="centerX" secondItem="plr-u0-Wip" secondAttribute="centerX" id="jeT-E2-tDT"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="pJO-S9-EZX"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="IES-c8-6ZT"/>
+                                        <exclude reference="jeT-E2-tDT"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="pJO-S9-EZX"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="IES-c8-6ZT"/>
+                                        <include reference="jeT-E2-tDT"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.82221875" green="0.82221875" blue="0.82221875" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="L2c-gg-hYG" firstAttribute="centerX" secondItem="BKD-Mx-9ZM" secondAttribute="centerX" constant="77" id="2o3-BI-gLk"/>
+                            <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="plr-u0-Wip" secondAttribute="bottom" constant="2" id="4pU-c7-nkc"/>
+                            <constraint firstItem="plr-u0-Wip" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="2" id="Bdi-nt-N1a"/>
                             <constraint firstItem="6WC-ht-LmJ" firstAttribute="top" secondItem="L2c-gg-hYG" secondAttribute="bottom" constant="8" id="Da0-aO-vN6"/>
                             <constraint firstItem="Dzd-OS-wvh" firstAttribute="centerX" secondItem="BKD-Mx-9ZM" secondAttribute="centerX" constant="-77" id="Wp9-IT-JMd"/>
                             <constraint firstItem="L2c-gg-hYG" firstAttribute="top" secondItem="rfg-OG-GnW" secondAttribute="bottom" constant="10" id="ZTf-6T-lqK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6WC-ht-LmJ" secondAttribute="trailing" constant="-5" id="aXk-tP-eIT"/>
+                            <constraint firstItem="plr-u0-Wip" firstAttribute="leading" secondItem="BKD-Mx-9ZM" secondAttribute="leadingMargin" constant="5" id="cLc-fr-ghn"/>
                             <constraint firstItem="6WC-ht-LmJ" firstAttribute="leading" secondItem="BKD-Mx-9ZM" secondAttribute="leadingMargin" constant="-5" id="eeY-Zd-xU1"/>
                             <constraint firstItem="Dzd-OS-wvh" firstAttribute="top" secondItem="rfg-OG-GnW" secondAttribute="bottom" constant="10" id="fIG-Wx-oY6"/>
-                            <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="5" id="yx7-mK-OtD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="plr-u0-Wip" secondAttribute="trailing" constant="5" id="q5J-h3-UyY"/>
+                            <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="50" id="yx7-mK-OtD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Dzd-OS-wvh"/>
                                 <exclude reference="L2c-gg-hYG"/>
                                 <exclude reference="6WC-ht-LmJ"/>
+                                <exclude reference="plr-u0-Wip"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="yx7-mK-OtD"/>
+                                <exclude reference="Wp9-IT-JMd"/>
+                                <exclude reference="fIG-Wx-oY6"/>
                                 <exclude reference="Da0-aO-vN6"/>
                                 <exclude reference="aXk-tP-eIT"/>
                                 <exclude reference="eeY-Zd-xU1"/>
-                                <exclude reference="Wp9-IT-JMd"/>
-                                <exclude reference="fIG-Wx-oY6"/>
                                 <exclude reference="2o3-BI-gLk"/>
                                 <exclude reference="ZTf-6T-lqK"/>
+                                <exclude reference="Bdi-nt-N1a"/>
+                                <exclude reference="cLc-fr-ghn"/>
+                                <exclude reference="q5J-h3-UyY"/>
+                                <exclude reference="4pU-c7-nkc"/>
+                                <exclude reference="yx7-mK-OtD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -202,16 +261,21 @@
                                 <include reference="Dzd-OS-wvh"/>
                                 <include reference="L2c-gg-hYG"/>
                                 <include reference="6WC-ht-LmJ"/>
+                                <include reference="plr-u0-Wip"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="yx7-mK-OtD"/>
+                                <include reference="Wp9-IT-JMd"/>
+                                <include reference="fIG-Wx-oY6"/>
                                 <include reference="Da0-aO-vN6"/>
                                 <include reference="aXk-tP-eIT"/>
                                 <include reference="eeY-Zd-xU1"/>
-                                <include reference="Wp9-IT-JMd"/>
-                                <include reference="fIG-Wx-oY6"/>
                                 <include reference="2o3-BI-gLk"/>
                                 <include reference="ZTf-6T-lqK"/>
+                                <include reference="Bdi-nt-N1a"/>
+                                <include reference="cLc-fr-ghn"/>
+                                <include reference="q5J-h3-UyY"/>
+                                <include reference="4pU-c7-nkc"/>
+                                <include reference="yx7-mK-OtD"/>
                             </mask>
                         </variation>
                     </view>
@@ -219,6 +283,7 @@
                     <connections>
                         <outlet property="authorizationStatusLabel" destination="0UQ-BS-MyF" id="xRp-S4-X9f"/>
                         <outlet property="authorizationStatusView" destination="L2c-gg-hYG" id="SwB-wv-ivt"/>
+                        <outlet property="layerDetailLabel" destination="pJO-S9-EZX" id="7dv-Dy-vuh"/>
                         <outlet property="mapView" destination="6WC-ht-LmJ" id="Rg8-Bj-HV3"/>
                         <outlet property="recordLocationStatusView" destination="Dzd-OS-wvh" id="HLS-BB-dvr"/>
                         <outlet property="recordLocationSwitch" destination="N4U-wl-AWz" id="aMh-Ar-z4V"/>

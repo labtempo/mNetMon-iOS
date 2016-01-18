@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBOutlet weak var authorizationStatusLabel: UILabel!
     @IBOutlet weak var authorizationStatusView: UIView!
+    @IBOutlet weak var layerDetailLabel: UILabel!
     
     var updateTimer = NSTimer()
     var currentLayer:Int = 1
@@ -29,7 +30,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.recordLocationSwitch.on = AppData.sharedInstance.getIsCurrentlyReading()
         self.update()
         self.centerMapOnUser()
-        self.drawMapWithPinsFromReads(LayerManager.getLayer1Reads())
+
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
     }
     
@@ -61,6 +62,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         let pin = view.annotation as! ColorPointAnnotation
         print(pin.title)
+        let pinID = Int(pin.title!)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -76,22 +78,22 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("Latitude Delta : " + self.mapView.region.span.latitudeDelta.description)
-        print("Longitude Delta : " + self.mapView.region.span.longitudeDelta.description)
         let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
         print ("Delta Coeficient :"+deltaCoeficient.description)
-        if (deltaCoeficient < 1){
+        if (deltaCoeficient < 0.1){
             if (self.currentLayer != 1){
-                self.drawMapWithPinsFromReads(LayerManager.getLayer1Reads())
+               self.drawMapWithPinsFromReads(LayerManager.getAllReads())
+                self.currentLayer = 1
             }
         } else {
-            self.drawMapWithPinsFromReads(LayerManager.getLayer2Reads())
+                self.drawMapWithPinsFromReads(LayerManager.getReadsByDeltaCoeficient(deltaCoeficient))
+                self.currentLayer = 2
         }
-        
     }
 
     
     func update(){
+        self.layerDetailLabel.text = "Layer" + self.currentLayer.description + " - Pins: "+self.mapView.annotations.count.description
         
         if (Location.sharedInstance.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"

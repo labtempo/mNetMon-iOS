@@ -7,38 +7,86 @@
 //
 
 import Foundation
+import MapKit
 
 class LayerManager {
+    
+    //Default value : 2200.0
+    static let deltaCoeficientMultiplier = 2200.0
 
-    static func getLayer1Reads()->[Read]{
+    static func getAllReads()->[Read]{
         return AppData.sharedInstance.getReads()
     }
 
 
-    static func getLayer2Reads()->[Read]{
-        let firstLayerReads = AppData.sharedInstance.getReads()
+    static func getReadsByDeltaCoeficient(pDeltaCoeficient:Double)->[Read]{
+        
+        var firstLayerReads = AppData.sharedInstance.getReads()
         var currentLayerReads = [Read]()
         
-        for r:Read in firstLayerReads {
-            let neightbors = self.searchForNeighbors(0.002)
+        while (!firstLayerReads.isEmpty){
+            let r = firstLayerReads.removeFirst()
+            
+            var neightbors = self.searchForRead(r.latitude, pLongitude: r.longitude, pReads: firstLayerReads, deltaCoeficient: pDeltaCoeficient)
             if (neightbors.isEmpty){
+                currentLayerReads.append(r)
                 
+            } else {
+                neightbors.append(r)
+                
+                for n:Read in neightbors {
+                    let index = firstLayerReads.indexOf(n)
+                    if ((index) != nil){
+                        firstLayerReads.removeAtIndex(index!)
+                    }
+                
+                }
+                
+                currentLayerReads.append(mergeNeightbors(neightbors))
             }
         
         }
-        
-        
         
         return currentLayerReads
     }
 
     
-    private static func searchForNeighbors(precision:Double)->[Read]{
     
+    private static func searchForRead(pLatitude:Double , pLongitude:Double , pReads:[Read], deltaCoeficient:Double)->[Read]{
+        let searchedLocation = CLLocation(latitude: pLatitude, longitude: pLongitude)
+        var neightbors = [Read]()
+        
+        for r:Read in pReads{
+            
+            let rLocation = CLLocation(latitude: r.latitude, longitude: r.longitude)
+            let dist = rLocation.distanceFromLocation(searchedLocation)
+            if (dist < (self.deltaCoeficientMultiplier * deltaCoeficient)){
+                neightbors.append(r)
+            }
+        }
+        return neightbors
     }
     
-    private static func mergeNeightbors(pNeightbors:[Read])->[Read]{
-    
+    private static func mergeNeightbors(pNeightbors:[Read])->Read{
+        if (pNeightbors.count == 1){
+            return pNeightbors.first!
+        } else {
+            var latitudeSum = 0.0
+            var longitudeSum = 0.0
+            var signalStrenghtSum = 0
+            for r:Read in pNeightbors{
+                latitudeSum = latitudeSum + r.latitude
+                longitudeSum = longitudeSum + r.longitude
+                signalStrenghtSum = signalStrenghtSum + r.signalStrength.signalValue
+            }
+            
+            let latitude = latitudeSum / Double(pNeightbors.count)
+            let longitude = longitudeSum / Double(pNeightbors.count)
+            let signalStrenght = signalStrenghtSum / pNeightbors.count
+            
+            return Read(pID: (pNeightbors.first?.ID)!, pLatitude: latitude, pLongitude: longitude, pSignalStrength: SignalStrengthValue(pASUValue: signalStrenght), pCarrierName: "nil")
+        }
+
     }
 
 }
