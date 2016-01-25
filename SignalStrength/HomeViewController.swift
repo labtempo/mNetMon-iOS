@@ -56,7 +56,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         let pin = view.annotation as! ColorPointAnnotation
         print(pin.title)
-        let pinID = Int(pin.title!)
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -78,6 +77,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     //End of MapView Methods
     
     
+    func update(){
+        self.layerDetailLabel.text = "Pins: "+self.mapView.annotations.count.description
+        
+        if (Location.sharedInstance.doesHaveFullCLAuthorization()){
+            self.authorizationStatusLabel.text = "Authorized"
+            self.authorizationStatusView.backgroundColor = AppColors.myGreenColor
+        } else {
+            self.authorizationStatusLabel.text = "Not Authorized"
+            self.authorizationStatusView.backgroundColor = AppColors.myRedColor
+        }
+        
+        if (AppData.sharedInstance.getIsCurrentlyReading()){
+            self.recordLocationStatusView.backgroundColor = AppColors.myGreenColor
+        } else {
+            self.recordLocationStatusView.backgroundColor = AppColors.myRedColor
+        }
+    }
+    
+    
     private func getReadsInVisibleMapRect()->[Read]{
         
         var pins = AppData.sharedInstance.getReads()
@@ -86,13 +104,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         while (!pins.isEmpty){
             let pin = pins.removeFirst()
-            if (self.mapView.annotationsInMapRect(self.mapView.visibleMapRect).contains(pin as! NSObject)){
+            if (self.mapView.annotationsInMapRect(self.mapView.visibleMapRect).contains(pin as NSObject)){
                 readsInVisibleMapRect.append(pin)
             }
         }
         return readsInVisibleMapRect
     }
-    
     
     
     private func drawMapWithPinsFromReads(pReads:[Read]){
@@ -149,28 +166,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     }
     
-
-    
-    private func update(){
-        
-        self.layerDetailLabel.text = "Pins: "+self.mapView.annotations.count.description
-        
-        if (Location.sharedInstance.doesHaveFullCLAuthorization()){
-            self.authorizationStatusLabel.text = "Authorized"
-            self.authorizationStatusView.backgroundColor = AppColors.myGreenColor
-        } else {
-            self.authorizationStatusLabel.text = "Not Authorized"
-            self.authorizationStatusView.backgroundColor = AppColors.myRedColor
-        }
-        
-        if (AppData.sharedInstance.getIsCurrentlyReading()){
-            self.recordLocationStatusView.backgroundColor = AppColors.myGreenColor
-        } else {
-            self.recordLocationStatusView.backgroundColor = AppColors.myRedColor
-        }
-    }
-    
-
     
     @IBAction func switchValueChanged(sender: UISwitch) {
         AppData.sharedInstance.changeIsCurrentlyReadingStatus()
