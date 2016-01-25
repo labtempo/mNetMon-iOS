@@ -14,10 +14,6 @@ class LayerManager {
     //Default value : 2200.0
     static let deltaCoeficientMultiplier = 2200.0
 
-    static func getAllReads()->[Read]{
-        return AppData.sharedInstance.getReads()
-    }
-
 
     static func getReadsByDeltaCoeficient(pDeltaCoeficient:Double)->[Read]{
         
