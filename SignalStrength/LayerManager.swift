@@ -67,9 +67,11 @@ class LayerManager {
         if (pNeightbors.count == 1){
             return pNeightbors.first!
         } else {
+            print("merging neightbors")
             var latitudeSum = 0.0
             var longitudeSum = 0.0
             var signalStrenghtSum = 0
+            
             for r:Read in pNeightbors{
                 latitudeSum = latitudeSum + r.latitude
                 longitudeSum = longitudeSum + r.longitude

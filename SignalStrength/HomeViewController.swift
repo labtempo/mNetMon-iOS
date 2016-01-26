@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var layerDetailLabel: UILabel!
     
     var updateTimer = NSTimer()
-    var currentLayer:Int = 1
     
     
     //Beginning of ViewController methods
@@ -153,17 +152,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
         print ("Delta Coeficient :"+deltaCoeficient.description)
         
-        
         if (deltaCoeficient < 0.1){
-            
-                self.drawMapWithPinsFromReads(AppData.sharedInstance.getReads())
-                self.currentLayer = 1
-            
+            self.drawMapWithPinsFromReads(AppData.sharedInstance.getReads())
+        } else if (deltaCoeficient > 50){
+            self.drawMapWithPinsFromReads(LayerManager.getReadsByDeltaCoeficient(50))
         } else {
             self.drawMapWithPinsFromReads(LayerManager.getReadsByDeltaCoeficient(deltaCoeficient))
-            self.currentLayer = 2
         }
-    
+        
     }
     
     
