@@ -21,7 +21,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBOutlet weak var authorizationStatusLabel: UILabel!
     @IBOutlet weak var authorizationStatusView: UIView!
-    @IBOutlet weak var layerDetailLabel: UILabel!
+
+    @IBOutlet weak var numberOfPinsLabel: UILabel!
+    
+    @IBOutlet weak var deltaCoeficientLabel: UILabel!
+    
     
     var updateTimer = NSTimer()
     
@@ -77,7 +81,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     func update(){
-        self.layerDetailLabel.text = "Pins: "+self.mapView.annotations.count.description
+        self.numberOfPinsLabel.text = "Pins: "+self.mapView.annotations.count.description
+        let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
+        self.deltaCoeficientLabel.text = "MapDelta :" + deltaCoeficient.description
         
         if (Location.sharedInstance.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"
@@ -151,15 +157,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     private func drawMapWithPins(){
         let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
         print ("Delta Coeficient :"+deltaCoeficient.description)
-        
-        if (deltaCoeficient < 0.1){
-            self.drawMapWithPinsFromReads(AppData.sharedInstance.getReads())
-        } else if (deltaCoeficient > 50){
-            self.drawMapWithPinsFromReads(LayerManager.getReadsByDeltaCoeficient(50))
-        } else {
-            self.drawMapWithPinsFromReads(LayerManager.getReadsByDeltaCoeficient(deltaCoeficient))
-        }
-        
+        self.drawMapWithPinsFromReads(AppData.sharedInstance.getReads())
     }
     
     
