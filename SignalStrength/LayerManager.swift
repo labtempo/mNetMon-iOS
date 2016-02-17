@@ -10,81 +10,43 @@ import Foundation
 import MapKit
 
 class LayerManager {
-    
-    //Default value : 2200.0
-    static let deltaCoeficientMultiplier = 2200.0
 
 
-    static func getReadsByDeltaCoeficient(pDeltaCoeficient:Double)->[Read]{
+    static func getReadsByLayer(layerID:Int)->[Read]{
+        
+        var precision:Double = 0
+        
+        if (layerID == 1){
+            return AppData.sharedInstance.getReads()
+        } else {
+        
+            if (layerID == 2){
+                precision = 0.004
+            }
+        
+        
+        }
         
         var firstLayerReads = AppData.sharedInstance.getReads()
         var currentLayerReads = [Read]()
         
-        while (!firstLayerReads.isEmpty){
-            let r = firstLayerReads.removeFirst()
+        for r:Read in firstLayerReads {
             
-            var neightbors = self.searchForRead(r.latitude, pLongitude: r.longitude, pReads: firstLayerReads, deltaCoeficient: pDeltaCoeficient)
-            if (neightbors.isEmpty){
-                currentLayerReads.append(r)
-                
-            } else {
-                neightbors.append(r)
-                
-                for n:Read in neightbors {
-                    let index = firstLayerReads.indexOf(n)
-                    if ((index) != nil){
-                        firstLayerReads.removeAtIndex(index!)
-                    }
-                
-                }
-                
-                currentLayerReads.append(mergeNeightbors(neightbors))
-            }
-        
+            let pLatitude = r.latitude
+            let latitudeINT = (Int(pLatitude / precision))
+            let qLatitude = Double(latitudeINT) * precision
+            r.latitude = qLatitude
+            
+            
+            let pLongitude = r.longitude
+            let longitudeINT = (Int(pLongitude / precision))
+            let qLongitude = Double(longitudeINT) * precision
+            r.longitude = qLongitude
+            
+            currentLayerReads = ReadManagementFunctions().addReadToReads(r, pReads: currentLayerReads)
         }
         
         return currentLayerReads
-    }
-
-    
-    
-    private static func searchForRead(pLatitude:Double , pLongitude:Double , pReads:[Read], deltaCoeficient:Double)->[Read]{
-        let searchedLocation = CLLocation(latitude: pLatitude, longitude: pLongitude)
-        var neightbors = [Read]()
-        
-        for r:Read in pReads{
-            
-            let rLocation = CLLocation(latitude: r.latitude, longitude: r.longitude)
-            let dist = rLocation.distanceFromLocation(searchedLocation)
-            if (dist < (self.deltaCoeficientMultiplier * deltaCoeficient)){
-                neightbors.append(r)
-            }
-        }
-        return neightbors
-    }
-    
-    private static func mergeNeightbors(pNeightbors:[Read])->Read{
-        if (pNeightbors.count == 1){
-            return pNeightbors.first!
-        } else {
-            print("merging neightbors")
-            var latitudeSum = 0.0
-            var longitudeSum = 0.0
-            var signalStrenghtSum = 0
-            
-            for r:Read in pNeightbors{
-                latitudeSum = latitudeSum + r.latitude
-                longitudeSum = longitudeSum + r.longitude
-                signalStrenghtSum = signalStrenghtSum + r.signalStrength.signalValue
-            }
-            
-            let latitude = latitudeSum / Double(pNeightbors.count)
-            let longitude = longitudeSum / Double(pNeightbors.count)
-            let signalStrenght = signalStrenghtSum / pNeightbors.count
-            
-            return Read(pID: (pNeightbors.first?.ID)!, pLatitude: latitude, pLongitude: longitude, pSignalStrength: SignalStrengthValue(pASUValue: signalStrenght), pCarrierName: "nil")
-        }
-
     }
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0160E451C73EFFC0032F8E5 /* ReadManagementFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0160E441C73EFFC0032F8E5 /* ReadManagementFunctions.swift */; };
 		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0160E441C73EFFC0032F8E5 /* ReadManagementFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadManagementFunctions.swift; sourceTree = "<group>"; };
 		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101D1C034C82005451C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B071103A1C034E99005451C3 /* AppData.swift */,
+				B0160E441C73EFFC0032F8E5 /* ReadManagementFunctions.swift */,
 				BE7E6A901C1633D00091EF1F /* Location.swift */,
 				BEBAB0B11C163D800096990C /* SignalStrengthValue.swift */,
 				B09218DD1C2CCAC600052BAE /* SignalConverter.swift */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
+				B0160E451C73EFFC0032F8E5 /* ReadManagementFunctions.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B07110401C034E99005451C3 /* PListManager.swift in Sources */,
 				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,

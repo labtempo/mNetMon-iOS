@@ -46,35 +46,8 @@ class AppData{
     Function used to add another read to the reads.
     */
     func addRead(pRead:Read){
-        let searchResult = searchInReads(pRead)
-        if (searchResult > -1){
-            let firstRead = reads[searchResult]
-            let alpha = 0.5
-            let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - alpha) ) + ( Double(pRead.signalStrength.signalValue) * alpha )
-            let newSignalStrength = SignalStrengthValue(pASUValue: Int(newSignalValue))
-            reads[searchResult].signalStrength = newSignalStrength
-            
-        } else {
-            reads.append(pRead)
-        }
+        AppData.sharedInstance.setReads(ReadManagementFunctions().addReadToReads(pRead, pReads: self.reads))
         AppDAO.sharedInstance.saveAppData()
-    }
-    
-    /*
-    
-    If the app have already made another read in the same location as the parameter pRead location, return the index of the read
-    
-    else return -1
-    */
-    private func searchInReads(pRead:Read)->Int{
-        var index = 0
-        for r:Read in self.reads{
-            if ( (r.latitude == pRead.latitude) && (r.longitude == pRead.longitude) ){
-                return index
-            }
-            index = index + 1
-        }
-        return -1
     }
     
 }
