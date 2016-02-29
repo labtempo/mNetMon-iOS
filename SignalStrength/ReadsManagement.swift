@@ -1,5 +1,5 @@
 //
-//  ReadManagementFunctions.swift
+//  ReadsManagement.swift
 //  SignalStrength
 //
 //  Created by Henrique do Prado Linhares on 16/02/16.
@@ -9,9 +9,21 @@
 import Foundation
 
 
-class ReadManagementFunctions{
+class ReadsManagement{
 
     let alpha = 0.5
+    
+    
+    
+    func addReadToReadsLayers(pRead:Read, pReadsLayers:ReadsLayers)->ReadsLayers{
+    
+    
+    return ReadsLayers()
+    
+    }
+    
+    
+    
     
     
     /*

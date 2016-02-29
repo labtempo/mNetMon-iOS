@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
-    
+    /*
     private func getReadsInVisibleMapRect()->[Read]{
         
         var pins = AppData.sharedInstance.getReads()
@@ -114,7 +114,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
         return readsInVisibleMapRect
-    }
+    }*/
     
     
     private func drawMapWithPinsFromReads(pReads:[Read]){
@@ -155,15 +155,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     private func drawMapWithPins(){
-        let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
-        print ("Delta Coeficient :"+deltaCoeficient.description)
-        if (deltaCoeficient < 0.06){
-            print("Drawing on layer 1")
-            self.drawMapWithPinsFromReads(AppData.sharedInstance.getReads())
-        } else {
-            print("Drawing on layer 2")
-            self.drawMapWithPinsFromReads(LayerManager.getReadsByLayer(2))
-        }
+            self.drawMapWithPinsFromReads(AppData.sharedInstance.getReadsLayers().readsLayer1)
     }
     
     

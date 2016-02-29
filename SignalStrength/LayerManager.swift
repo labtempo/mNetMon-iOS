@@ -11,7 +11,7 @@ import MapKit
 
 class LayerManager {
 
-
+    /*
     static func getReadsByLayer(layerID:Int)->[Read]{
         
         var precision:Double = 0
@@ -43,10 +43,10 @@ class LayerManager {
             let qLongitude = Double(longitudeINT) * precision
             r.longitude = qLongitude
             
-            currentLayerReads = ReadManagementFunctions().addReadToReads(r, pReads: currentLayerReads)
+            currentLayerReads = ReadsManagement().addReadToReads(r, pReads: currentLayerReads)
         }
         
         return currentLayerReads
     }
-
+  */
 }

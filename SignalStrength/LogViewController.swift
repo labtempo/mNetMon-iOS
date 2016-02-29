@@ -21,8 +21,9 @@ class LogViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        var text = "Number of reads: \(AppData.sharedInstance.getReads().count) \n \n"
-        for r:Read in AppData.sharedInstance.getReads() {
+        let reads = AppData.sharedInstance.getReadsLayers().readsLayer1
+        var text = "Number of reads: \(reads.count) \n \n"
+        for r:Read in reads {
             text += r.toString() + "\n \n"
         }
         self.textView.text = text
