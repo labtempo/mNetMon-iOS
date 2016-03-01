@@ -47,7 +47,8 @@ class AppData{
     Function used to add another read to the reads.
     */
     func addRead(pRead:Read){
-        AppData.sharedInstance.setReadsLayers(ReadsManagement().addReadToReadsLayers(pRead, pReadsLayers: self.readsLayers))
+        let layers = ReadsManagement().addReadToReadsLayers(pRead, pReadsLayers: self.readsLayers)
+        self.readsLayers = layers
         AppDAO.sharedInstance.saveAppData()
     }
     

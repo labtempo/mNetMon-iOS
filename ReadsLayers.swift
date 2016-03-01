@@ -48,6 +48,29 @@ class ReadsLayers:NSObject, NSCoding{
     }
     
     
+    init(l1:[Read], l2:[Read], l3:[Read], l4:[Read], l5:[Read], l6:[Read], l7:[Read], l8:[Read], l9:[Read], l10:[Read], l11:[Read], l12:[Read], l13:[Read], l14:[Read], l15:[Read], l16:[Read]){
+        
+        self.readsLayer1 = l1
+        self.readsLayer2 = l2
+        self.readsLayer3 = l3
+        self.readsLayer4 = l4
+        self.readsLayer5 = l5
+        self.readsLayer6 = l6
+        self.readsLayer7 = l7
+        self.readsLayer8 = l8
+        self.readsLayer9 = l9
+        self.readsLayer10 = l10
+        self.readsLayer11 = l11
+        self.readsLayer12 = l12
+        self.readsLayer13 = l13
+        self.readsLayer14 = l14
+        self.readsLayer15 = l15
+        self.readsLayer16 = l16
+    
+    }
+    
+    
+    
     //Beginning of NSCoding Methods
     required convenience init?(coder decoder: NSCoder) {
         
@@ -99,14 +122,27 @@ class ReadsLayers:NSObject, NSCoding{
         guard let layer16 = decoder.decodeObjectForKey("layer16") as? [Read]
             else {return nil }
         
-        
-        
-//        self.init(pID: dID, pLatitude:dLatitude, pLongitude:dLongitude, pSignalStrength: dSignalStrength, pCarrierName:dCarrierName)
+        self.init(l1:layer1, l2:layer2, l3:layer3, l4:layer4, l5:layer5, l6:layer6, l7:layer7, l8:layer8, l9:layer9, l10:layer10, l11:layer11, l12:layer12, l13:layer13, l14:layer14, l15:layer15, l16:layer16)
     }
     
     
     func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.ID, forKey: "ID")
+        coder.encodeObject(self.readsLayer1, forKey: "layer1")
+        coder.encodeObject(self.readsLayer2, forKey: "layer2")
+        coder.encodeObject(self.readsLayer3, forKey: "layer3")
+        coder.encodeObject(self.readsLayer4, forKey: "layer4")
+        coder.encodeObject(self.readsLayer5, forKey: "layer5")
+        coder.encodeObject(self.readsLayer6, forKey: "layer6")
+        coder.encodeObject(self.readsLayer7, forKey: "layer7")
+        coder.encodeObject(self.readsLayer8, forKey: "layer8")
+        coder.encodeObject(self.readsLayer9, forKey: "layer9")
+        coder.encodeObject(self.readsLayer10, forKey: "layer10")
+        coder.encodeObject(self.readsLayer11, forKey: "layer11")
+        coder.encodeObject(self.readsLayer12, forKey: "layer12")
+        coder.encodeObject(self.readsLayer13, forKey: "layer13")
+        coder.encodeObject(self.readsLayer14, forKey: "layer14")
+        coder.encodeObject(self.readsLayer15, forKey: "layer15")
+        coder.encodeObject(self.readsLayer16, forKey: "layer16")
 
     }
     //End of NSCoding Methods

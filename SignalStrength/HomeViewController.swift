@@ -100,10 +100,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
-    /*
+    
     private func getReadsInVisibleMapRect()->[Read]{
         
-        var pins = AppData.sharedInstance.getReads()
+        var pins = AppData.sharedInstance.getReadsLayers().readsLayer1
         
         var readsInVisibleMapRect = [Read]()
         
@@ -114,7 +114,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
         return readsInVisibleMapRect
-    }*/
+    }
     
     
     private func drawMapWithPinsFromReads(pReads:[Read]){
@@ -155,17 +155,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     private func drawMapWithPins(){
-            self.drawMapWithPinsFromReads(AppData.sharedInstance.getReadsLayers().readsLayer1)
+        self.drawMapWithPinsFromReads(AppData.sharedInstance.getReadsLayers().readsLayer1)
     }
     
     
     @IBAction func switchValueChanged(sender: UISwitch) {
-        AppData.sharedInstance.changeIsCurrentlyReadingStatus()
         if (AppData.sharedInstance.getIsCurrentlyReading()){
             Location.sharedInstance.startReading()
         } else {
             Location.sharedInstance.stopReading()
         }
+         AppData.sharedInstance.changeIsCurrentlyReadingStatus()
     }
     
     
