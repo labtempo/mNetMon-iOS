@@ -12,38 +12,28 @@ import MapKit
 
 class Read:NSObject, NSCoding{
 
-    var ID:Int
     var latitude:Double
     var longitude:Double
     var signalStrength:SignalStrengthValue
     var carrierName:String
     
-    init(pID:Int, pLatitude:Double, pLongitude:Double, pSignalStrength:SignalStrengthValue, pCarrierName:String){
-        self.ID = pID
+    init(pLatitude:Double, pLongitude:Double, pSignalStrength:SignalStrengthValue, pCarrierName:String){
         
-        let latitudeINT = (Int(pLatitude / 0.002))
-        let qLatitude = Double(latitudeINT) * 0.002
-        
-        let longitudeINT = (Int(pLongitude / 0.002))
-        let qLongitude = Double(longitudeINT) * 0.002
-        
-        self.latitude = qLatitude
-        self.longitude = qLongitude
+        self.latitude = pLatitude
+        self.longitude = pLongitude
  
         self.signalStrength = pSignalStrength
         self.carrierName = pCarrierName
     }
     
     func toString()->String{
-    return "Read ID: \(self.ID) , Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength.signalValue.description) , Carrier name: \(self.carrierName)"
+    return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength.signalValue.description) , Carrier name: \(self.carrierName)"
     }
     
     //Beginning of NSCoding Methods
     required convenience init?(coder decoder: NSCoder) {
         
-        guard let dID = decoder.decodeObjectForKey("ID") as? Int
-            else {return nil }
-        
+      
         guard let dLatitude = decoder.decodeObjectForKey("latitude") as? Double
             else {return nil }
       
@@ -57,12 +47,11 @@ class Read:NSObject, NSCoding{
             else {return nil }
         
         
-        self.init(pID: dID, pLatitude:dLatitude, pLongitude:dLongitude, pSignalStrength: dSignalStrength, pCarrierName:dCarrierName)
+        self.init(pLatitude:dLatitude, pLongitude:dLongitude, pSignalStrength: dSignalStrength, pCarrierName:dCarrierName)
     }
     
     
     func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.ID, forKey: "ID")
         coder.encodeObject(self.latitude, forKey: "latitude")
         coder.encodeObject(self.longitude, forKey: "longitude")
         coder.encodeObject(self.signalStrength, forKey: "signalStrength")

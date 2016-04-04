@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0160E451C73EFFC0032F8E5 /* ReadsManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0160E441C73EFFC0032F8E5 /* ReadsManagement.swift */; };
 		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
+		B0256A8D1CB30895000A9828 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8C1CB30895000A9828 /* Layer.swift */; };
+		B0256A8F1CB31065000A9828 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8E1CB31065000A9828 /* Constants.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
 		B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110261C034C82005451C3 /* LaunchScreen.storyboard */; };
@@ -22,7 +23,6 @@
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B6B2951C33E80300530860 /* ReadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B2941C33E80300530860 /* ReadsTests.swift */; };
-		B0C0ECDF1C84BD1F009A3DD3 /* ReadsLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C0ECDE1C84BD1F009A3DD3 /* ReadsLayers.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* Location.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -35,8 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0160E441C73EFFC0032F8E5 /* ReadsManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadsManagement.swift; sourceTree = "<group>"; };
 		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
+		B0256A8C1CB30895000A9828 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		B0256A8E1CB31065000A9828 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101D1C034C82005451C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07110241C034C82005451C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B6B2941C33E80300530860 /* ReadsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadsTests.swift; sourceTree = "<group>"; };
-		B0C0ECDE1C84BD1F009A3DD3 /* ReadsLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadsLayers.swift; path = ../ReadsLayers.swift; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
@@ -113,17 +113,17 @@
 			isa = PBXGroup;
 			children = (
 				B071103A1C034E99005451C3 /* AppData.swift */,
-				B0C0ECDE1C84BD1F009A3DD3 /* ReadsLayers.swift */,
-				B0160E441C73EFFC0032F8E5 /* ReadsManagement.swift */,
+				B0256A8C1CB30895000A9828 /* Layer.swift */,
+				B071103B1C034E99005451C3 /* Read.swift */,
 				BE7E6A901C1633D00091EF1F /* Location.swift */,
 				BEBAB0B11C163D800096990C /* SignalStrengthValue.swift */,
 				B09218DD1C2CCAC600052BAE /* SignalConverter.swift */,
 				BEBAB0B31C163E230096990C /* SignalQuality.swift */,
 				BEBAB0AF1C16379A0096990C /* CellularInfo.swift */,
-				B071103B1C034E99005451C3 /* Read.swift */,
 				B0B6B2941C33E80300530860 /* ReadsTests.swift */,
 				B071103D1C034E99005451C3 /* AppDAO.swift */,
 				B071103C1C034E99005451C3 /* PListManager.swift */,
+				B0256A8E1CB31065000A9828 /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -230,16 +230,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
-				B0160E451C73EFFC0032F8E5 /* ReadsManagement.swift in Sources */,
+				B0256A8F1CB31065000A9828 /* Constants.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B07110401C034E99005451C3 /* PListManager.swift in Sources */,
+				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
 				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,
 				BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */,
 				B07110411C034E99005451C3 /* AppDAO.swift in Sources */,
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,
 				B07110391C034E84005451C3 /* HomeViewController.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* Location.swift in Sources */,
-				B0C0ECDF1C84BD1F009A3DD3 /* ReadsLayers.swift in Sources */,
 				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,

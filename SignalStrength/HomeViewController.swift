@@ -103,7 +103,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func getReadsInVisibleMapRect()->[Read]{
         
-        var pins = AppData.sharedInstance.getReadsLayers().readsLayer1
+        var pins = AppData.sharedInstance.layers[0].reads
         
         var readsInVisibleMapRect = [Read]()
         
@@ -131,7 +131,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                 case .verygood: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryGoodColor)
             }
             
-            pin.title = r.ID.description
             pin.coordinate.latitude = r.latitude
             pin.coordinate.longitude = r.longitude
             
@@ -155,7 +154,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     private func drawMapWithPins(){
-        self.drawMapWithPinsFromReads(AppData.sharedInstance.getReadsLayers().readsLayer1)
+        self.drawMapWithPinsFromReads(AppData.sharedInstance.layers[0].reads)
     }
     
     

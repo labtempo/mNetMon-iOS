@@ -14,22 +14,24 @@ Singleton responsable for the management of the reads during the app execution
 class AppData{
     
     static let sharedInstance = AppData()
+    var layers = [Layer]()
     
-    private var readsLayers:ReadsLayers
     private var isCurrentlyReading:Bool
     
     init(){
-        self.readsLayers = ReadsLayers()
         self.isCurrentlyReading = false
+        
+        //cria o layer 01
+        var layer01 = Layer(pID: 1, pMinDelta: 0, pMaxDelta: 1, pPrecisionCoeficient: 0.002)
+        
+        let readExamples = ReadsTests().getReads()
+        for r:Read in readExamples {
+            layer01.addRead(r)
+        }
+        
+        self.layers.append(layer01)
     }
     
-    func getReadsLayers()->ReadsLayers{
-        return self.readsLayers
-    }
-    
-    func setReadsLayers(pReadsLayers:ReadsLayers){
-        self.readsLayers = pReadsLayers
-    }
     
     func getIsCurrentlyReading()->Bool{
         return self.isCurrentlyReading
@@ -43,13 +45,8 @@ class AppData{
         self.isCurrentlyReading = !self.isCurrentlyReading
     }
     
-    /*
-    Function used to add another read to the reads.
-    */
     func addRead(pRead:Read){
-        let layers = ReadsManagement().addReadToReadsLayers(pRead, pReadsLayers: self.readsLayers)
-        self.readsLayers = layers
-        AppDAO.sharedInstance.saveAppData()
+        layers[0].addRead(pRead)
     }
     
 }
