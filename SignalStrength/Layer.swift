@@ -34,13 +34,15 @@ class Layer{
     }
     
     func addRead(pRead:Read){
-        let ppRead = self.applyPrecisionCoeficient(pRead)
-        let index = self.searchInReads(ppRead)
+        
+        var paramRead = Read(pLatitude: pRead.latitude, pLongitude: pRead.longitude, pSignalStrength: pRead.signalStrength, pCarrierName: pRead.carrierName)
+        paramRead = self.applyPrecisionCoeficient(paramRead)
+        let index = self.searchInReads(paramRead)
         if (index == -1){
-            self.reads.append(ppRead)
+            self.reads.append(paramRead)
         } else {
             let firstRead = self.reads[index]
-            let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - Constants.ALPHA) ) + ( Double(ppRead.signalStrength.signalValue) * Constants.ALPHA )
+            let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - Constants.ALPHA) ) + ( Double(paramRead.signalStrength.signalValue) * Constants.ALPHA )
             let newSignalStrength = SignalStrengthValue(pASUValue: Int(newSignalValue))
             reads[index].signalStrength = newSignalStrength
         }
@@ -61,7 +63,7 @@ class Layer{
         return pRead
     }
     
-    func searchInReads(pRead:Read)->Int{
+    private func searchInReads(pRead:Read)->Int{
         var index = 0
         for r:Read in self.reads {
             if (r.latitude == pRead.latitude && r.longitude == pRead.longitude){

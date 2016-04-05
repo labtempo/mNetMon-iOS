@@ -101,7 +101,9 @@ class AppData{
     }
     
     func addRead(pRead:Read){
-        layers[0].addRead(pRead)
+        for l:Layer in self.layers {
+            l.addRead(pRead)
+        }
     }
     
 }
