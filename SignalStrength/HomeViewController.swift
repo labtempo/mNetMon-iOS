@@ -27,6 +27,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var deltaCoeficientLabel: UILabel!
     
     
+    var currentLayer = 0
+    
     var updateTimer = NSTimer()
     
     

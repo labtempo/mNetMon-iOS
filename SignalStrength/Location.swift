@@ -27,6 +27,11 @@ class Location:NSObject, CLLocationManagerDelegate{
         self.locationManager.allowsBackgroundLocationUpdates = true
     }
     
+    func stopReading(){
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    
     func doesHaveFullCLAuthorization()->Bool{
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
             return true
@@ -41,10 +46,6 @@ class Location:NSObject, CLLocationManagerDelegate{
         let read = Read(pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
         AppData.sharedInstance.addRead(read)
         self.lastUserLocation = self.locationManager.location
-    }
-    
-    func stopReading(){
-        self.locationManager.stopUpdatingLocation()
     }
     
 }

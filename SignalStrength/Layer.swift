@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Layer{
+class Layer:NSObject, NSCoding{
     
     var ID:Int
     var minDelta:Double
@@ -46,7 +46,6 @@ class Layer{
             let newSignalStrength = SignalStrengthValue(pASUValue: Int(newSignalValue))
             reads[index].signalStrength = newSignalStrength
         }
-        
     
     }
     
@@ -73,5 +72,38 @@ class Layer{
         }
         return -1
     }
+
+    
+    //Beginning of NSCoding Methods
+    required convenience init?(coder decoder: NSCoder) {
+        
+        
+        guard let dID = decoder.decodeObjectForKey("id") as? Int
+            else {return nil }
+        
+        guard let dMinDelta = decoder.decodeObjectForKey("minDelta") as? Double
+            else {return nil }
+        
+        guard let dMaxDelta = decoder.decodeObjectForKey("maxDelta") as? Double
+            else {return nil }
+        
+        guard let dPrecisionCoeficient = decoder.decodeObjectForKey("precisionCoeficient") as? Double
+            else {return nil }
+        
+        guard let dReads = decoder.decodeObjectForKey("reads") as? [Read]
+            else {return nil }
+        
+        self.init(pID: dID, pMinDelta: dMinDelta, pMaxDelta: dMaxDelta, pPrecisionCoeficient: dPrecisionCoeficient, pReads: dReads)
+    }
+    
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.ID, forKey: "id")
+        coder.encodeObject(self.minDelta, forKey: "minDelta")
+        coder.encodeObject(self.maxDelta, forKey: "maxDelta")
+        coder.encodeObject(self.precisionCoeficient, forKey: "precisionCoeficient")
+        coder.encodeObject(self.reads, forKey: "reads")
+    }
+    //End of NSCoding Methods
     
 }
