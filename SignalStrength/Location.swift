@@ -39,9 +39,7 @@ class Location:NSObject, CLLocationManagerDelegate{
         let cellularInfoInstance = CellularInfo()
         let signalStrengthValue = SignalStrengthValue(pDBMValue: cellularInfoInstance.getSignalStrength()!)
         let read = Read(pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
-        print("breakpoint")
         AppData.sharedInstance.addRead(read)
-        print("breakpoint")
         self.lastUserLocation = self.locationManager.location
     }
     

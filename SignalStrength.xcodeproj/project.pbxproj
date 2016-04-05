@@ -10,6 +10,8 @@
 		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
 		B0256A8D1CB30895000A9828 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8C1CB30895000A9828 /* Layer.swift */; };
 		B0256A8F1CB31065000A9828 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8E1CB31065000A9828 /* Constants.swift */; };
+		B0256A9A1CB31767000A9828 /* SignalStrengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A991CB31767000A9828 /* SignalStrengthTests.swift */; };
+		B0256AA41CB31F63000A9828 /* LayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256AA31CB31F63000A9828 /* LayerTest.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
 		B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110261C034C82005451C3 /* LaunchScreen.storyboard */; };
@@ -22,7 +24,6 @@
 		B07110411C034E99005451C3 /* AppDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103D1C034E99005451C3 /* AppDAO.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
-		B0B6B2951C33E80300530860 /* ReadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B2941C33E80300530860 /* ReadsTests.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* Location.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -34,10 +35,24 @@
 		BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBAB0B31C163E230096990C /* SignalQuality.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B0256A9C1CB31767000A9828 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07110121C034C82005451C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B07110191C034C82005451C3;
+			remoteInfo = SignalStrength;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		B0256A8C1CB30895000A9828 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		B0256A8E1CB31065000A9828 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B0256A971CB31766000A9828 /* SignalStrengthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignalStrengthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0256A991CB31767000A9828 /* SignalStrengthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalStrengthTests.swift; sourceTree = "<group>"; };
+		B0256A9B1CB31767000A9828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0256AA31CB31F63000A9828 /* LayerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerTest.swift; sourceTree = "<group>"; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101D1C034C82005451C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07110241C034C82005451C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +67,6 @@
 		B071103D1C034E99005451C3 /* AppDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDAO.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
-		B0B6B2941C33E80300530860 /* ReadsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadsTests.swift; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
@@ -65,6 +79,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B0256A941CB31766000A9828 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B07110171C034C82005451C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,10 +96,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0256A901CB3158A000A9828 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B0256AA31CB31F63000A9828 /* LayerTest.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		B0256A981CB31767000A9828 /* SignalStrengthTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0256A991CB31767000A9828 /* SignalStrengthTests.swift */,
+				B0256A9B1CB31767000A9828 /* Info.plist */,
+			);
+			path = SignalStrengthTests;
+			sourceTree = "<group>";
+		};
 		B07110111C034C82005451C3 = {
 			isa = PBXGroup;
 			children = (
 				B071101C1C034C82005451C3 /* SignalStrength */,
+				B0256A981CB31767000A9828 /* SignalStrengthTests */,
 				B071101B1C034C82005451C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				B071101A1C034C82005451C3 /* SignalStrength.app */,
+				B0256A971CB31766000A9828 /* SignalStrengthTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +140,7 @@
 				B07110311C034CA7005451C3 /* Controller */,
 				B07110301C034CA3005451C3 /* View */,
 				B071102F1C034C9E005451C3 /* Model */,
+				B0256A901CB3158A000A9828 /* Tests */,
 				B07110241C034C82005451C3 /* Assets.xcassets */,
 				BEBA55371C1F460A001C2428 /* green.png */,
 				BEBA55381C1F460A001C2428 /* orange.png */,
@@ -120,7 +161,6 @@
 				B09218DD1C2CCAC600052BAE /* SignalConverter.swift */,
 				BEBAB0B31C163E230096990C /* SignalQuality.swift */,
 				BEBAB0AF1C16379A0096990C /* CellularInfo.swift */,
-				B0B6B2941C33E80300530860 /* ReadsTests.swift */,
 				B071103D1C034E99005451C3 /* AppDAO.swift */,
 				B071103C1C034E99005451C3 /* PListManager.swift */,
 				B0256A8E1CB31065000A9828 /* Constants.swift */,
@@ -151,6 +191,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B0256A961CB31766000A9828 /* SignalStrengthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0256A9E1CB31767000A9828 /* Build configuration list for PBXNativeTarget "SignalStrengthTests" */;
+			buildPhases = (
+				B0256A931CB31766000A9828 /* Sources */,
+				B0256A941CB31766000A9828 /* Frameworks */,
+				B0256A951CB31766000A9828 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0256A9D1CB31767000A9828 /* PBXTargetDependency */,
+			);
+			name = SignalStrengthTests;
+			productName = SignalStrengthTests;
+			productReference = B0256A971CB31766000A9828 /* SignalStrengthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B07110191C034C82005451C3 /* SignalStrength */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B071102C1C034C82005451C3 /* Build configuration list for PBXNativeTarget "SignalStrength" */;
@@ -174,10 +232,14 @@
 		B07110121C034C82005451C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Henrique do Prado Linhares";
 				TargetAttributes = {
+					B0256A961CB31766000A9828 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = B07110191C034C82005451C3;
+					};
 					B07110191C034C82005451C3 = {
 						CreatedOnToolsVersion = 7.1;
 						SystemCapabilities = {
@@ -202,11 +264,19 @@
 			projectRoot = "";
 			targets = (
 				B07110191C034C82005451C3 /* SignalStrength */,
+				B0256A961CB31766000A9828 /* SignalStrengthTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B0256A951CB31766000A9828 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B07110181C034C82005451C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +295,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B0256A931CB31766000A9828 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0256A9A1CB31767000A9828 /* SignalStrengthTests.swift in Sources */,
+				B0256AA41CB31F63000A9828 /* LayerTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B07110161C034C82005451C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,12 +323,19 @@
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
-				B0B6B2951C33E80300530860 /* ReadsTests.swift in Sources */,
 				B071103E1C034E99005451C3 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0256A9D1CB31767000A9828 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B07110191C034C82005451C3 /* SignalStrength */;
+			targetProxy = B0256A9C1CB31767000A9828 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B07110261C034C82005451C3 /* LaunchScreen.storyboard */ = {
@@ -263,6 +349,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B0256A9F1CB31767000A9828 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = SignalStrengthTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.SignalStrengthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SignalStrength.app/SignalStrength";
+			};
+			name = Debug;
+		};
+		B0256AA01CB31767000A9828 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = SignalStrengthTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.SignalStrengthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SignalStrength.app/SignalStrength";
+			};
+			name = Release;
+		};
 		B071102A1C034C82005451C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +483,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B0256A9E1CB31767000A9828 /* Build configuration list for PBXNativeTarget "SignalStrengthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0256A9F1CB31767000A9828 /* Debug */,
+				B0256AA01CB31767000A9828 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B07110151C034C82005451C3 /* Build configuration list for PBXProject "SignalStrength" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
