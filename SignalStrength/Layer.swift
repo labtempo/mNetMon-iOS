@@ -49,6 +49,14 @@ class Layer:NSObject, NSCoding{
     
     }
     
+    func canBeUsed(pDelta:Double)->Bool{
+        if (pDelta >= self.minDelta && pDelta < self.maxDelta){
+            return true
+        }
+        
+        return false
+    }
+    
     private func applyPrecisionCoeficient(pRead:Read)->Read{
         
         let latitudeINT = (Int(pRead.latitude / self.precisionCoeficient))

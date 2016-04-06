@@ -13,12 +13,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         if (AppDAO.sharedInstance.databaseExists()){
             AppDAO.sharedInstance.readAppData()
+            
+            for layer:Layer in AppData.sharedInstance.layers{
+                if layer.ID == 1 {
+                    AppData.sharedInstance.layers[0].minDelta = 0
+                    AppData.sharedInstance.layers[0].maxDelta = 0.040
+                } else if layer.ID == 2 {
+                    AppData.sharedInstance.layers[1].minDelta = 0.041
+                    AppData.sharedInstance.layers[1].maxDelta = 0.1
+                }
+                else if layer.ID == 3 {
+                    AppData.sharedInstance.layers[2].minDelta = 0.11
+                    AppData.sharedInstance.layers[2].maxDelta = 0.231
+                    
+                } else if layer.ID == 4 {
+                    AppData.sharedInstance.layers[3].minDelta = 0.232
+                    AppData.sharedInstance.layers[3].maxDelta = 999999999999
+                }
+                
+                else {
+                    AppData.sharedInstance.layers[layer.ID - 1].minDelta = 999999999999
+                    AppData.sharedInstance.layers[layer.ID - 1].maxDelta = 999999999999
+                }
+            }
+            
+
+            
+
+            
         } else {
             AppDAO.sharedInstance.saveAppData()
             

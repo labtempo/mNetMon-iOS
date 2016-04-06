@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBOutlet weak var deltaCoeficientLabel: UILabel!
     
+    var deltaCoeficient:Double = 1
     
     var currentLayer = 0
     
@@ -37,7 +38,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.recordLocationSwitch.on = AppData.sharedInstance.getIsCurrentlyReading()
         self.update()
         self.centerMapOnUser()
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HomeViewController.update), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        self.chooseLayer()
         self.drawMapWithPins()
     }
     
@@ -84,7 +86,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func update(){
         self.numberOfPinsLabel.text = "Pins: "+self.mapView.annotations.count.description
-        let deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
+        self.deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
         self.deltaCoeficientLabel.text = "MapDelta :" + deltaCoeficient.description
         
         if (Location.sharedInstance.doesHaveFullCLAuthorization()){
@@ -105,7 +107,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func getReadsInVisibleMapRect()->[Read]{
         
-        var pins = AppData.sharedInstance.layers[0].reads
+        var pins = AppData.sharedInstance.layers[self.currentLayer].reads
         
         var readsInVisibleMapRect = [Read]()
         
@@ -153,10 +155,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
-    
+    private func chooseLayer(){
+        for layer in AppData.sharedInstance.layers{
+            if layer.canBeUsed(self.deltaCoeficient){
+                self.currentLayer = layer.ID - 1
+                print("Current layer: "+self.currentLayer.description)
+            }
+        }
+    }
     
     private func drawMapWithPins(){
-        self.drawMapWithPinsFromReads(AppData.sharedInstance.layers[0].reads)
+        self.drawMapWithPinsFromReads(AppData.sharedInstance.layers[currentLayer].reads)
     }
     
     
