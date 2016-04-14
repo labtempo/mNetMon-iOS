@@ -9,17 +9,17 @@ import Foundation
 
 class SignalStrengthValue:NSObject, NSCoding{
     
-    var signalValue:Int
+    var signalASU:Int
     var signalQuality:SignalQuality
     
     init(pASUValue:Int){
-        self.signalValue = pASUValue
+        self.signalASU = pASUValue
         self.signalQuality = SignalQuality.calculateSignalQuality(pASUValue)
     }
     
     init(pDBMValue:Int){
-        self.signalValue = SignalConverter().DBMtoASU(pDBMValue)
-        self.signalQuality = SignalQuality.calculateSignalQuality(self.signalValue)
+        self.signalASU = SignalConverter().DBMtoASU(pDBMValue)
+        self.signalQuality = SignalQuality.calculateSignalQuality(self.signalASU)
     }
     
     //Beginning NSCoding Methods
@@ -32,7 +32,7 @@ class SignalStrengthValue:NSObject, NSCoding{
     }
     
     func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.signalValue, forKey: "signalValue")
+        coder.encodeObject(self.signalASU, forKey: "signalValue")
     }
     //End of NSCoding Methods
 }

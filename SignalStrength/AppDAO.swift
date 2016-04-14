@@ -21,10 +21,8 @@ class AppDAO{
     }
     
     func saveAppData(){
-        var data : NSData = NSKeyedArchiver.archivedDataWithRootObject(AppData.sharedInstance.layers)
+        let data : NSData = NSKeyedArchiver.archivedDataWithRootObject(AppData.sharedInstance.layers)
         PListManager.sharedInstance.writePlist("Database", key: "reads", data: data)
-        data = NSKeyedArchiver.archivedDataWithRootObject(AppData.sharedInstance.getIsCurrentlyReading())
-        PListManager.sharedInstance.writePlist("Database", key: "isCurrentlyReading", data: data)
     }
 
     func readAppData(){        
@@ -33,7 +31,6 @@ class AppDAO{
         AppData.sharedInstance.layers = (NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Layer])
         read = PListManager.sharedInstance.readPlist("Database", key: "isCurrentlyReading")
         data = read as! NSData
-        AppData.sharedInstance.setIsCurrentlyReading(NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Bool) 
     }
     
 }

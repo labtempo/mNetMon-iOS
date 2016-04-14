@@ -13,8 +13,9 @@ import UIKit
 Class that stores the UIColors used in this application
 */
 class AppColors{
-    static let myGreenColor = UIColor(colorLiteralRed: 217/255, green: 255/255, blue: 183/255, alpha: 1)
-    static let myRedColor = UIColor(colorLiteralRed: 255/255, green: 127/255, blue: 127/255, alpha: 1)
+    
+    static let viewGreenColor = UIColor(colorLiteralRed: 217/255, green: 255/255, blue: 183/255, alpha: 1)
+    static let viewRedColor = UIColor(colorLiteralRed: 255/255, green: 127/255, blue: 127/255, alpha: 1)
     
     static let signalVeryGoodColor = UIColor(colorLiteralRed: 0/255, green: 255/255, blue: 0/255, alpha: 1)
     static let signalGoodColor = UIColor(colorLiteralRed: 141/255, green: 202/255, blue: 90/255, alpha: 1)

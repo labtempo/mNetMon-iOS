@@ -42,14 +42,14 @@ class Layer:NSObject, NSCoding{
             self.reads.append(paramRead)
         } else {
             let firstRead = self.reads[index]
-            let newSignalValue = ( Double(firstRead.signalStrength.signalValue) * (1 - Constants.ALPHA) ) + ( Double(paramRead.signalStrength.signalValue) * Constants.ALPHA )
+            let newSignalValue = ( Double(firstRead.signalStrength.signalASU) * (1 - Constants.ALPHA) ) + ( Double(paramRead.signalStrength.signalASU) * Constants.ALPHA )
             let newSignalStrength = SignalStrengthValue(pASUValue: Int(newSignalValue))
             reads[index].signalStrength = newSignalStrength
         }
     
     }
     
-    func canBeUsed(pDelta:Double)->Bool{
+    func canBeUsedWithCurrentDelta(pDelta:Double)->Bool{
         if (pDelta >= self.minDelta && pDelta < self.maxDelta){
             return true
         }

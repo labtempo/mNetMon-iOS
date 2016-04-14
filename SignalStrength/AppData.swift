@@ -15,11 +15,10 @@ class AppData{
     
     static let sharedInstance = AppData()
     var layers = [Layer]()
+    var locationReader = LocationReader()
     
-    private var isCurrentlyReading:Bool
     
     init(){
-        self.isCurrentlyReading = false
         
         //cria o layer 01
         let layer01 = Layer(pID: 1, pMinDelta: 0, pMaxDelta: 0.04, pPrecisionCoeficient: 0.002)
@@ -87,18 +86,6 @@ class AppData{
         
     }
     
-    
-    func getIsCurrentlyReading()->Bool{
-        return self.isCurrentlyReading
-    }
-    
-    func setIsCurrentlyReading(pBool:Bool){
-        self.isCurrentlyReading = pBool
-    }
-    
-    func changeIsCurrentlyReadingStatus(){
-        self.isCurrentlyReading = !self.isCurrentlyReading
-    }
     
     func addRead(pRead:Read){
         for l:Layer in self.layers {

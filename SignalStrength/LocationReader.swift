@@ -9,9 +9,8 @@
 import Foundation
 import CoreLocation
 
-class Location:NSObject, CLLocationManagerDelegate{
+class LocationReader:NSObject, CLLocationManagerDelegate{
     
-    static let sharedInstance = Location()
     private let locationManager = CLLocationManager()
     private var lastUserLocation:CLLocation?
     
@@ -25,10 +24,12 @@ class Location:NSObject, CLLocationManagerDelegate{
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
         self.locationManager.allowsBackgroundLocationUpdates = true
+        print ("LocationReader Starts")
     }
     
     func stopReading(){
         self.locationManager.stopUpdatingLocation()
+        print ("LocationReader Stops")
     }
     
     
@@ -41,6 +42,7 @@ class Location:NSObject, CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print ("~ LOCATION UPDATE ~")
         let cellularInfoInstance = CellularInfo()
         let signalStrengthValue = SignalStrengthValue(pDBMValue: cellularInfoInstance.getSignalStrength()!)
         let read = Read(pLatitude: (self.locationManager.location?.coordinate.latitude)!, pLongitude: (self.locationManager.location?.coordinate.longitude)!, pSignalStrength: signalStrengthValue, pCarrierName: cellularInfoInstance.getCarrierName())
