@@ -38,6 +38,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.update()
         self.centerMapOnUser()
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HomeViewController.update), userInfo: nil, repeats: true)
+    
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -69,6 +70,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.chooseLayer()
         self.drawMapWithPins()
     }
+    
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.chooseLayer()
+    }
+    
     
     //MKMapViewDelegate Method - View For Annotation
     //Without using reusable pins

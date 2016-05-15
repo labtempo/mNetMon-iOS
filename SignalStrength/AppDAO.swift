@@ -26,11 +26,9 @@ class AppDAO{
     }
 
     func readAppData(){        
-        var read = PListManager.sharedInstance.readPlist("Database", key: "reads")
-        var data = read as! NSData
+        let read = PListManager.sharedInstance.readPlist("Database", key: "reads")
+        let data = read as! NSData
         AppData.sharedInstance.layers = (NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Layer])
-        read = PListManager.sharedInstance.readPlist("Database", key: "isCurrentlyReading")
-        data = read as! NSData
     }
     
 }
