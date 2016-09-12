@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 /*
 ViewController that controls the log screen
@@ -21,7 +22,13 @@ class LogViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let reads = AppData.sharedInstance.layers[0].reads
+        let realm = try! Realm()
+        
+        
+        let layer01 = realm.objects(Layer.self).filter("id == 1").first!
+        
+        let reads = layer01.reads
+        
         var text = "Number of reads: \(reads.count) \n \n"
         for r:Read in reads {
             text += r.toString() + "\n \n"

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 /*
 ViewController that controls the home screen
@@ -109,7 +110,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func getReadsInVisibleMapRect()->[Read]{
         
-        var pins = AppData.sharedInstance.layers[self.currentLayer].reads
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        
+        let layer = realm.objects(Layer.self).filter("id == \(self.currentLayer)").first!
+        
+        var pins = layer.reads
         
         var readsInVisibleMapRect = [Read]()
         
@@ -123,13 +128,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     
-    private func drawMapWithPinsFromReads(pReads:[Read]){
+    private func drawMapWithPinsFromReads(pReads:List<Read>){
         self.mapView.removeAnnotations(self.mapView.annotations)
         for r:Read in pReads {
             
             var pin:ColorPointAnnotation
             
-            switch (r.signalStrength.signalQuality){
+            let signalQuality = SignalQuality.calculateSignalQuality(r.signalStrength)
+            
+            switch (signalQuality){
                 case .verybad: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryBadColor)
                 case .bad: pin = ColorPointAnnotation(pinColor: AppColors.signalBadColor)
                 case .regular: pin = ColorPointAnnotation(pinColor: AppColors.signalRegularColor)
@@ -158,16 +165,23 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     private func chooseLayer(){
-        for layer in AppData.sharedInstance.layers{
+        
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        
+        let layers = realm.objects(Layer.self)
+        
+        for layer in layers{
             if layer.canBeUsedWithCurrentDelta(self.deltaCoeficient){
-                self.currentLayer = layer.ID - 1
+                self.currentLayer = layer.id - 1
                 print("Current layer: "+self.currentLayer.description)
             }
         }
     }
     
     private func drawMapWithPins(){
-        self.drawMapWithPinsFromReads(AppData.sharedInstance.layers[currentLayer].reads)
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        let layers = realm.objects(Layer.self)
+        self.drawMapWithPinsFromReads(layers[currentLayer].reads)
     }
     
     

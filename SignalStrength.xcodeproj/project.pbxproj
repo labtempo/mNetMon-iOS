@@ -20,14 +20,15 @@
 		B07110391C034E84005451C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110381C034E84005451C3 /* HomeViewController.swift */; };
 		B071103E1C034E99005451C3 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103A1C034E99005451C3 /* AppData.swift */; };
 		B071103F1C034E99005451C3 /* Read.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103B1C034E99005451C3 /* Read.swift */; };
-		B07110401C034E99005451C3 /* PListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103C1C034E99005451C3 /* PListManager.swift */; };
-		B07110411C034E99005451C3 /* AppDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103D1C034E99005451C3 /* AppDAO.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B1C7501D80BCA500BFE73A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B1C74E1D80BCA500BFE73A /* Realm.framework */; };
 		B0B1C7511D80BCA500BFE73A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B1C74E1D80BCA500BFE73A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0B1C7521D80BCA500BFE73A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B1C74F1D80BCA500BFE73A /* RealmSwift.framework */; };
 		B0B1C7531D80BCA500BFE73A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B1C74F1D80BCA500BFE73A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B1C7561D85F95C00BFE73A /* LayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */; };
+		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
+		B0D36C8A1D8621EB006ADDFA /* RealmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D36C891D8621EB006ADDFA /* RealmInterface.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* LocationReader.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -82,12 +83,13 @@
 		B07110381C034E84005451C3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B071103A1C034E99005451C3 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		B071103B1C034E99005451C3 /* Read.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Read.swift; sourceTree = "<group>"; };
-		B071103C1C034E99005451C3 /* PListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListManager.swift; sourceTree = "<group>"; };
-		B071103D1C034E99005451C3 /* AppDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDAO.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B1C74E1D80BCA500BFE73A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm/Realm.framework; sourceTree = "<group>"; };
 		B0B1C74F1D80BCA500BFE73A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/Realm/RealmSwift.framework; sourceTree = "<group>"; };
+		B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerFactory.swift; sourceTree = "<group>"; };
+		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
+		B0D36C891D8621EB006ADDFA /* RealmInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmInterface.swift; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* LocationReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReader.swift; sourceTree = "<group>"; };
 		BEBA55371C1F460A001C2428 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = Colors/green.png; sourceTree = "<group>"; };
@@ -178,9 +180,10 @@
 				B09218DD1C2CCAC600052BAE /* SignalConverter.swift */,
 				BEBAB0B31C163E230096990C /* SignalQuality.swift */,
 				BEBAB0AF1C16379A0096990C /* CellularInfo.swift */,
-				B071103D1C034E99005451C3 /* AppDAO.swift */,
-				B071103C1C034E99005451C3 /* PListManager.swift */,
 				B0256A8E1CB31065000A9828 /* Constants.swift */,
+				B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */,
+				B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */,
+				B0D36C891D8621EB006ADDFA /* RealmInterface.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -329,14 +332,15 @@
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
 				B0256A8F1CB31065000A9828 /* Constants.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
-				B07110401C034E99005451C3 /* PListManager.swift in Sources */,
 				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
 				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,
 				BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */,
-				B07110411C034E99005451C3 /* AppDAO.swift in Sources */,
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,
 				B07110391C034E84005451C3 /* HomeViewController.swift in Sources */,
+				B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */,
+				B0B1C7561D85F95C00BFE73A /* LayerFactory.swift in Sources */,
+				B0D36C8A1D8621EB006ADDFA /* RealmInterface.swift in Sources */,
 				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,

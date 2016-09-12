@@ -7,47 +7,15 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Layer:NSObject, NSCoding{
+class Layer: Object{
     
-    var ID:Int
-    var minDelta:Double
-    var maxDelta:Double
-    var precisionCoeficient:Double
-    var reads:[Read]
-
-    init(pID: Int, pMinDelta:Double, pMaxDelta:Double, pPrecisionCoeficient:Double, pReads:[Read]){
-        self.ID = pID
-        self.minDelta = pMinDelta
-        self.maxDelta = pMaxDelta
-        self.precisionCoeficient = pPrecisionCoeficient
-        self.reads = pReads
-    }
-
-
-    init(pID: Int, pMinDelta:Double, pMaxDelta:Double, pPrecisionCoeficient:Double){
-        self.ID = pID
-        self.minDelta = pMinDelta
-        self.maxDelta = pMaxDelta
-        self.precisionCoeficient = pPrecisionCoeficient
-        self.reads = [Read]()
-    }
-    
-    func addRead(pRead:Read){
-        
-        var paramRead = Read(pLatitude: pRead.latitude, pLongitude: pRead.longitude, pSignalStrength: pRead.signalStrength, pCarrierName: pRead.carrierName)
-        paramRead = self.applyPrecisionCoeficient(paramRead)
-        let index = self.searchInReads(paramRead)
-        if (index == -1){
-            self.reads.append(paramRead)
-        } else {
-            let firstRead = self.reads[index]
-            let newSignalValue = ( Double(firstRead.signalStrength.signalASU) * (1 - Constants.ALPHA) ) + ( Double(paramRead.signalStrength.signalASU) * Constants.ALPHA )
-            let newSignalStrength = SignalStrengthValue(pASUValue: Int(newSignalValue))
-            reads[index].signalStrength = newSignalStrength
-        }
-    
-    }
+    dynamic var id:Int = 0
+    dynamic var minDelta:Double = 0.0
+    dynamic var maxDelta:Double = 0.0
+    dynamic var precisionCoeficient:Double = 0.0
+    let reads = List<Read>()
     
     func canBeUsedWithCurrentDelta(pDelta:Double)->Bool{
         if (pDelta >= self.minDelta && pDelta < self.maxDelta){
@@ -80,38 +48,5 @@ class Layer:NSObject, NSCoding{
         }
         return -1
     }
-
-    
-    //Beginning of NSCoding Methods
-    required convenience init?(coder decoder: NSCoder) {
-        
-        
-        guard let dID = decoder.decodeObjectForKey("id") as? Int
-            else {return nil }
-        
-        guard let dMinDelta = decoder.decodeObjectForKey("minDelta") as? Double
-            else {return nil }
-        
-        guard let dMaxDelta = decoder.decodeObjectForKey("maxDelta") as? Double
-            else {return nil }
-        
-        guard let dPrecisionCoeficient = decoder.decodeObjectForKey("precisionCoeficient") as? Double
-            else {return nil }
-        
-        guard let dReads = decoder.decodeObjectForKey("reads") as? [Read]
-            else {return nil }
-        
-        self.init(pID: dID, pMinDelta: dMinDelta, pMaxDelta: dMaxDelta, pPrecisionCoeficient: dPrecisionCoeficient, pReads: dReads)
-    }
-    
-    
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.ID, forKey: "id")
-        coder.encodeObject(self.minDelta, forKey: "minDelta")
-        coder.encodeObject(self.maxDelta, forKey: "maxDelta")
-        coder.encodeObject(self.precisionCoeficient, forKey: "precisionCoeficient")
-        coder.encodeObject(self.reads, forKey: "reads")
-    }
-    //End of NSCoding Methods
     
 }

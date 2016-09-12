@@ -9,54 +9,17 @@
 import Foundation
 import CoreLocation
 import MapKit
+import RealmSwift
 
-class Read:NSObject, NSCoding{
+class Read: Object {
 
-    var latitude:Double
-    var longitude:Double
-    var signalStrength:SignalStrengthValue
-    var carrierName:String
-    
-    init(pLatitude:Double, pLongitude:Double, pSignalStrength:SignalStrengthValue, pCarrierName:String){
-        
-        self.latitude = pLatitude
-        self.longitude = pLongitude
- 
-        self.signalStrength = pSignalStrength
-        self.carrierName = pCarrierName
-    }
+    dynamic var latitude:Double = 0.0
+    dynamic var longitude:Double = 0.0
+    dynamic var signalStrength:Double = 0.0
+    dynamic var carrierName:String = ""
     
     func toString()->String{
-    return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength.signalASU.description) , Carrier name: \(self.carrierName)"
+        return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength) , Carrier name: \(self.carrierName)"
     }
     
-    //Beginning of NSCoding Methods
-    required convenience init?(coder decoder: NSCoder) {
-        
-      
-        guard let dLatitude = decoder.decodeObjectForKey("latitude") as? Double
-            else {return nil }
-      
-        guard let dLongitude = decoder.decodeObjectForKey("longitude") as? Double
-            else {return nil }
-        
-        guard let dSignalStrength = decoder.decodeObjectForKey("signalStrength") as? SignalStrengthValue
-            else {return nil }
-
-        guard let dCarrierName = decoder.decodeObjectForKey("carrierName") as? String
-            else {return nil }
-        
-        
-        self.init(pLatitude:dLatitude, pLongitude:dLongitude, pSignalStrength: dSignalStrength, pCarrierName:dCarrierName)
-    }
-    
-    
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.latitude, forKey: "latitude")
-        coder.encodeObject(self.longitude, forKey: "longitude")
-        coder.encodeObject(self.signalStrength, forKey: "signalStrength")
-        coder.encodeObject(self.carrierName, forKey: "carrierName")
-    }
-    //End of NSCoding Methods
-
 }

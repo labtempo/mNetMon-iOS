@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,15 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        if (AppDAO.sharedInstance.databaseExists()){
-            AppDAO.sharedInstance.readAppData()
-        } else {
+        if (UserDefaultData().getString("DatabaseStatus") != "existing"){
             AppData.sharedInstance.createEmptyLayers()
-            AppDAO.sharedInstance.saveAppData()
-            PListManager.sharedInstance.writePlist("Database", key: "databaseExists", data: true)
+            UserDefaultData().setString("existing", key: "DatabaseStatus")
         }
-        
         return true
     }
 
@@ -36,12 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-            AppDAO.sharedInstance.saveAppData()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-                AppDAO.sharedInstance.saveAppData()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -50,9 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-            AppDAO.sharedInstance.saveAppData()
     }
-
 
 }
 

@@ -24,7 +24,7 @@ enum SignalQuality {
      bom [ 17 - 24 ]
      muito bom [ 25 - 31 ]
     */
-    static func calculateSignalQuality(pSignalValue:Int)->SignalQuality{
+    static func calculateSignalQuality(pSignalValue:Double)->SignalQuality{
         if (pSignalValue > 25){
             return self.verygood
         } else if ( pSignalValue <= 24 && pSignalValue >= 17 ) {

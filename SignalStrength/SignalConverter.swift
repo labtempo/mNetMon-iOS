@@ -10,11 +10,11 @@ import Foundation
 
 class SignalConverter{
 
-    func DBMtoASU(pDBM:Int)->Int{
+    func DBMtoASU(pDBM:Double)->Double{
         return (pDBM + 113) / 2
     }
 
-    func ASUtoDBM(pASU:Int)->Int{
+    func ASUtoDBM(pASU:Double)->Double{
         return (pASU * 2) - 113
     }
 }
