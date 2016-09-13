@@ -22,18 +22,20 @@ class LogViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let realm = try! Realm()
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
         
+        let layer01 = realm.objects(Layer.self).filter("id == 1")[0]
         
-        let layer01 = realm.objects(Layer.self).filter("id == 1").first!
+        print(layer01)
         
         let reads = layer01.reads
         
-        var text = "Number of reads: \(reads.count) \n \n"
-        for r:Read in reads {
-            text += r.toString() + "\n \n"
-        }
-        self.textView.text = text
+        print(reads)
+      //  var text = "Number of reads: \(reads.count) \n \n"
+      //  for r:Read in reads {
+      //      text += r.toString() + "\n \n"
+       // }
+       // self.textView.text = text
     }
 
     override func didReceiveMemoryWarning() {
