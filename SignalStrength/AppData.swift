@@ -23,6 +23,7 @@ class AppData{
     }
     
     func addRead(pRead:Read){
+        
     
     }
     
