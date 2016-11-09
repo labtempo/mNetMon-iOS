@@ -23,8 +23,15 @@ class AppData{
     }
     
     func addRead(pRead:Read){
-        
-    
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        let layers = realm.objects(Layer)
+        for layer in layers{
+            layer.addRead(pRead)
+            let realm = RealmInterface.sharedInstance.getRealmInstance()
+            try! realm.write{
+                realm.add(layer, update: true)
+            }
+        }
     }
     
 }

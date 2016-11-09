@@ -25,6 +25,28 @@ class Layer: Object{
         return false
     }
     
+    func addRead(pRead:Read){
+        var newRead = Read()
+        newRead.latitude = pRead.latitude
+        newRead.longitude = pRead.longitude
+        newRead.signalStrength = pRead.signalStrength
+        newRead.carrierName = pRead.carrierName
+        
+        newRead = applyPrecisionCoeficient(newRead)
+        let index = self.searchInReads(newRead)
+        if (index == -1){
+            let realm = RealmInterface.sharedInstance.getRealmInstance()
+            try! realm.write{
+                print(self.reads)
+                self.reads.append(newRead)
+                print(self.reads)
+            }
+            
+        } else {
+            print("TODO - Terminar de implementar")
+        }
+    }
+    
     private func applyPrecisionCoeficient(pRead:Read)->Read{
         
         let latitudeINT = (Int(pRead.latitude / self.precisionCoeficient))

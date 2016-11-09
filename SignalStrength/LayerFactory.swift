@@ -14,22 +14,27 @@ class LayerFactory{
     
     func createEmptyLayers(){
         
-        var layers = [Layer]()
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        
         
         let layer01 = Layer()
         layer01.id = 1
         layer01.minDelta = 0
         layer01.maxDelta = 0.040
         layer01.precisionCoeficient = 0.002
-        layers.append(layer01)
+        try! realm.write{
+            realm.add(layer01)
+        }
+        
         
         let layer02 = Layer()
         layer02.id = 2
         layer02.minDelta = 0.041
         layer02.maxDelta = 0.1
         layer02.precisionCoeficient = 0.004
-        layers.append(layer02)
-        
+        try! realm.write{
+            realm.add(layer02)
+        }
         
         
         /*
@@ -93,13 +98,6 @@ class LayerFactory{
          
          */
         
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
-        
-        for lay:Layer in layers{
-            try! realm.write{
-                realm.add(lay)
-            }
-        }
         
     }
     
