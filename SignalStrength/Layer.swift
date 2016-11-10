@@ -43,7 +43,12 @@ class Layer: Object{
             }
             
         } else {
-            print("TODO - Terminar de implementar")
+            print("##### ATUALIZOU #######") /* TEM QUE TERMINAR DE DEBUGAR ESSA PARADA AQUI */
+            let firstRead = self.reads[index]
+            self.reads.removeAtIndex(index)
+            let newSignalStrengthValue = ( Double(firstRead.signalStrength) * (1 - Constants.ALPHA) ) + ( Double(newRead.signalStrength) * Constants.ALPHA )
+            firstRead.signalStrength = newSignalStrengthValue
+            self.reads.insert(firstRead, atIndex: index)
         }
     }
     

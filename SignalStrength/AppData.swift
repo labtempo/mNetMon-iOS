@@ -26,11 +26,8 @@ class AppData{
         let realm = RealmInterface.sharedInstance.getRealmInstance()
         let layers = realm.objects(Layer)
         for layer in layers{
+            print(" ~ ~ Layer: \(layer.id)")
             layer.addRead(pRead)
-            let realm = RealmInterface.sharedInstance.getRealmInstance()
-            try! realm.write{
-                realm.add(layer, update: true)
-            }
         }
     }
     
