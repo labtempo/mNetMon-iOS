@@ -95,7 +95,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     func update(){
         self.numberOfPinsLabel.text = "Pins: "+self.mapView.annotations.count.description
         self.deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
-        self.deltaCoeficientLabel.text = "MapDelta :" + deltaCoeficient.description
         
         if (AppData.sharedInstance.locationReader.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"
@@ -174,6 +173,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             if layer.canBeUsedWithCurrentDelta(self.deltaCoeficient){
                 self.currentLayer = layer.id - 1
                 print("Current layer: "+self.currentLayer.description)
+                deltaCoeficientLabel.text = "Lr: "+self.currentLayer.description
             }
         }
     }

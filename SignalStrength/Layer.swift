@@ -26,29 +26,27 @@ class Layer: Object{
     }
     
     func addRead(pRead:Read){
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+
         var newRead = Read()
         newRead.latitude = pRead.latitude
         newRead.longitude = pRead.longitude
         newRead.signalStrength = pRead.signalStrength
         newRead.carrierName = pRead.carrierName
-        
         newRead = applyPrecisionCoeficient(newRead)
+        
         let index = self.searchInReads(newRead)
+        
         if (index == -1){
-            let realm = RealmInterface.sharedInstance.getRealmInstance()
             try! realm.write{
-                print(self.reads)
                 self.reads.append(newRead)
-                print(self.reads)
             }
-            
         } else {
-            print("##### ATUALIZOU #######") /* TEM QUE TERMINAR DE DEBUGAR ESSA PARADA AQUI */
             let firstRead = self.reads[index]
-            self.reads.removeAtIndex(index)
             let newSignalStrengthValue = ( Double(firstRead.signalStrength) * (1 - Constants.ALPHA) ) + ( Double(newRead.signalStrength) * Constants.ALPHA )
-            firstRead.signalStrength = newSignalStrengthValue
-            self.reads.insert(firstRead, atIndex: index)
+            try! realm.write{
+                self.reads[index].signalStrength = newSignalStrengthValue
+            }
         }
     }
     
@@ -66,12 +64,10 @@ class Layer: Object{
     }
     
     private func searchInReads(pRead:Read)->Int{
-        var index = 0
         for r:Read in self.reads {
             if (r.latitude == pRead.latitude && r.longitude == pRead.longitude){
-                return index
+                return self.reads.indexOf(r)!
             }
-        index = index + 1
         }
         return -1
     }
