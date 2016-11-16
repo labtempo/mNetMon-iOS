@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class Synchronizer {
     
@@ -20,14 +21,16 @@ class Synchronizer {
     
     func findServer(serverAddress:String){
         
-        let url:NSURL = NSURL(string: "http://httpbin.org/get")!
-        let data:NSData? = NSData(contentsOfURL: url)
-        if (data != nil) {
-            let responseStr = NSString(data: data!, encoding:NSUTF8StringEncoding)! as String
-            print(responseStr)
-
-        }
+        let address = "http://"+serverAddress+"/handshake"
         
+        
+        Alamofire.request(.GET, address, parameters:["format":"json"]).responseJSON { response in
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+
     }
     
 }

@@ -22,7 +22,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        self.configuraStatusNaoSincronizando()
     }
     
     func configuraStatusNaoSincronizando(){
@@ -37,12 +37,10 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     }
     
     func findServer(){
-        print("passou 2")
         Synchronizer.sharedInstance.findServer(serverAddressLabel.text!)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        print("passou 1")
         findServer()
     }
 
