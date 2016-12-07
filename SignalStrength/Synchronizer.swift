@@ -20,31 +20,32 @@ class Synchronizer {
         
     }
     
-    func findServer(serverAddress:String){
+    func findServer(serverAddress:String, completionHandler: (Bool, String?) -> ()){
         
         let address = "http://"+serverAddress+"/handshake"
-        
+    
         
         Alamofire.request(.GET, address, parameters:["format":"json"]).responseJSON { response in
             
-            if let data = response.result.value {
-                let json = JSON(data)
-                self.handleServerAck(json, serverAddress: serverAddress)
+            switch response.result{
+            
+            case .Success:
+                completionHandler(true, self.getServerName(JSON(response.result.value!)))
+                break
+            case .Failure:
+                completionHandler(false, nil)
+                break
             }
+            
         }
-
+   
     }
     
-    private func handleServerAck(json:JSON, serverAddress:String){
+    private func getServerName(json:JSON)->String{
         if (json["table"]["response"] == "success"){
-            let appServer = ApplicationServer()
-            appServer.name = json["table"]["serverName"].stringValue
-            appServer.ip = serverAddress
-            let realm = RealmInterface.sharedInstance.getRealmInstance()
-            try! realm.write{
-                realm.add(appServer)
-            }
+            return json["table"]["serverName"].stringValue
         }
+        return ""
     }
     
 }

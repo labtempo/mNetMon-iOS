@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ACE770EBC330D8C8C6EAA86F /* Pods_SignalStrength.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5313B6F7013DAA3934B09A1 /* Pods_SignalStrength.framework */; };
-		B005AE961DF8BCBB00B17374 /* ApplicationServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005AE951DF8BCBB00B17374 /* ApplicationServer.swift */; };
 		B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F71DCED40700D6488D /* SyncViewController.swift */; };
 		B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F91DCED85800D6488D /* Synchronizer.swift */; };
 		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
@@ -63,7 +62,6 @@
 
 /* Begin PBXFileReference section */
 		5A107AA1B0F5F1E9C158595E /* Pods-SignalStrength.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalStrength.release.xcconfig"; path = "Pods/Target Support Files/Pods-SignalStrength/Pods-SignalStrength.release.xcconfig"; sourceTree = "<group>"; };
-		B005AE951DF8BCBB00B17374 /* ApplicationServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationServer.swift; sourceTree = "<group>"; };
 		B00F56F71DCED40700D6488D /* SyncViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
 		B00F56F91DCED85800D6488D /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */,
 				B0D36C891D8621EB006ADDFA /* RealmInterface.swift */,
 				B00F56F91DCED85800D6488D /* Synchronizer.swift */,
-				B005AE951DF8BCBB00B17374 /* ApplicationServer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 				B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */,
 				B0B1C7561D85F95C00BFE73A /* LayerFactory.swift in Sources */,
-				B005AE961DF8BCBB00B17374 /* ApplicationServer.swift in Sources */,
 				B0D36C8A1D8621EB006ADDFA /* RealmInterface.swift in Sources */,
 				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,

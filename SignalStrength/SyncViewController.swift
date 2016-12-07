@@ -22,12 +22,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.configuraStatusDeSincronizacao()
-    }
-    
-    func configuraStatusDeSincronizacao(){
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
-        let server = realm.objects(ApplicationServer).first
+        self.configuraStatusNaoSincronizando()
     }
     
     
@@ -37,13 +32,33 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    func configuraStatusProntoParaSincronizar(){
+        self.statusUiView.backgroundColor = UIColor.orangeColor()
+        self.statusTextView.text = "Pronto para sincronizar"
+    }
+    
+    
     func configuraStatusSincronizando(){
         self.statusUiView.backgroundColor = UIColor.greenColor()
         self.statusTextView.text = "Está sincronizando"
     }
     
     func findServer(){
-        Synchronizer.sharedInstance.findServer(serverAddressLabel.text!)
+        Synchronizer.sharedInstance.findServer(serverAddressLabel.text!){ (success, servername) in
+            if success{
+                let alertController = UIAlertController(title: "Sucesso", message:"Conectado ao servidor \(servername!).", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                self.configuraStatusProntoParaSincronizar()
+            } else {
+                let alertController = UIAlertController(title: "Erro", message:"Não foi possível localizar o servidor.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                self.configuraStatusNaoSincronizando()
+            }
+        }
+
+  
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
