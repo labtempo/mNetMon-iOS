@@ -22,8 +22,14 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.configuraStatusNaoSincronizando()
+        self.configuraStatusDeSincronizacao()
     }
+    
+    func configuraStatusDeSincronizacao(){
+        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        let server = realm.objects(ApplicationServer).first
+    }
+    
     
     func configuraStatusNaoSincronizando(){
         self.statusUiView.backgroundColor = UIColor.redColor()

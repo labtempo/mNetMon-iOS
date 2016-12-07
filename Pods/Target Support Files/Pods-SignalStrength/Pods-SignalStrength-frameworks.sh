@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-SignalStrength/Alamofire.framework"
   install_framework "Pods-SignalStrength/Realm.framework"
   install_framework "Pods-SignalStrength/RealmSwift.framework"
+  install_framework "Pods-SignalStrength/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-SignalStrength/Alamofire.framework"
   install_framework "Pods-SignalStrength/Realm.framework"
   install_framework "Pods-SignalStrength/RealmSwift.framework"
+  install_framework "Pods-SignalStrength/SwiftyJSON.framework"
 fi

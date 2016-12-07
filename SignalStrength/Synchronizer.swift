@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class Synchronizer {
     
@@ -26,11 +27,24 @@ class Synchronizer {
         
         Alamofire.request(.GET, address, parameters:["format":"json"]).responseJSON { response in
             
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+            if let data = response.result.value {
+                let json = JSON(data)
+                self.handleServerAck(json, serverAddress: serverAddress)
             }
         }
 
+    }
+    
+    private func handleServerAck(json:JSON, serverAddress:String){
+        if (json["table"]["response"] == "success"){
+            let appServer = ApplicationServer()
+            appServer.name = json["table"]["serverName"].stringValue
+            appServer.ip = serverAddress
+            let realm = RealmInterface.sharedInstance.getRealmInstance()
+            try! realm.write{
+                realm.add(appServer)
+            }
+        }
     }
     
 }
