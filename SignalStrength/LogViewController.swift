@@ -22,9 +22,8 @@ class LogViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
         
-        let layer01 = realm.objects(Layer.self).filter("id == 1")[0]
+        let layer01 = LayerAcR.all().filter("id == 1")[0]
         
         print(layer01)
         

@@ -14,7 +14,7 @@ class LayerFactory{
     
     func createEmptyLayers(){
         
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        let realm = try! Realm()
         
         
         let layer01 = Layer()

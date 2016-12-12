@@ -109,9 +109,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func getReadsInVisibleMapRect()->[Read]{
         
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
-        
-        let layer = realm.objects(Layer.self).filter("id == \(self.currentLayer)").first!
+        let layer = LayerAcR.all().filter("id == \(self.currentLayer)").first!
         
         var pins = layer.reads
         
@@ -165,9 +163,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func chooseLayer(){
         
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
-        
-        let layers = realm.objects(Layer.self)
+        let layers = LayerAcR.all()
         
         for layer in layers{
             if layer.canBeUsedWithCurrentDelta(self.deltaCoeficient){
@@ -179,8 +175,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     private func drawMapWithPins(){
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
-        let layers = realm.objects(Layer.self)
+        let layers = LayerAcR.all()
         self.drawMapWithPinsFromReads(layers[currentLayer].reads)
     }
     

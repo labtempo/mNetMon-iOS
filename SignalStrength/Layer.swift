@@ -26,7 +26,7 @@ class Layer: Object{
     }
     
     func addRead(pRead:Read){
-        let realm = RealmInterface.sharedInstance.getRealmInstance()
+        let realm = try! Realm()
 
         var newRead = Read()
         newRead.latitude = pRead.latitude
