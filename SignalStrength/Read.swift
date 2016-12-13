@@ -17,6 +17,7 @@ class Read: Object {
     dynamic var longitude:Double = 0.0
     dynamic var signalStrength:Double = 0.0
     dynamic var carrierName:String = ""
+    dynamic var isSyncPending:Bool = true
     
     func toString()->String{
         return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength) , Carrier name: \(self.carrierName)"

@@ -16,5 +16,9 @@ class LayerAcR{
         return realm.objects(Layer.self)
     }
     
+    static func filter(filtr:String)->Results<Layer>{
+        let realm = try! Realm()
+        return realm.objects(Layer.self).filter(filtr)
+    }
     
 }
