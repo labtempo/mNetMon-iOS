@@ -15,8 +15,17 @@ class Synchronizer {
     static let sharedInstance = Synchronizer()
     
     var isSynchronizing = false
+    var serverAddress = ""
     
     func startSync(){
+        let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = true")
+        for r:Read in pendingReads{
+            
+            Alamofire.request(.POST, self.serverAddress+"read", parameters: [r.latitude.description: r.latitude.description], encoding: .JSON)
+            
+            
+            
+        }
         
     }
     
@@ -30,9 +39,11 @@ class Synchronizer {
             switch response.result{
             
             case .Success:
+                self.serverAddress = serverAddress
                 completionHandler(true, self.getServerName(JSON(response.result.value!)))
                 break
             case .Failure:
+                self.serverAddress = ""
                 completionHandler(false, nil)
                 break
             }

@@ -22,19 +22,13 @@ class LogViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        let layer01 = LayerAcR.all().filter("id == 1")[0]
-        
-        print(layer01)
-        
+        let layer01 = Layer.all().filter("id == 1").first!
         let reads = layer01.reads
-        
-        print(reads)
-      //  var text = "Number of reads: \(reads.count) \n \n"
-      //  for r:Read in reads {
-      //      text += r.toString() + "\n \n"
-       // }
-       // self.textView.text = text
+        var text = "Number of reads: \(reads.count) \n \n"
+        for r:Read in reads {
+            text += r.toString() + "\n \n"
+        }
+        self.textView.text = text
     }
 
     override func didReceiveMemoryWarning() {

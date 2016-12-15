@@ -109,7 +109,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func getReadsInVisibleMapRect()->[Read]{
         
-        let layer = LayerAcR.all().filter("id == \(self.currentLayer)").first!
+        let layer = Layer.all().filter("id == \(self.currentLayer)").first!
         
         var pins = layer.reads
         
@@ -163,7 +163,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func chooseLayer(){
         
-        let layers = LayerAcR.all()
+        let layers = Layer.all()
         
         for layer in layers{
             if layer.canBeUsedWithCurrentDelta(self.deltaCoeficient){
@@ -175,7 +175,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     private func drawMapWithPins(){
-        let layers = LayerAcR.all()
+        let layers = Layer.all()
         self.drawMapWithPinsFromReads(layers[currentLayer].reads)
     }
     

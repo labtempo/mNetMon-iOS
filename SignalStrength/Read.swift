@@ -23,4 +23,16 @@ class Read: Object {
         return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength) , Carrier name: \(self.carrierName)"
     }
     
+    /* Beginning of RealmSwift data manipulation Methods */
+    static func all()->Results<Read> {
+        let realm = try! Realm()
+        return realm.objects(Read.self)
+    }
+    
+    static func filter(filtr:String)->Results<Layer>{
+        let realm = try! Realm()
+        return realm.objects(Layer.self).filter(filtr)
+    }
+    /* End of RealmSwift data manipulation Methods */
+    
 }

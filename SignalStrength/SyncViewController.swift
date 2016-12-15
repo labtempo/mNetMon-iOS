@@ -13,10 +13,9 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var serverAddressLabel: UITextField!
     @IBOutlet weak var statusUiView: UITextView!
     @IBOutlet weak var statusTextView: UITextView!
-    
     @IBOutlet weak var pendingReadsLabel: UILabel!
-    
     @IBOutlet weak var syncButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var updateTimer = NSTimer()
     
@@ -27,6 +26,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.serverAddressLabel.delegate = self
         self.configuraStatusNaoSincronizando()
+        self.activityIndicator.hidden = true
     }
     
     //Beginning of ViewController methods
@@ -44,7 +44,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     // END UIViewController Methods
     
     func update(){
-        let firstLayerReads = LayerAcR.filter("id = 1").first!
+        let firstLayerReads = Layer.filter("id = 1").first!
         let numOfPendingSyncReads = firstLayerReads.reads.filter("isSyncPending = true").count
         self.pendingReadsLabel.text = "\(numOfPendingSyncReads) Leituras pendentes"
     }
@@ -54,6 +54,9 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.statusUiView.backgroundColor = UIColor.redColor()
         self.statusTextView.text = "Não está sincronizando"
         self.syncButton.enabled = false
+        self.activityIndicator.hidden = true
+        self.activityIndicator.stopAnimating()
+        
     }
     
     
@@ -61,15 +64,22 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.statusUiView.backgroundColor = UIColor.orangeColor()
         self.statusTextView.text = "Pronto para sincronizar"
         self.syncButton.enabled = true
+        self.activityIndicator.hidden = true
+        self.activityIndicator.stopAnimating()
+        
     }
     
     
     func configuraStatusSincronizando(){
         self.statusUiView.backgroundColor = UIColor.greenColor()
         self.statusTextView.text = "Está sincronizando"
+        self.syncButton.enabled = false
     }
     
     func findServer(){
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        
         Synchronizer.sharedInstance.findServer(serverAddressLabel.text!){ (success, servername) in
             if success{
                 let alertController = UIAlertController(title: "Sucesso", message:"Conectado ao servidor \(servername!).", preferredStyle: UIAlertControllerStyle.Alert)
@@ -86,6 +96,15 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
 
   
     }
+    
+    
+    @IBAction func syncButtonAct(sender: AnyObject) {
+        self.configuraStatusSincronizando()
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        print("Começar a sincronizar")
+    }
+    
     
     func textFieldDidEndEditing(textField: UITextField) {
         findServer()
@@ -107,8 +126,5 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    
-
 
 }

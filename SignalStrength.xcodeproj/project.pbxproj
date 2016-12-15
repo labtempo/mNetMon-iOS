@@ -25,8 +25,6 @@
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B1C7561D85F95C00BFE73A /* LayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */; };
 		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
-		B0DCC6AC1DFF34E5002DB034 /* ReadAcR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DCC6AB1DFF34E5002DB034 /* ReadAcR.swift */; };
-		B0DCC6AE1DFF34F0002DB034 /* LayerAcR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DCC6AD1DFF34F0002DB034 /* LayerAcR.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* LocationReader.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -83,8 +81,6 @@
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerFactory.swift; sourceTree = "<group>"; };
 		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
-		B0DCC6AB1DFF34E5002DB034 /* ReadAcR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadAcR.swift; sourceTree = "<group>"; };
-		B0DCC6AD1DFF34F0002DB034 /* LayerAcR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerAcR.swift; sourceTree = "<group>"; };
 		B78B4E68EA93387F661FCBD8 /* Pods-SignalStrength.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalStrength.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SignalStrength/Pods-SignalStrength.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* LocationReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReader.swift; sourceTree = "<group>"; };
@@ -151,7 +147,6 @@
 				B07110321C034E74005451C3 /* Database.plist */,
 				B07110331C034E74005451C3 /* Info.plist */,
 				B0DCC6A91DFF349A002DB034 /* RealmModel */,
-				B0DCC6AA1DFF34A6002DB034 /* RealmActiveRecord */,
 				B07110311C034CA7005451C3 /* Controller */,
 				B07110301C034CA3005451C3 /* View */,
 				B071102F1C034C9E005451C3 /* Model */,
@@ -209,15 +204,6 @@
 				B0256A8C1CB30895000A9828 /* Layer.swift */,
 			);
 			name = RealmModel;
-			sourceTree = "<group>";
-		};
-		B0DCC6AA1DFF34A6002DB034 /* RealmActiveRecord */ = {
-			isa = PBXGroup;
-			children = (
-				B0DCC6AB1DFF34E5002DB034 /* ReadAcR.swift */,
-				B0DCC6AD1DFF34F0002DB034 /* LayerAcR.swift */,
-			);
-			name = RealmActiveRecord;
 			sourceTree = "<group>";
 		};
 		F2F4E5BE05D6B397051C8C02 /* Pods */ = {
@@ -409,11 +395,9 @@
 				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
 				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,
 				B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */,
-				B0DCC6AE1DFF34F0002DB034 /* LayerAcR.swift in Sources */,
 				BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */,
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,
 				B07110391C034E84005451C3 /* HomeViewController.swift in Sources */,
-				B0DCC6AC1DFF34E5002DB034 /* ReadAcR.swift in Sources */,
 				B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */,
 				B0B1C7561D85F95C00BFE73A /* LayerFactory.swift in Sources */,

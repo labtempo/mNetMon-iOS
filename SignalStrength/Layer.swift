@@ -72,4 +72,18 @@ class Layer: Object{
         return -1
     }
     
+    
+    /* Beginning of RealmSwift data manipulation Methods */
+    static func all()->Results<Layer> {
+        let realm = try! Realm()
+        return realm.objects(Layer.self)
+    }
+    
+    static func filter(filtr:String)->Results<Layer>{
+        let realm = try! Realm()
+        return realm.objects(Layer.self).filter(filtr)
+    }
+    /* End of RealmSwift data manipulation Methods */
+    
+    
 }
