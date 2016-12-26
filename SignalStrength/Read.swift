@@ -23,6 +23,18 @@ class Read: Object {
         return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength) , Carrier name: \(self.carrierName)"
     }
     
+    func toJson()->[String: AnyObject]{
+        return [
+            "read": [
+                    "latitude" : self.latitude.description,
+                    "longitude": self.longitude.description,
+                    "signalStrength": self.signalStrength.description,
+                    "carrierName" : self.carrierName
+            ]
+        ]
+    }
+    
+    
     /* Beginning of RealmSwift data manipulation Methods */
     static func all()->Results<Read> {
         let realm = try! Realm()

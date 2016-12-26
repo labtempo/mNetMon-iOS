@@ -533,7 +533,7 @@
                                     <constraint firstAttribute="height" constant="37" id="9iS-6c-QqZ"/>
                                     <constraint firstAttribute="width" constant="37" id="Oyu-Ag-PTv"/>
                                 </constraints>
-                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="9iS-6c-QqZ"/>
@@ -554,7 +554,7 @@
                                     <constraint firstAttribute="width" constant="200" id="Qz9-BQ-hE6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -597,6 +597,12 @@
                                 <exclude reference="AGg-9x-fx5"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="bHT-Y0-3Za"/>
+                                <exclude reference="dh7-PK-VX8"/>
+                                <exclude reference="1zX-to-72i"/>
+                                <exclude reference="wCd-8y-h9W"/>
+                                <exclude reference="Fb4-Sn-13z"/>
+                                <exclude reference="yIk-9o-ke2"/>
                                 <exclude reference="1bM-5c-Mvz"/>
                                 <exclude reference="miv-Qp-RWe"/>
                                 <exclude reference="vFi-hJ-1jE"/>
@@ -605,12 +611,6 @@
                                 <exclude reference="Iro-n3-ZuY"/>
                                 <exclude reference="jbn-lM-yQE"/>
                                 <exclude reference="pSe-ER-5wt"/>
-                                <exclude reference="1zX-to-72i"/>
-                                <exclude reference="wCd-8y-h9W"/>
-                                <exclude reference="Fb4-Sn-13z"/>
-                                <exclude reference="yIk-9o-ke2"/>
-                                <exclude reference="bHT-Y0-3Za"/>
-                                <exclude reference="dh7-PK-VX8"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -623,6 +623,12 @@
                                 <include reference="AGg-9x-fx5"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="bHT-Y0-3Za"/>
+                                <include reference="dh7-PK-VX8"/>
+                                <include reference="1zX-to-72i"/>
+                                <include reference="wCd-8y-h9W"/>
+                                <include reference="Fb4-Sn-13z"/>
+                                <include reference="yIk-9o-ke2"/>
                                 <include reference="1bM-5c-Mvz"/>
                                 <include reference="miv-Qp-RWe"/>
                                 <include reference="vFi-hJ-1jE"/>
@@ -631,12 +637,6 @@
                                 <include reference="Iro-n3-ZuY"/>
                                 <include reference="jbn-lM-yQE"/>
                                 <include reference="pSe-ER-5wt"/>
-                                <include reference="1zX-to-72i"/>
-                                <include reference="wCd-8y-h9W"/>
-                                <include reference="Fb4-Sn-13z"/>
-                                <include reference="yIk-9o-ke2"/>
-                                <include reference="bHT-Y0-3Za"/>
-                                <include reference="dh7-PK-VX8"/>
                             </mask>
                         </variation>
                     </view>

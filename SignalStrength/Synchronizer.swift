@@ -14,16 +14,41 @@ class Synchronizer {
     
     static let sharedInstance = Synchronizer()
     
+    let httpPrefix = "http://"
+    private let readsRestRoute = "/reads"
+    private let handshakeRestRoute = "/handshake"
+    
+    
+    
     var isSynchronizing = false
     var serverAddress = ""
     
+    
     func startSync(){
         let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = true")
+        
+        let address = self.httpPrefix + self.serverAddress + self.readsRestRoute
+        
         for r:Read in pendingReads{
+            print(self.serverAddress)
             
-            Alamofire.request(.POST, self.serverAddress+"read", parameters: [r.latitude.description: r.latitude.description], encoding: .JSON)
-            
-            
+            Alamofire.request(.POST, address, parameters: r.toJson(), encoding:.JSON).responseJSON
+                {
+                    response in switch response.result
+                    {
+                    case .Success(let JSON):
+                        print("Success with JSON: \(JSON)")
+                        //converting json into NSDictionary
+                        
+                        let response = JSON as! NSDictionary
+                        print(response)
+                        
+                        
+                        
+                    case .Failure(let error):
+                        print("Request failed with error: \(error)")
+                    }
+            }
             
         }
         
@@ -31,9 +56,10 @@ class Synchronizer {
     
     func findServer(serverAddress:String, completionHandler: (Bool, String?) -> ()){
         
-        let address = "http://"+serverAddress+"/handshake"
-    
+        let address = self.httpPrefix+serverAddress+self.handshakeRestRoute
         
+        print(address)
+    
         Alamofire.request(.GET, address, parameters:["format":"json"]).responseJSON { response in
             
             switch response.result{

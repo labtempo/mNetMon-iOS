@@ -103,6 +103,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         print("Começar a sincronizar")
+        Synchronizer.sharedInstance.startSync()
     }
     
     
