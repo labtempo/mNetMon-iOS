@@ -32,8 +32,7 @@ class Synchronizer {
         for r:Read in pendingReads{
             print(self.serverAddress)
             
-            Alamofire.request(.POST, address, parameters: r.toJson(), encoding:.JSON).responseJSON
-                {
+            Alamofire.request(.POST, address, parameters: r.toJson(), encoding:.JSON).responseJSON {
                     response in switch response.result
                     {
                     case .Success(let JSON):
@@ -78,6 +77,18 @@ class Synchronizer {
    
     }
     
+    func syncRead(read:Read, address:String, completionHandler: (Bool) -> ()){
+        let completeAddress = self.httpPrefix + address + self.readsRestRoute
+        Alamofire.request(.POST, completeAddress, parameters: read.toJson(), encoding:.JSON).responseJSON { response in
+            let json = JSON(response.result.value!)
+            if (json["table"]["response"] == "success"){
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+    }
+
     private func getServerName(json:JSON)->String{
         if (json["table"]["response"] == "success"){
             return json["table"]["serverName"].stringValue

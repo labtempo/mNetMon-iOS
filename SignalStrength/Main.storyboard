@@ -569,6 +569,14 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Jb-es-XNk">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.91643526193633951" green="0.91643526193633951" blue="0.91643526193633951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -578,12 +586,16 @@
                             <constraint firstItem="AGg-9x-fx5" firstAttribute="top" secondItem="C8Q-xb-lLR" secondAttribute="bottom" constant="8" id="Fb4-Sn-13z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iqK-Zv-tXq" secondAttribute="trailing" constant="50" id="Iro-n3-ZuY"/>
                             <constraint firstItem="fys-9R-63x" firstAttribute="centerX" secondItem="BhW-Ga-8oB" secondAttribute="centerX" id="Oh1-KZ-rto"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Jb-es-XNk" secondAttribute="trailing" id="WUd-bB-cSz"/>
                             <constraint firstItem="C8Q-xb-lLR" firstAttribute="top" secondItem="pxa-fx-ogo" secondAttribute="bottom" constant="8" id="bHT-Y0-3Za"/>
                             <constraint firstItem="C8Q-xb-lLR" firstAttribute="centerX" secondItem="BhW-Ga-8oB" secondAttribute="centerX" id="dh7-PK-VX8"/>
+                            <constraint firstItem="8Jb-es-XNk" firstAttribute="leading" secondItem="BhW-Ga-8oB" secondAttribute="leadingMargin" id="eNK-gd-x7d"/>
+                            <constraint firstItem="jMD-Ki-Yqe" firstAttribute="top" secondItem="8Jb-es-XNk" secondAttribute="bottom" constant="20" id="fBV-If-6K5"/>
                             <constraint firstItem="iqK-Zv-tXq" firstAttribute="leading" secondItem="BhW-Ga-8oB" secondAttribute="leadingMargin" constant="50" id="jbn-lM-yQE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5jb-1m-6ZW" secondAttribute="trailing" id="miv-Qp-RWe"/>
                             <constraint firstItem="iqK-Zv-tXq" firstAttribute="top" secondItem="5jb-1m-6ZW" secondAttribute="bottom" constant="8" id="pSe-ER-5wt"/>
                             <constraint firstItem="5jb-1m-6ZW" firstAttribute="leading" secondItem="BhW-Ga-8oB" secondAttribute="leadingMargin" id="vFi-hJ-1jE"/>
+                            <constraint firstItem="8Jb-es-XNk" firstAttribute="top" secondItem="AGg-9x-fx5" secondAttribute="bottom" constant="16" id="vUx-39-Vl4"/>
                             <constraint firstItem="pxa-fx-ogo" firstAttribute="top" secondItem="iqK-Zv-tXq" secondAttribute="bottom" constant="24" id="wCd-8y-h9W"/>
                             <constraint firstItem="AGg-9x-fx5" firstAttribute="centerX" secondItem="BhW-Ga-8oB" secondAttribute="centerX" id="yIk-9o-ke2"/>
                         </constraints>
@@ -595,14 +607,9 @@
                                 <exclude reference="pxa-fx-ogo"/>
                                 <exclude reference="C8Q-xb-lLR"/>
                                 <exclude reference="AGg-9x-fx5"/>
+                                <exclude reference="8Jb-es-XNk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bHT-Y0-3Za"/>
-                                <exclude reference="dh7-PK-VX8"/>
-                                <exclude reference="1zX-to-72i"/>
-                                <exclude reference="wCd-8y-h9W"/>
-                                <exclude reference="Fb4-Sn-13z"/>
-                                <exclude reference="yIk-9o-ke2"/>
                                 <exclude reference="1bM-5c-Mvz"/>
                                 <exclude reference="miv-Qp-RWe"/>
                                 <exclude reference="vFi-hJ-1jE"/>
@@ -611,6 +618,16 @@
                                 <exclude reference="Iro-n3-ZuY"/>
                                 <exclude reference="jbn-lM-yQE"/>
                                 <exclude reference="pSe-ER-5wt"/>
+                                <exclude reference="1zX-to-72i"/>
+                                <exclude reference="wCd-8y-h9W"/>
+                                <exclude reference="Fb4-Sn-13z"/>
+                                <exclude reference="yIk-9o-ke2"/>
+                                <exclude reference="bHT-Y0-3Za"/>
+                                <exclude reference="dh7-PK-VX8"/>
+                                <exclude reference="WUd-bB-cSz"/>
+                                <exclude reference="eNK-gd-x7d"/>
+                                <exclude reference="vUx-39-Vl4"/>
+                                <exclude reference="fBV-If-6K5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -621,14 +638,9 @@
                                 <include reference="pxa-fx-ogo"/>
                                 <include reference="C8Q-xb-lLR"/>
                                 <include reference="AGg-9x-fx5"/>
+                                <include reference="8Jb-es-XNk"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bHT-Y0-3Za"/>
-                                <include reference="dh7-PK-VX8"/>
-                                <include reference="1zX-to-72i"/>
-                                <include reference="wCd-8y-h9W"/>
-                                <include reference="Fb4-Sn-13z"/>
-                                <include reference="yIk-9o-ke2"/>
                                 <include reference="1bM-5c-Mvz"/>
                                 <include reference="miv-Qp-RWe"/>
                                 <include reference="vFi-hJ-1jE"/>
@@ -637,6 +649,16 @@
                                 <include reference="Iro-n3-ZuY"/>
                                 <include reference="jbn-lM-yQE"/>
                                 <include reference="pSe-ER-5wt"/>
+                                <include reference="1zX-to-72i"/>
+                                <include reference="wCd-8y-h9W"/>
+                                <include reference="Fb4-Sn-13z"/>
+                                <include reference="yIk-9o-ke2"/>
+                                <include reference="bHT-Y0-3Za"/>
+                                <include reference="dh7-PK-VX8"/>
+                                <include reference="WUd-bB-cSz"/>
+                                <include reference="eNK-gd-x7d"/>
+                                <include reference="vUx-39-Vl4"/>
+                                <include reference="fBV-If-6K5"/>
                             </mask>
                         </variation>
                     </view>
@@ -648,6 +670,7 @@
                         <outlet property="statusTextView" destination="G9w-6h-732" id="AQW-dd-OXv"/>
                         <outlet property="statusUiView" destination="G9w-6h-732" id="k6I-4u-t3O"/>
                         <outlet property="syncButton" destination="pxa-fx-ogo" id="mnP-3a-9o7"/>
+                        <outlet property="syncConsole" destination="8Jb-es-XNk" id="Lx2-9t-BPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifV-J5-s5f" userLabel="First Responder" sceneMemberID="firstResponder"/>

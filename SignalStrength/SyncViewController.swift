@@ -16,6 +16,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pendingReadsLabel: UILabel!
     @IBOutlet weak var syncButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var syncConsole: UITextView!
     
     var updateTimer = NSTimer()
     
@@ -27,6 +28,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.serverAddressLabel.delegate = self
         self.configuraStatusNaoSincronizando()
         self.activityIndicator.hidden = true
+        self.syncConsole.text = ""
     }
     
     //Beginning of ViewController methods
@@ -79,22 +81,31 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     func findServer(){
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
-        
+        self.printString("Tentando conectar com servidor \(self.serverAddressLabel.text!)")
         Synchronizer.sharedInstance.findServer(serverAddressLabel.text!){ (success, servername) in
             if success{
-                let alertController = UIAlertController(title: "Sucesso", message:"Conectado ao servidor \(servername!).", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.printString("Conectado com sucesso!")
                 self.configuraStatusProntoParaSincronizar()
             } else {
-                let alertController = UIAlertController(title: "Erro", message:"Não foi possível localizar o servidor.", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.printString("Servidor não encontrado.")
                 self.configuraStatusNaoSincronizando()
             }
         }
-
-  
+    }
+    
+    func syncronize(){
+        let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = true")
+        let address = self.serverAddressLabel.text!
+        for r:Read in pendingReads{
+            Synchronizer.sharedInstance.syncRead(r, address: address){ (success) in
+                if (success){
+                    self.printString("Leitura enviada sucesso!")
+                } else {
+                    self.printString("Erro ao enviar leitura!")
+                }
+            
+            }
+        }
     }
     
     
@@ -102,19 +113,28 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.configuraStatusSincronizando()
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
-        print("Começar a sincronizar")
-        Synchronizer.sharedInstance.startSync()
+        self.printString("Iniciando sincronização")
+        self.syncronize()
     }
     
     
     func textFieldDidEndEditing(textField: UITextField) {
-        findServer()
+        if (self.serverAddressLabel.text != ""){
+            findServer()
+        }
     }
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func printString(str:String!){
+        self.syncConsole.text = self.syncConsole.text + "\(str!)\n"
+        let bottomOffset = CGPointMake(0, self.syncConsole.contentSize.height - self.syncConsole.bounds.size.height)
+        self.syncConsole.setContentOffset(bottomOffset, animated: false)
+            
     }
     
     //dismiss keyboard on return button
