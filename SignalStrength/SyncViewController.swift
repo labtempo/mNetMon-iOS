@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SyncViewController: UIViewController, UITextFieldDelegate {
 
@@ -100,11 +101,20 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
             Synchronizer.sharedInstance.syncRead(r, address: address){ (success) in
                 if (success){
                     self.printString("Leitura enviada sucesso!")
+                    self.setReadAsSyncronized(r)
                 } else {
                     self.printString("Erro ao enviar leitura!")
                 }
-            
             }
+        }
+        self.configuraStatusProntoParaSincronizar()
+        self.printString("Sincronização finalizada.")
+    }
+    
+    func setReadAsSyncronized(read:Read){
+        let realm = try! Realm()
+        try! realm.write{
+            read.isSyncPending = false
         }
     }
     
