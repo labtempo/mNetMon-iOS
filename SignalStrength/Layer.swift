@@ -12,13 +12,13 @@ import RealmSwift
 class Layer: Object{
     
     dynamic var id:Int = 0
-    dynamic var minDelta:Double = 0.0
-    dynamic var maxDelta:Double = 0.0
+    dynamic var minCameraAltitude:Double = 0.0
+    dynamic var maxCameraAltitude:Double = 0.0
     dynamic var precisionCoeficient:Double = 0.0
     let reads = List<Read>()
     
-    func canBeUsedWithCurrentDelta(pDelta:Double)->Bool{
-        if (pDelta >= self.minDelta && pDelta < self.maxDelta){
+    func canBeUsedWithCameraAltitude(cameraAltitude:Double)->Bool{
+        if (cameraAltitude >= self.minCameraAltitude && cameraAltitude < self.maxCameraAltitude){
             return true
         }
         
