@@ -43,7 +43,7 @@ class Layer: Object{
             }
         } else {
             let firstRead = self.reads[index]
-            let newSignalStrengthValue = ( Double(firstRead.signalStrength) * (1 - Constants.ALPHA) ) + ( Double(newRead.signalStrength) * Constants.ALPHA )
+            let newSignalStrengthValue = ( Double(firstRead.signalStrength) * (1 - AppConstants.ALPHA) ) + ( Double(newRead.signalStrength) * AppConstants.ALPHA )
             try! realm.write{
                 self.reads[index].signalStrength = newSignalStrengthValue
             }

@@ -12,7 +12,6 @@
 		B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F91DCED85800D6488D /* Synchronizer.swift */; };
 		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
 		B0256A8D1CB30895000A9828 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8C1CB30895000A9828 /* Layer.swift */; };
-		B0256A8F1CB31065000A9828 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8E1CB31065000A9828 /* Constants.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
 		B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110261C034C82005451C3 /* LaunchScreen.storyboard */; };
@@ -25,6 +24,8 @@
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B1C7561D85F95C00BFE73A /* LayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */; };
 		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
+		B0C5F7C61E2BE2FC002B9DDF /* MapSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */; };
+		B0C5F7C81E2BE850002B9DDF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C5F7C71E2BE850002B9DDF /* AppConstants.swift */; };
 		BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A82111C24A25800A3A96E /* AppColors.swift */; };
 		BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6A901C1633D00091EF1F /* LocationReader.swift */; };
 		BEBA553B1C1F460A001C2428 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA55371C1F460A001C2428 /* green.png */; };
@@ -65,7 +66,6 @@
 		B00F56F91DCED85800D6488D /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		B0256A8C1CB30895000A9828 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
-		B0256A8E1CB31065000A9828 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0256A971CB31766000A9828 /* SignalStrengthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignalStrengthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101D1C034C82005451C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +81,8 @@
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerFactory.swift; sourceTree = "<group>"; };
 		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
+		B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSquare.swift; sourceTree = "<group>"; };
+		B0C5F7C71E2BE850002B9DDF /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B78B4E68EA93387F661FCBD8 /* Pods-SignalStrength.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalStrength.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SignalStrength/Pods-SignalStrength.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4A82111C24A25800A3A96E /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE7E6A901C1633D00091EF1F /* LocationReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationReader.swift; sourceTree = "<group>"; };
@@ -163,12 +165,12 @@
 			isa = PBXGroup;
 			children = (
 				B071103A1C034E99005451C3 /* AppData.swift */,
+				B0C5F7C71E2BE850002B9DDF /* AppConstants.swift */,
 				BE7E6A901C1633D00091EF1F /* LocationReader.swift */,
 				BEBAB0B11C163D800096990C /* SignalStrengthValue.swift */,
 				B09218DD1C2CCAC600052BAE /* SignalConverter.swift */,
 				BEBAB0B31C163E230096990C /* SignalQuality.swift */,
 				BEBAB0AF1C16379A0096990C /* CellularInfo.swift */,
-				B0256A8E1CB31065000A9828 /* Constants.swift */,
 				B0B1C7551D85F95C00BFE73A /* LayerFactory.swift */,
 				B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */,
 				B00F56F91DCED85800D6488D /* Synchronizer.swift */,
@@ -193,6 +195,7 @@
 				B07110381C034E84005451C3 /* HomeViewController.swift */,
 				B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */,
 				B07110421C035D58005451C3 /* LogViewController.swift */,
+				B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -390,10 +393,10 @@
 			files = (
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
 				B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */,
-				B0256A8F1CB31065000A9828 /* Constants.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
 				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,
+				B0C5F7C61E2BE2FC002B9DDF /* MapSquare.swift in Sources */,
 				B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */,
 				BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */,
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,
@@ -406,6 +409,7 @@
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
 				B071103E1C034E99005451C3 /* AppData.swift in Sources */,
+				B0C5F7C81E2BE850002B9DDF /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
