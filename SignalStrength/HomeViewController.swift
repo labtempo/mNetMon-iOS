@@ -62,11 +62,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     //Beginning of MapView methods
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        let pin = view.annotation as! ColorPointAnnotation
-        print(pin.title)
-    }
-    
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         self.chooseLayer()
         self.drawMapWithPins()
@@ -77,19 +72,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     
-    //MKMapViewDelegate Method - View For Annotation
-    //Without using reusable pins
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        }
-        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-        let colorPointAnnotation = annotation as! ColorPointAnnotation
-        pinView.pinTintColor = colorPointAnnotation.pinColor
-        pinView.annotation = annotation
-        return pinView
-    }
-    
+    //MKMapViewDelegate Method - Renderer For Overlay
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolygonRenderer(overlay: overlay)
         var color = UIColor()
@@ -109,9 +92,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     func update(){
-        self.numberOfPinsLabel.text = "Pins: "+self.mapView.annotations.count.description
-        //self.deltaCoeficient = self.mapView.region.span.latitudeDelta + self.mapView.region.span.longitudeDelta
-        
         if (AppData.sharedInstance.locationReader.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"
             self.authorizationStatusView.backgroundColor = AppColors.viewGreenColor
@@ -119,7 +99,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             self.authorizationStatusLabel.text = "Not Authorized"
             self.authorizationStatusView.backgroundColor = AppColors.viewRedColor
         }
-
     }
     
     
@@ -146,27 +125,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.mapView.removeOverlays(self.mapView.overlays)
         for r:Read in pReads {
             self.makePolyline(r)
-            
-            var pin:ColorPointAnnotation
-            
-            let signalQuality = SignalQuality.calculateSignalQuality(r.signalStrength)
-            
-            switch (signalQuality){
-                case .verybad: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryBadColor)
-                case .bad: pin = ColorPointAnnotation(pinColor: AppColors.signalBadColor)
-                case .regular: pin = ColorPointAnnotation(pinColor: AppColors.signalRegularColor)
-                case .good: pin = ColorPointAnnotation(pinColor: AppColors.signalGoodColor)
-                case .verygood: pin = ColorPointAnnotation(pinColor: AppColors.signalVeryGoodColor)
-            }
-            
-            pin.coordinate.latitude = r.latitude
-            pin.coordinate.longitude = r.longitude
-            
-            
-            mapView.addAnnotation(pin)
-            if (!mapView.annotationsInMapRect(self.mapView.visibleMapRect).contains(pin)){
-                self.mapView.removeAnnotation(pin)
-            }
         }
     }
 
@@ -181,19 +139,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     private func chooseLayer(){
         
-        //let layers = Layer.all()
+       let layers = Layer.all()
        self.currentLayer = 0
-        
-        
-        /*
-        for layer in layers{
+       for layer in layers{
             if layer.canBeUsedWithCameraAltitude(self.mapView.camera.altitude){
                 self.currentLayer = layer.id - 1
                 print("Current layer: "+self.currentLayer.description)
                 print("CA: "+self.mapView.camera.altitude.description)
                 deltaCoeficientLabel.text = "Lr: "+self.currentLayer.description
             }
-        } */
+        }
     }
     
     private func drawMapWithPins(){
@@ -202,10 +157,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func makePolyline(read:Read){
+        let currentLayer = Layer.filter("id = \(self.currentLayer+1)").first!
+        let coeficient = currentLayer.precisionCoeficient
         let tr = CLLocationCoordinate2D(latitude: read.latitude, longitude: read.longitude)
-        let tl = CLLocationCoordinate2D(latitude: read.latitude, longitude: (read.longitude - 0.002))
-        let br = CLLocationCoordinate2D(latitude: (read.latitude - 0.002), longitude: read.longitude)
-        let bl = CLLocationCoordinate2D(latitude: (read.latitude - 0.002), longitude: (read.longitude - 0.002))
+        let tl = CLLocationCoordinate2D(latitude: read.latitude, longitude: (read.longitude - coeficient))
+        let br = CLLocationCoordinate2D(latitude: (read.latitude - coeficient), longitude: read.longitude)
+        let bl = CLLocationCoordinate2D(latitude: (read.latitude - coeficient), longitude: (read.longitude - coeficient))
         var coordinates = [br, tr, tl, bl]
         let square = MKPolygon(coordinates: &coordinates, count: 4)
         let signalQuality = SignalQuality.calculateSignalQuality(read.signalStrength)

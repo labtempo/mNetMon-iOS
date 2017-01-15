@@ -10,7 +10,6 @@
 		ACE770EBC330D8C8C6EAA86F /* Pods_SignalStrength.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5313B6F7013DAA3934B09A1 /* Pods_SignalStrength.framework */; };
 		B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F71DCED40700D6488D /* SyncViewController.swift */; };
 		B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F91DCED85800D6488D /* Synchronizer.swift */; };
-		B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */; };
 		B0256A8D1CB30895000A9828 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8C1CB30895000A9828 /* Layer.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
@@ -64,7 +63,6 @@
 		5A107AA1B0F5F1E9C158595E /* Pods-SignalStrength.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalStrength.release.xcconfig"; path = "Pods/Target Support Files/Pods-SignalStrength/Pods-SignalStrength.release.xcconfig"; sourceTree = "<group>"; };
 		B00F56F71DCED40700D6488D /* SyncViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
 		B00F56F91DCED85800D6488D /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
-		B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		B0256A8C1CB30895000A9828 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		B0256A971CB31766000A9828 /* SignalStrengthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignalStrengthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +191,6 @@
 			children = (
 				B00F56F71DCED40700D6488D /* SyncViewController.swift */,
 				B07110381C034E84005451C3 /* HomeViewController.swift */,
-				B016F8351C31D1DD0076D2F1 /* ColorPointAnnotation.swift */,
 				B07110421C035D58005451C3 /* LogViewController.swift */,
 				B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */,
 			);
@@ -395,7 +392,6 @@
 				B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
-				B016F8361C31D1DD0076D2F1 /* ColorPointAnnotation.swift in Sources */,
 				B0C5F7C61E2BE2FC002B9DDF /* MapSquare.swift in Sources */,
 				B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */,
 				BEBAB0B21C163D800096990C /* SignalStrengthValue.swift in Sources */,
