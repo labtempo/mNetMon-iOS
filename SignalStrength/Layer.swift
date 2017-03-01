@@ -72,6 +72,88 @@ class Layer: Object{
         return -1
     }
     
+    private static func calculateSuperiorLayers(){
+        let firstLayer = Layer.filter("id = 1").first!
+        let layers = Layer.all()
+        for layer in layers{
+            if (layer.id != 1) {
+                layer.calculateLayer(firstLayer)
+            }
+        }
+    }
+    
+    private func calculateLayer(firstLayer:Layer){
+        let firstLayerReads = firstLayer.reads
+        var currentLayerReads = [Read]()
+        // applying precision coeficient
+        for flRead in firstLayerReads{
+            var read = Read()
+            read.latitude = flRead.latitude
+            read.longitude = flRead.longitude
+            read.signalStrength = flRead.signalStrength
+            read.carrierName = flRead.carrierName
+            read.isSyncPending = false
+            read = self.applyPrecisionCoeficient(read)
+            currentLayerReads.append(read)
+        }
+        
+        //merging duplicateds
+        currentLayerReads = mergeDuplicatedReads(currentLayerReads)
+        
+        let realm = try! Realm()
+        try! realm.write{
+            self.reads.removeAll()
+            for r in currentLayerReads{
+                self.reads.append(r)
+            }
+        }
+        
+    }
+    
+    private func mergeDuplicatedReads(reads:[Read])->[Read]{
+        var returningReads = [Read]()
+        for r in reads{
+            let duplicateds = findDuplicatedReads(r, reads: reads)
+            if (duplicateds.count == 1){
+                returningReads.append(r)
+            } else {
+                returningReads.append(mergeDuplicatedRead(duplicateds))
+            }
+        }
+        return returningReads
+    }
+    
+    
+    
+    private func mergeDuplicatedRead(duplicatedRead:[Read])->Read{
+        var sum:Double = 0
+        for d in duplicatedRead {
+            sum = sum + d.signalStrength
+        }
+        let avg = sum / (Double(duplicatedRead.count))
+        
+        let first = duplicatedRead.first!
+        
+        let read = Read()
+        read.latitude = first.latitude
+        read.longitude = first.longitude
+        read.signalStrength = avg
+        read.carrierName = first.carrierName
+        read.isSyncPending = false
+        return read
+    }
+    
+    private func findDuplicatedReads(currentRead:Read, reads:[Read])->[Read]{
+        var duplicateds = [Read]()
+        for r in reads{
+            if (r.latitude == currentRead.latitude && r.longitude == currentRead.longitude){
+                duplicateds.append(r)
+            }
+        }
+        
+        return duplicateds
+    }
+    
     
     /* Beginning of RealmSwift data manipulation Methods */
     static func all()->Results<Layer> {
@@ -85,11 +167,9 @@ class Layer: Object{
     }
     
     static func addReadToAllLayers(pRead:Read){
-        let realm = try! Realm()
-        let layers = realm.objects(Layer)
-        for layer in layers{
-            layer.addReadToThisLayer(pRead)
-        }
+        let firstLayer = Layer.filter("id = 1").first!
+        firstLayer.addReadToThisLayer(pRead)
+        calculateSuperiorLayers()
     }
     
     /* End of RealmSwift data manipulation Methods */
