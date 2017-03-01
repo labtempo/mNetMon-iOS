@@ -92,7 +92,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     func update(){
-        if (AppData.sharedInstance.locationReader.doesHaveFullCLAuthorization()){
+        if (LocationReader.sharedInstance.doesHaveFullCLAuthorization()){
             self.authorizationStatusLabel.text = "Authorized"
             self.authorizationStatusView.backgroundColor = AppColors.viewGreenColor
         } else {
@@ -130,7 +130,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
 
 
     private func centerMapOnUser(){
-        let lastUserLocation = AppData.sharedInstance.locationReader.getLastUserLocation()
+        let lastUserLocation = LocationReader.sharedInstance.getLastUserLocation()
         if ((lastUserLocation) != nil){
             let lastUserLocationCoord2d = CLLocationCoordinate2D(latitude: (lastUserLocation?.coordinate.latitude)!, longitude: (lastUserLocation?.coordinate.longitude)!)
             self.mapView.setCenterCoordinate(lastUserLocationCoord2d, animated: true)
@@ -182,10 +182,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBAction func switchValueChanged(sender: UISwitch) {
         if sender.on {
-            AppData.sharedInstance.locationReader.startReading()
+            LocationReader.sharedInstance.startReading()
             self.recordLocationStatusView.backgroundColor = AppColors.viewGreenColor
         } else {
-            AppData.sharedInstance.locationReader.stopReading()
+            LocationReader.sharedInstance.stopReading()
             self.recordLocationStatusView.backgroundColor = AppColors.viewRedColor
         }
     }

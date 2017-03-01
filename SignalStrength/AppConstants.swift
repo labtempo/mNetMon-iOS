@@ -9,12 +9,13 @@
 import Foundation
 
 class AppConstants{
+    
+    static let ALPHA = 0.5
+    
     static let SIGNAL_VERY_GOOD = "SIGNAL-VERY-GOOD"
     static let SIGNAL_GOOD = "SIGNAL-GOOD"
     static let SIGNAL_REGULAR = "SIGNAL-REGULAR"
     static let SIGNAL_BAD = "SIGNAL-BAD"
     static let SIGNAL_VERY_BAD = "SIGNAL-VERY-BAD"
-
-    static let ALPHA = 0.5
 
 }

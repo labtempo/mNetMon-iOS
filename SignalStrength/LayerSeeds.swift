@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 
-class LayerFactory{
+class LayerSeeds{
     
     func createEmptyLayers(){
         

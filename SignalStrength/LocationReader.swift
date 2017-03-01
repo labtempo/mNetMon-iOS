@@ -11,6 +11,8 @@ import CoreLocation
 
 class LocationReader:NSObject, CLLocationManagerDelegate{
     
+    static let sharedInstance = LocationReader()
+    
     private let locationManager = CLLocationManager()
     private var lastUserLocation:CLLocation?
     
@@ -48,11 +50,11 @@ class LocationReader:NSObject, CLLocationManagerDelegate{
         let read = Read()
         read.latitude = (self.locationManager.location?.coordinate.latitude)!
         read.longitude = (self.locationManager.location?.coordinate.longitude)!
-        read.signalStrength = SignalConverter().DBMtoASU(Double(CellularInfo().getSignalStrength()!))
+        read.signalStrength = CellularInfo().getSignalStengthInASU()
         read.carrierName = CellularInfo().getCarrierName()
         
         
-        AppData.sharedInstance.addRead(read)
+        Layer.addReadToAllLayers(read)
         self.lastUserLocation = self.locationManager.location
     }
     

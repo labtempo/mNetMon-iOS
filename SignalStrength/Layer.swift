@@ -25,7 +25,7 @@ class Layer: Object{
         return false
     }
     
-    func addRead(pRead:Read){
+    func addReadToThisLayer(pRead:Read){
         let realm = try! Realm()
 
         var newRead = Read()
@@ -79,10 +79,19 @@ class Layer: Object{
         return realm.objects(Layer.self)
     }
     
-    static func filter(filtr:String)->Results<Layer>{
+    static func filter(query:String)->Results<Layer>{
         let realm = try! Realm()
-        return realm.objects(Layer.self).filter(filtr)
+        return realm.objects(Layer.self).filter(query)
     }
+    
+    static func addReadToAllLayers(pRead:Read){
+        let realm = try! Realm()
+        let layers = realm.objects(Layer)
+        for layer in layers{
+            layer.addReadToThisLayer(pRead)
+        }
+    }
+    
     /* End of RealmSwift data manipulation Methods */
     
     

@@ -41,9 +41,9 @@ class Read: Object {
         return realm.objects(Read.self)
     }
     
-    static func filter(filtr:String)->Results<Layer>{
+    static func filter(query:String)->Results<Layer>{
         let realm = try! Realm()
-        return realm.objects(Layer.self).filter(filtr)
+        return realm.objects(Layer.self).filter(query)
     }
     /* End of RealmSwift data manipulation Methods */
     
