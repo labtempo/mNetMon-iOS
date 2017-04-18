@@ -19,6 +19,9 @@
 		B07110391C034E84005451C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110381C034E84005451C3 /* HomeViewController.swift */; };
 		B071103F1C034E99005451C3 /* Read.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071103B1C034E99005451C3 /* Read.swift */; };
 		B07110431C035D58005451C3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07110421C035D58005451C3 /* LogViewController.swift */; };
+		B083EFDB1EA57C4000F4B764 /* WorldMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083EFDA1EA57C4000F4B764 /* WorldMapViewController.swift */; };
+		B083EFDD1EA57D4E00F4B764 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083EFDC1EA57D4E00F4B764 /* SettingsViewController.swift */; };
+		B083EFDF1EA59C2100F4B764 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083EFDE1EA59C2100F4B764 /* AlertController.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */; };
 		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
@@ -73,6 +76,9 @@
 		B07110381C034E84005451C3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B071103B1C034E99005451C3 /* Read.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Read.swift; sourceTree = "<group>"; };
 		B07110421C035D58005451C3 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		B083EFDA1EA57C4000F4B764 /* WorldMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMapViewController.swift; sourceTree = "<group>"; };
+		B083EFDC1EA57D4E00F4B764 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B083EFDE1EA59C2100F4B764 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerSeeds.swift; sourceTree = "<group>"; };
 		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
@@ -188,6 +194,9 @@
 				B07110381C034E84005451C3 /* HomeViewController.swift */,
 				B07110421C035D58005451C3 /* LogViewController.swift */,
 				B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */,
+				B083EFDA1EA57C4000F4B764 /* WorldMapViewController.swift */,
+				B083EFDC1EA57D4E00F4B764 /* SettingsViewController.swift */,
+				B083EFDE1EA59C2100F4B764 /* AlertController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
+				B083EFDB1EA57C4000F4B764 /* WorldMapViewController.swift in Sources */,
 				B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
@@ -382,6 +392,7 @@
 				B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */,
 				B071103F1C034E99005451C3 /* Read.swift in Sources */,
 				B07110391C034E84005451C3 /* HomeViewController.swift in Sources */,
+				B083EFDF1EA59C2100F4B764 /* AlertController.swift in Sources */,
 				B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */,
 				B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */,
@@ -390,6 +401,7 @@
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
 				B0C5F7C81E2BE850002B9DDF /* AppConstants.swift in Sources */,
+				B083EFDD1EA57D4E00F4B764 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

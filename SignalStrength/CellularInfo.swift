@@ -33,9 +33,14 @@ class CellularInfo{
         var dataNetworkItemView:NSObject
         for var subview in subViews!{
             if (subview.isKindOfClass(NSClassFromString("UIStatusBarSignalStrengthItemView")!)){
-                dataNetworkItemView = subview
-                let signalStrength = dataNetworkItemView.valueForKey("signalStrengthRaw") as! Double
-                return signalStrength
+                do{
+                    dataNetworkItemView = subview
+                    let signalStrength = dataNetworkItemView.valueForKey("signalStrengthRaw") as! Double
+                    return signalStrength
+                } catch {
+                    AlertController.presentAlert("Error", message: "Cannot read signal strength")
+                    return nil
+                }
             }
         }
         return nil

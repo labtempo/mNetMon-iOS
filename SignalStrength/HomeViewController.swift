@@ -16,12 +16,6 @@ ViewController that controls the home screen
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    
-    @IBOutlet weak var recordLocationSwitch: UISwitch!
-    @IBOutlet weak var recordLocationStatusView: UIView!
-    
-    @IBOutlet weak var authorizationStatusLabel: UILabel!
-    @IBOutlet weak var authorizationStatusView: UIView!
 
     @IBOutlet weak var numberOfPinsLabel: UILabel!
     
@@ -47,8 +41,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     override func viewDidLoad() {
-        self.recordLocationSwitch.on = false
-        self.recordLocationStatusView.backgroundColor = AppColors.viewRedColor
         super.viewDidLoad()
     }
     
@@ -92,13 +84,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     func update(){
-        if (LocationReader.sharedInstance.doesHaveFullCLAuthorization()){
-            self.authorizationStatusLabel.text = "Authorized"
-            self.authorizationStatusView.backgroundColor = AppColors.viewGreenColor
-        } else {
-            self.authorizationStatusLabel.text = "Not Authorized"
-            self.authorizationStatusView.backgroundColor = AppColors.viewRedColor
-        }
     }
     
     
@@ -177,17 +162,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         square.title = color
         self.mapView.addOverlay(square)
         
-    }
-    
-    
-    @IBAction func switchValueChanged(sender: UISwitch) {
-        if sender.on {
-            LocationReader.sharedInstance.startReading()
-            self.recordLocationStatusView.backgroundColor = AppColors.viewGreenColor
-        } else {
-            LocationReader.sharedInstance.stopReading()
-            self.recordLocationStatusView.backgroundColor = AppColors.viewRedColor
-        }
     }
     
     
