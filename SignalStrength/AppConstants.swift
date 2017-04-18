@@ -17,5 +17,9 @@ class AppConstants{
     static let SIGNAL_REGULAR = "SIGNAL-REGULAR"
     static let SIGNAL_BAD = "SIGNAL-BAD"
     static let SIGNAL_VERY_BAD = "SIGNAL-VERY-BAD"
+    
+    static let NTW_HTTP_PREFIX = "http://"
+    static let NTW_REST_READS = "/reads"
+    static let NTW_REST_HANDSHAKE = "/handshake"
 
 }

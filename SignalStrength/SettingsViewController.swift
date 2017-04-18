@@ -9,9 +9,13 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var authorizationStatusLabel: UILabel!
     @IBOutlet weak var authorizationStatusView: UIView!
     
+    @IBOutlet weak var serverAddressLabel: UILabel!
+    
+    
     var updateTimer = NSTimer()
     
     override func viewWillAppear(animated: Bool) {
+        self.update()
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SettingsViewController.update), userInfo: nil, repeats: true)
     }
     
@@ -21,6 +25,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         
+    }
+    @IBAction func logsButtonAct(sender: AnyObject) {
+        self.performSegueWithIdentifier("view-logs", sender: sender)
     }
     
     @IBAction func recordSignalSwitchChanged(sender: UISwitch) {
@@ -39,7 +46,18 @@ class SettingsViewController: UIViewController {
             self.authorizationStatusLabel.text = "Unauthorized"
             self.authorizationStatusView.backgroundColor = AppColors.viewRedColor
         }
+        
+        if (Server.exists()){
+            self.serverAddressLabel.text = Server.getServer()?.address
+        } else {
+            self.serverAddressLabel.text = ""
+        }
+
+    }
     
+    
+    @IBAction func configureServerAct(sender: UIButton) {
+        self.performSegueWithIdentifier("configure-server", sender: sender)
     }
     
     

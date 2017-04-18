@@ -80,6 +80,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     }
     
     func findServer(){
+        /*
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         self.printString("Tentando conectar com servidor \(self.serverAddressLabel.text!)")
@@ -91,7 +92,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
                 self.printString("Servidor não encontrado.")
                 self.configuraStatusNaoSincronizando()
             }
-        }
+        }*/
     }
     
     func syncronize(){

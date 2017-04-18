@@ -13,11 +13,9 @@ import RealmSwift
 /*
 ViewController that controls the home screen
 */
-class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MyReadsViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-
-    @IBOutlet weak var numberOfPinsLabel: UILabel!
     
     @IBOutlet weak var deltaCoeficientLabel: UILabel!
     
@@ -32,7 +30,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     override func viewWillAppear(animated: Bool) {
         self.update()
         self.centerMapOnUser()
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HomeViewController.update), userInfo: nil, repeats: true)
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MyReadsViewController.update), userInfo: nil, repeats: true)
     
     }
     
@@ -46,9 +44,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        let alert = UIAlertController(title: "Memory Warning!", message: "From HomeViewController", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        AlertController.presentAlert("Memory Warning", message: "From My Reads")
     }
     //End of ViewController methods
     
@@ -131,7 +127,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                 self.currentLayer = layer.id - 1
                 print("Current layer: "+self.currentLayer.description)
                 print("CA: "+self.mapView.camera.altitude.description)
-                deltaCoeficientLabel.text = "Lr: "+self.currentLayer.description
+                deltaCoeficientLabel.text = "Layer: "+self.currentLayer.description
             }
         }
     }

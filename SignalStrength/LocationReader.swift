@@ -45,16 +45,17 @@ class LocationReader:NSObject, CLLocationManagerDelegate{
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print ("~ LOCATION UPDATE ~")
-        
-        
-        let read = Read()
-        read.latitude = (self.locationManager.location?.coordinate.latitude)!
-        read.longitude = (self.locationManager.location?.coordinate.longitude)!
-        read.signalStrength = CellularInfo().getSignalStengthInASU()
-        read.carrierName = CellularInfo().getCarrierName()
-        
-        
-        Layer.addReadToAllLayers(read)
+        let signalStrengthInDBM = CellularInfo().getSignalStrengthInDbm()
+        if (signalStrengthInDBM != nil){
+            let read = Read()
+            read.latitude = (self.locationManager.location?.coordinate.latitude)!
+            read.longitude = (self.locationManager.location?.coordinate.longitude)!
+            read.signalStrength = SignalConverter.DBMtoASU(signalStrengthInDBM!)
+            read.carrierName = CellularInfo().getCarrierName()
+            Layer.addReadToAllLayers(read)
+        } else {
+            AlertController.presentAlert("Error", message: "Cannot read your signal strength")
+        }
         self.lastUserLocation = self.locationManager.location
     }
     

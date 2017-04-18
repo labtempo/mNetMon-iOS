@@ -53,29 +53,7 @@ class Synchronizer {
         
     }
     
-    func findServer(serverAddress:String, completionHandler: (Bool, String?) -> ()){
-        
-        let address = self.httpPrefix+serverAddress+self.handshakeRestRoute
-        
-        print(address)
-    
-        Alamofire.request(.GET, address, parameters:["format":"json"]).responseJSON { response in
-            
-            switch response.result{
-            
-            case .Success:
-                self.serverAddress = serverAddress
-                completionHandler(true, self.getServerName(JSON(response.result.value!)))
-                break
-            case .Failure:
-                self.serverAddress = ""
-                completionHandler(false, nil)
-                break
-            }
-            
-        }
-   
-    }
+
     
     func syncRead(read:Read, address:String, completionHandler: (Bool) -> ()){
         let completeAddress = self.httpPrefix + address + self.readsRestRoute
@@ -89,11 +67,6 @@ class Synchronizer {
         }
     }
 
-    private func getServerName(json:JSON)->String{
-        if (json["table"]["response"] == "success"){
-            return json["table"]["serverName"].stringValue
-        }
-        return ""
-    }
+
     
 }

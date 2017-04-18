@@ -18,16 +18,8 @@ class CellularInfo{
         return (self.netInfo.subscriberCellularProvider?.carrierName)!
     }
     
-    func getSignalStengthInASU()->Double{
-        return SignalConverter.DBMtoASU(self.getSignalStrength()!)
-    }
-    
-    func getSignalStengthInDBM()->Double{
-        return self.getSignalStrength()!
-    }
-    
     // Returns DBM value
-    private func getSignalStrength()->Double?{
+    func getSignalStrengthInDbm()->Double?{
         let app = UIApplication.sharedApplication()
         let subViews = app.valueForKey("statusBar")?.valueForKey("foregroundView")?.subviews
         var dataNetworkItemView:NSObject
