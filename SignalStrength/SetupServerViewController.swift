@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigureServerViewController: UIViewController, UITextFieldDelegate{
+class SetupServerViewController: UIViewController, UITextFieldDelegate{
     
     private var serverAddress:String = ""
 

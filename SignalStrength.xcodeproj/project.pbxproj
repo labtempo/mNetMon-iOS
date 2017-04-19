@@ -23,7 +23,7 @@
 		B083EFDD1EA57D4E00F4B764 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083EFDC1EA57D4E00F4B764 /* SettingsViewController.swift */; };
 		B083EFDF1EA59C2100F4B764 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083EFDE1EA59C2100F4B764 /* AlertController.swift */; };
 		B08442D41EA6AC3D0049098B /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D31EA6AC3D0049098B /* Server.swift */; };
-		B08442D61EA6B3430049098B /* ConfigureServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D51EA6B3430049098B /* ConfigureServerViewController.swift */; };
+		B08442D61EA6B3430049098B /* SetupServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D51EA6B3430049098B /* SetupServerViewController.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */; };
 		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
@@ -82,7 +82,7 @@
 		B083EFDC1EA57D4E00F4B764 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B083EFDE1EA59C2100F4B764 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		B08442D31EA6AC3D0049098B /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
-		B08442D51EA6B3430049098B /* ConfigureServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureServerViewController.swift; sourceTree = "<group>"; };
+		B08442D51EA6B3430049098B /* SetupServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupServerViewController.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerSeeds.swift; sourceTree = "<group>"; };
 		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
@@ -197,14 +197,22 @@
 			children = (
 				B07110381C034E84005451C3 /* MyReadsViewController.swift */,
 				B083EFDA1EA57C4000F4B764 /* WorldMapViewController.swift */,
-				B00F56F71DCED40700D6488D /* SyncViewController.swift */,
-				B07110421C035D58005451C3 /* LogViewController.swift */,
-				B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */,
 				B083EFDC1EA57D4E00F4B764 /* SettingsViewController.swift */,
+				B08442D71EA6E1670049098B /* Settings */,
+				B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */,
 				B083EFDE1EA59C2100F4B764 /* AlertController.swift */,
-				B08442D51EA6B3430049098B /* ConfigureServerViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		B08442D71EA6E1670049098B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B00F56F71DCED40700D6488D /* SyncViewController.swift */,
+				B07110421C035D58005451C3 /* LogViewController.swift */,
+				B08442D51EA6B3430049098B /* SetupServerViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		F2F4E5BE05D6B397051C8C02 /* Pods */ = {
@@ -405,7 +413,7 @@
 				B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */,
 				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
-				B08442D61EA6B3430049098B /* ConfigureServerViewController.swift in Sources */,
+				B08442D61EA6B3430049098B /* SetupServerViewController.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
 				BEBAB0B01C16379A0096990C /* CellularInfo.swift in Sources */,
 				B0C5F7C81E2BE850002B9DDF /* AppConstants.swift in Sources */,

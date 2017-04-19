@@ -11,6 +11,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var serverAddressLabel: UILabel!
     
+    @IBOutlet weak var syncReadsButton: UIButton!
+    
     
     var updateTimer = NSTimer()
     
@@ -49,16 +51,23 @@ class SettingsViewController: UIViewController {
         
         if (Server.exists()){
             self.serverAddressLabel.text = Server.getServer()?.address
+            self.syncReadsButton.enabled = true
         } else {
             self.serverAddressLabel.text = ""
+            self.syncReadsButton.enabled = false
         }
 
     }
     
     
     @IBAction func configureServerAct(sender: UIButton) {
-        self.performSegueWithIdentifier("configure-server", sender: sender)
+        self.performSegueWithIdentifier("setup-server", sender: sender)
     }
+    
+    @IBAction func syncButtonAct(sender: UIButton) {
+        self.performSegueWithIdentifier("sync", sender: sender)
+    }
+    
     
     
 }

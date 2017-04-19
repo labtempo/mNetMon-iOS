@@ -11,7 +11,7 @@ import RealmSwift
 
 class SyncViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var serverAddressLabel: UITextField!
+    @IBOutlet weak var serverAddressLabel: UILabel!
     @IBOutlet weak var statusUiView: UITextView!
     @IBOutlet weak var statusTextView: UITextView!
     @IBOutlet weak var pendingReadsLabel: UILabel!
@@ -26,8 +26,8 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.serverAddressLabel.delegate = self
-        self.configuraStatusNaoSincronizando()
+        self.serverAddressLabel.text = Server.getServer()?.address
+        self.configuraStatusProntoParaSincronizar()
         self.activityIndicator.hidden = true
         self.syncConsole.text = ""
     }
@@ -79,27 +79,11 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.syncButton.enabled = false
     }
     
-    func findServer(){
-        /*
-        self.activityIndicator.hidden = false
-        self.activityIndicator.startAnimating()
-        self.printString("Tentando conectar com servidor \(self.serverAddressLabel.text!)")
-        Synchronizer.sharedInstance.findServer(serverAddressLabel.text!){ (success, servername) in
-            if success{
-                self.printString("Conectado com sucesso!")
-                self.configuraStatusProntoParaSincronizar()
-            } else {
-                self.printString("Servidor não encontrado.")
-                self.configuraStatusNaoSincronizando()
-            }
-        }*/
-    }
     
     func syncronize(){
         let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = true")
-        let address = self.serverAddressLabel.text!
         for r:Read in pendingReads{
-            Synchronizer.sharedInstance.syncRead(r, address: address){ (success) in
+            Synchronizer.sharedInstance.syncRead(r, address: (Server.getServer()?.address)!){ (success) in
                 if (success){
                     self.printString("Leitura enviada sucesso!")
                     self.setReadAsSyncronized(r)
@@ -128,12 +112,6 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
         self.syncronize()
     }
     
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if (self.serverAddressLabel.text != ""){
-            findServer()
-        }
-    }
 
 
     override func didReceiveMemoryWarning() {
@@ -148,15 +126,8 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
             
     }
     
-    //dismiss keyboard on return button
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    //Dismiss keyboard when a tap is recognized
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
+    @IBAction func closeButtonAct(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
