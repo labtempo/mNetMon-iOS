@@ -24,6 +24,7 @@
 		B083EFDF1EA59C2100F4B764 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083EFDE1EA59C2100F4B764 /* AlertController.swift */; };
 		B08442D41EA6AC3D0049098B /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D31EA6AC3D0049098B /* Server.swift */; };
 		B08442D61EA6B3430049098B /* SetupServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D51EA6B3430049098B /* SetupServerViewController.swift */; };
+		B08442D91EA6F0310049098B /* ReadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D81EA6F0310049098B /* ReadService.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
 		B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */; };
 		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
@@ -83,6 +84,7 @@
 		B083EFDE1EA59C2100F4B764 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		B08442D31EA6AC3D0049098B /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		B08442D51EA6B3430049098B /* SetupServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupServerViewController.swift; sourceTree = "<group>"; };
+		B08442D81EA6F0310049098B /* ReadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadService.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
 		B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerSeeds.swift; sourceTree = "<group>"; };
 		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */,
 				B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */,
 				B00F56F91DCED85800D6488D /* Synchronizer.swift */,
+				B08442D81EA6F0310049098B /* ReadService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */,
 				B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */,
 				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,
+				B08442D91EA6F0310049098B /* ReadService.swift in Sources */,
 				B07110431C035D58005451C3 /* LogViewController.swift in Sources */,
 				B08442D61EA6B3430049098B /* SetupServerViewController.swift in Sources */,
 				BE4A82121C24A25800A3A96E /* AppColors.swift in Sources */,
