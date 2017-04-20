@@ -26,6 +26,7 @@
 		B08442D61EA6B3430049098B /* SetupServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D51EA6B3430049098B /* SetupServerViewController.swift */; };
 		B08442D91EA6F0310049098B /* ReadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08442D81EA6F0310049098B /* ReadService.swift */; };
 		B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09218DD1C2CCAC600052BAE /* SignalConverter.swift */; };
+		B0A56CBD1EA96000006AEA3F /* LayerChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A56CBC1EA96000006AEA3F /* LayerChooser.swift */; };
 		B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */; };
 		B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */; };
 		B0C5F7C61E2BE2FC002B9DDF /* MapSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */; };
@@ -86,6 +87,7 @@
 		B08442D51EA6B3430049098B /* SetupServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupServerViewController.swift; sourceTree = "<group>"; };
 		B08442D81EA6F0310049098B /* ReadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadService.swift; sourceTree = "<group>"; };
 		B09218DD1C2CCAC600052BAE /* SignalConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalConverter.swift; sourceTree = "<group>"; };
+		B0A56CBC1EA96000006AEA3F /* LayerChooser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerChooser.swift; sourceTree = "<group>"; };
 		B0B1C7551D85F95C00BFE73A /* LayerSeeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerSeeds.swift; sourceTree = "<group>"; };
 		B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
 		B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSquare.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				B08442D71EA6E1670049098B /* Settings */,
 				B0C5F7C51E2BE2FC002B9DDF /* MapSquare.swift */,
 				B083EFDE1EA59C2100F4B764 /* AlertController.swift */,
+				B0A56CBC1EA96000006AEA3F /* LayerChooser.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				BEBAB0B41C163E230096990C /* SignalQuality.swift in Sources */,
 				B083EFDB1EA57C4000F4B764 /* WorldMapViewController.swift in Sources */,
 				B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */,
+				B0A56CBD1EA96000006AEA3F /* LayerChooser.swift in Sources */,
 				B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */,
 				B0256A8D1CB30895000A9828 /* Layer.swift in Sources */,
 				B0C5F7C61E2BE2FC002B9DDF /* MapSquare.swift in Sources */,

@@ -21,7 +21,7 @@ class MyReadsViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     var deltaCoeficient:Double = 1
     
-    var currentLayer = 0
+    var currentLayer:Layer?
     
     var updateTimer = NSTimer()
     
@@ -119,27 +119,17 @@ class MyReadsViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     private func chooseLayer(){
-        
-       let layers = Layer.all()
-       self.currentLayer = 0
-       for layer in layers{
-            if layer.canBeUsedWithCameraAltitude(self.mapView.camera.altitude){
-                self.currentLayer = layer.id - 1
-                print("Current layer: "+self.currentLayer.description)
-                print("CA: "+self.mapView.camera.altitude.description)
-                deltaCoeficientLabel.text = "Layer: "+self.currentLayer.description
-            }
-        }
+        self.currentLayer = LayerChooser.chooseLayer(self.mapView.camera.altitude)!
     }
     
     private func drawMapWithPins(){
-        let layers = Layer.all()
-        self.drawMapWithPinsFromReads(layers[currentLayer].reads)
+        if (self.currentLayer != nil){
+            self.drawMapWithPinsFromReads(self.currentLayer!.reads)
+        }
     }
     
     func makePolyline(read:Read){
-        let currentLayer = Layer.filter("id = \(self.currentLayer+1)").first!
-        let coeficient = currentLayer.precisionCoeficient
+        let coeficient = self.currentLayer!.precisionCoeficient
         let tr = CLLocationCoordinate2D(latitude: read.latitude, longitude: read.longitude)
         let tl = CLLocationCoordinate2D(latitude: read.latitude, longitude: (read.longitude - coeficient))
         let br = CLLocationCoordinate2D(latitude: (read.latitude - coeficient), longitude: read.longitude)

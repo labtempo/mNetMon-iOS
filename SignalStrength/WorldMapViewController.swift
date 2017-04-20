@@ -32,13 +32,30 @@ class WorldMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func update(){
-        //todo
-        let nePoint = CGPointMake(self.mapView.bounds.origin.x + self.mapView.bounds.size.width, self.mapView.bounds.origin.y)
-        let swPoint = CGPointMake(self.mapView.bounds.origin.x, self.mapView.bounds.origin.y + self.mapView.bounds.size.height)
-        print("NE: \(nePoint)")
-        print("SW: \(swPoint)")
+
+        
+
     }
     
+    //Beginning of MapView methods
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+
+    }
+    
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+
+    }
+    
+    
+    func requestReads(){
+        let topLeft = self.mapView.convertPoint(CGPointMake(0, 0), toCoordinateFromView: self.mapView)
+        let pointBottomRight = CGPointMake(self.mapView.frame.size.width, self.mapView.frame.size.height)
+        let bottomRight = self.mapView.convertPoint(pointBottomRight, toCoordinateFromView: self.mapView)
+        print("top left:\(topLeft)")
+        print("bottom right:\(bottomRight)")
+        
+        
+    }
     
     
 }
