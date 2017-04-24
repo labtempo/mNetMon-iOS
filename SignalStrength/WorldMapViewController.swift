@@ -39,11 +39,11 @@ class WorldMapViewController: UIViewController, MKMapViewDelegate {
     
     //Beginning of MapView methods
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        generateRequest()
+        getReadsForMap()
     }
 
     
-    func generateRequest(){
+    func getReadsForMap()->[Read]{
         let topLeft = self.mapView.convertPoint(CGPointMake(0, 0), toCoordinateFromView: self.mapView)
         let pointBottomRight = CGPointMake(self.mapView.frame.size.width, self.mapView.frame.size.height)
         let bottomRight = self.mapView.convertPoint(pointBottomRight, toCoordinateFromView: self.mapView)
@@ -53,7 +53,7 @@ class WorldMapViewController: UIViewController, MKMapViewDelegate {
         print("bottom right:\(bottomRight)")
         print("Layer: \(layer.id)")
         print("####")
-        
+        return ReadService.getReadsInArea(topLeft, bottomRight: bottomRight, layer: layer)
     }
     
     
