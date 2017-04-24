@@ -8,7 +8,18 @@
 
 import Foundation
 import Alamofire
+import MapKit
 
 class ReadService{
+    
+    static func getReadsInArea(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, layer:Layer){
+    
+    }
+    
+    static private func requestReadsInArea(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, layer:Layer){
+        
+        //Alamofire.request(.GET)
+        
+    }
 
 }

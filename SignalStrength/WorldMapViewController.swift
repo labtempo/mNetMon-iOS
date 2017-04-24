@@ -14,7 +14,7 @@ import Foundation
 class WorldMapViewController: UIViewController, MKMapViewDelegate {
     
     var updateTimer = NSTimer()
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewWillAppear(animated: Bool) {
@@ -39,21 +39,20 @@ class WorldMapViewController: UIViewController, MKMapViewDelegate {
     
     //Beginning of MapView methods
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-
+        generateRequest()
     }
-    
-    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
 
-    }
     
-    
-    func requestReads(){
+    func generateRequest(){
         let topLeft = self.mapView.convertPoint(CGPointMake(0, 0), toCoordinateFromView: self.mapView)
         let pointBottomRight = CGPointMake(self.mapView.frame.size.width, self.mapView.frame.size.height)
         let bottomRight = self.mapView.convertPoint(pointBottomRight, toCoordinateFromView: self.mapView)
+        let layer = LayerChooser.chooseLayer(self.mapView.camera.altitude)!
+        print("####")
         print("top left:\(topLeft)")
         print("bottom right:\(bottomRight)")
-        
+        print("Layer: \(layer.id)")
+        print("####")
         
     }
     

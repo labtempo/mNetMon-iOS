@@ -181,7 +181,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="World Map" image="earth-america-7" id="6A0-bJ-bJs"/>
                     <connections>
-                        <outlet property="mapView" destination="k6w-qO-xRM" id="dpJ-yd-EQP"/>
+                        <outlet property="mapView" destination="k6w-qO-xRM" id="Iff-yF-F5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4N-Jo-jl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
