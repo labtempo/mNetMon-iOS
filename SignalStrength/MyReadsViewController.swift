@@ -17,7 +17,7 @@ class MyReadsViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var deltaCoeficientLabel: UILabel!
+    @IBOutlet weak var layerLabel: UILabel!
     
     var deltaCoeficient:Double = 1
     
@@ -120,6 +120,7 @@ class MyReadsViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     private func chooseLayer(){
         self.currentLayer = LayerChooser.chooseLayer(self.mapView.camera.altitude)!
+        self.layerLabel.text = "Layer \(self.currentLayer!.id)"
     }
     
     private func drawMapWithPins(){

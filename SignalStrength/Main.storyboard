@@ -122,7 +122,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="My Reads" image="compass-point-7" id="6OS-7N-X4n"/>
                     <connections>
-                        <outlet property="deltaCoeficientLabel" destination="0pn-it-RLp" id="u1o-pd-pHb"/>
+                        <outlet property="layerLabel" destination="0pn-it-RLp" id="J87-o4-Vd9"/>
                         <outlet property="mapView" destination="6WC-ht-LmJ" id="Rg8-Bj-HV3"/>
                     </connections>
                 </viewController>
