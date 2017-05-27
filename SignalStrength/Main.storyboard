@@ -25,104 +25,39 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="drJ-H2-aP5"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plr-u0-Wip">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pn-it-RLp">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="148" id="Kn9-Q6-RGH"/>
-                                            <constraint firstAttribute="height" constant="21" id="gXR-vs-G22"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Kn9-Q6-RGH"/>
-                                                <exclude reference="gXR-vs-G22"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="Kn9-Q6-RGH"/>
-                                                <include reference="gXR-vs-G22"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="0pn-it-RLp" firstAttribute="centerX" secondItem="plr-u0-Wip" secondAttribute="centerX" id="Lu8-1U-E2K"/>
-                                    <constraint firstItem="0pn-it-RLp" firstAttribute="centerY" secondItem="plr-u0-Wip" secondAttribute="centerY" id="n0k-D1-xIK"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="0pn-it-RLp"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="Lu8-1U-E2K"/>
-                                        <exclude reference="n0k-D1-xIK"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="0pn-it-RLp"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="Lu8-1U-E2K"/>
-                                        <include reference="n0k-D1-xIK"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="plr-u0-Wip" secondAttribute="bottom" constant="2" id="4pU-c7-nkc"/>
-                            <constraint firstItem="plr-u0-Wip" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="2" id="Bdi-nt-N1a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6WC-ht-LmJ" secondAttribute="trailing" id="aXk-tP-eIT"/>
-                            <constraint firstItem="plr-u0-Wip" firstAttribute="leading" secondItem="BKD-Mx-9ZM" secondAttribute="leadingMargin" constant="5" id="cLc-fr-ghn"/>
                             <constraint firstItem="6WC-ht-LmJ" firstAttribute="top" secondItem="rfg-OG-GnW" secondAttribute="bottom" constant="15" id="eIf-hf-KUw"/>
                             <constraint firstItem="6WC-ht-LmJ" firstAttribute="leading" secondItem="BKD-Mx-9ZM" secondAttribute="leadingMargin" id="eeY-Zd-xU1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="plr-u0-Wip" secondAttribute="trailing" constant="5" id="q5J-h3-UyY"/>
-                            <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="50" id="yx7-mK-OtD"/>
+                            <constraint firstItem="R3Z-ol-TiA" firstAttribute="top" secondItem="6WC-ht-LmJ" secondAttribute="bottom" constant="20" id="yx7-mK-OtD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="6WC-ht-LmJ"/>
-                                <exclude reference="plr-u0-Wip"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4pU-c7-nkc"/>
                                 <exclude reference="yx7-mK-OtD"/>
                                 <exclude reference="aXk-tP-eIT"/>
                                 <exclude reference="eIf-hf-KUw"/>
                                 <exclude reference="eeY-Zd-xU1"/>
-                                <exclude reference="Bdi-nt-N1a"/>
-                                <exclude reference="cLc-fr-ghn"/>
-                                <exclude reference="q5J-h3-UyY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="6WC-ht-LmJ"/>
-                                <include reference="plr-u0-Wip"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4pU-c7-nkc"/>
                                 <include reference="yx7-mK-OtD"/>
                                 <include reference="aXk-tP-eIT"/>
                                 <include reference="eIf-hf-KUw"/>
                                 <include reference="eeY-Zd-xU1"/>
-                                <include reference="Bdi-nt-N1a"/>
-                                <include reference="cLc-fr-ghn"/>
-                                <include reference="q5J-h3-UyY"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Reads" image="compass-point-7" id="6OS-7N-X4n"/>
                     <connections>
-                        <outlet property="layerLabel" destination="0pn-it-RLp" id="J87-o4-Vd9"/>
                         <outlet property="mapView" destination="6WC-ht-LmJ" id="Rg8-Bj-HV3"/>
                     </connections>
                 </viewController>

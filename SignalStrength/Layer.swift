@@ -25,7 +25,7 @@ class Layer: Object{
         return false
     }
     
-    func addReadToThisLayer(pRead:Read){
+    func addReadToThisLayer(pRead:Read, consolidate:Bool){
         let realm = try! Realm()
 
         var newRead = Read()
@@ -35,17 +35,22 @@ class Layer: Object{
         newRead.carrierName = pRead.carrierName
         newRead = applyPrecisionCoeficient(newRead)
         
-        let index = self.searchInReads(newRead)
-        
-        if (index == -1){
-            try! realm.write{
-                self.reads.append(newRead)
+        if (consolidate) {
+            let index = self.searchInReads(newRead)
+            if (index == -1){
+                try! realm.write{
+                    self.reads.append(newRead)
+                }
+            } else {
+                let firstRead = self.reads[index]
+                let newSignalStrengthValue = ( Double(firstRead.signalStrength) * (1 - AppConstants.ALPHA) ) + ( Double(newRead.signalStrength) * AppConstants.ALPHA )
+                try! realm.write{
+                    self.reads[index].signalStrength = newSignalStrengthValue
+                }
             }
         } else {
-            let firstRead = self.reads[index]
-            let newSignalStrengthValue = ( Double(firstRead.signalStrength) * (1 - AppConstants.ALPHA) ) + ( Double(newRead.signalStrength) * AppConstants.ALPHA )
             try! realm.write{
-                self.reads[index].signalStrength = newSignalStrengthValue
+                self.reads.append(newRead)
             }
         }
     }
@@ -168,7 +173,7 @@ class Layer: Object{
     
     static func addReadToAllLayers(pRead:Read){
         let firstLayer = Layer.filter("id = 1").first!
-        firstLayer.addReadToThisLayer(pRead)
+        firstLayer.addReadToThisLayer(pRead, consolidate: false)
         calculateSuperiorLayers()
     }
     
