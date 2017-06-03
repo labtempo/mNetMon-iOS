@@ -9,27 +9,52 @@
 import Foundation
 import Alamofire
 import MapKit
+import SwiftyJSON
 
 class ReadService{
     
     static func getReadsInArea(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, layer:Layer)->[Read]{
+        var reads = [Read]()
         if (Server.exists()){
-            return requestReadsInArea(topLeft, bottomRight: bottomRight, layerId: layer.id)
+            requestReadsInArea(topLeft, bottomRight: bottomRight, layerId: layer.id) { (success, json) in
+                if (success){
+                    print(json)
+                    for (_, subJson):(String, JSON) in json{
+                        let r = Read()
+                        r.latitude = subJson["latitude"].doubleValue
+                        r.longitude = subJson["longitude"].doubleValue
+                        r.signalStrength = subJson["signalStrength"].doubleValue
+                        reads.append(r)
+                     }
+                    print("$$ \(reads.count)")
+                } else {
+                    print("Error in request")
+                }
+            
+            }
         }
-        return [Read]()
+        print(" $ \(reads.count)")
+        return reads
     }
     
-    static private func requestReadsInArea(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, layerId:Int)->[Read]{
+    static func requestReadsInArea(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, layerId:Int, completionHandler: (Bool, JSON)->()){
         let serverAddress = Server.getServer()?.address
         let address = AppConstants.NTW_HTTP_PREFIX + serverAddress! + AppConstants.NTW_REST_READS
         let params = generateParams(topLeft, bottomRight: bottomRight, layerId: layerId)
         print("sending request...")
         print(address)
-        Alamofire.request(.GET, address, parameters: params).responseJSON {
-            response in
-            print(response)
+        Alamofire.request(.GET, address, parameters: params).responseJSON { response in
+            switch response.result{
+            case .Success:
+                let json = JSON(response.result.value!)
+                completionHandler(true, json)
+                break
+            case.Failure:
+                completionHandler(false, nil)
+                break
+            }
+            
         }
-        return [Read]()
     }
     
     static private func generateParams(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, layerId:Int)->[String:AnyObject]{
