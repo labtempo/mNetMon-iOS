@@ -44,7 +44,6 @@ class LocationReader:NSObject, CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print ("~ LOCATION UPDATE ~")
         let signalStrengthInDBM = CellularInfo().getSignalStrengthInDbm()
         if (signalStrengthInDBM != nil){
             let read = Read()
@@ -52,6 +51,7 @@ class LocationReader:NSObject, CLLocationManagerDelegate{
             read.longitude = (self.locationManager.location?.coordinate.longitude)!
             read.signalStrength = SignalConverter.DBMtoASU(signalStrengthInDBM!)
             read.carrierName = CellularInfo().getCarrierName()
+            read.date = NSDate()
             Layer.addReadToAllLayers(read)
         } else {
             AlertController.presentAlert("Error", message: "Cannot read your signal strength")

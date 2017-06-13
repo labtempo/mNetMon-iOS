@@ -174,7 +174,7 @@ class Layer: Object{
     static func addReadToAllLayers(pRead:Read){
         let firstLayer = Layer.filter("id = 1").first!
         firstLayer.addReadToThisLayer(pRead, consolidate: false)
-        calculateSuperiorLayers()
+        //calculateSuperiorLayers()
     }
     
     /* End of RealmSwift data manipulation Methods */

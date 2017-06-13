@@ -57,6 +57,7 @@ class Synchronizer {
     
     func syncRead(read:Read, address:String, completionHandler: (Bool) -> ()){
         let completeAddress = self.httpPrefix + address + self.readsRestRoute
+        print (read.toJson())
         Alamofire.request(.POST, completeAddress, parameters: read.toJson(), encoding:.JSON).responseJSON { response in
             let json = JSON(response.result.value!)
             if (json["table"]["response"] == "success"){

@@ -83,6 +83,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     func syncronize(){
         let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = true")
         for r:Read in pendingReads{
+            print (r)
             Synchronizer.sharedInstance.syncRead(r, address: (Server.getServer()?.address)!){ (success) in
                 if (success){
                     self.printString("Leitura enviada sucesso!")

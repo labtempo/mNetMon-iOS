@@ -18,6 +18,7 @@ class Read: Object {
     dynamic var signalStrength:Double = 0.0
     dynamic var carrierName:String = ""
     dynamic var isSyncPending:Bool = true
+    dynamic var date:NSDate = NSDate()
     
     func toString()->String{
         return "Read - Latitude: \(self.latitude) , Longitude: \(self.longitude) , Signal Strength: \(self.signalStrength) , Carrier name: \(self.carrierName)"
@@ -29,7 +30,8 @@ class Read: Object {
                     "latitude" : self.latitude.description,
                     "longitude": self.longitude.description,
                     "signalStrength": self.signalStrength.description,
-                    "carrierName" : self.carrierName
+                    "carrierName" : self.carrierName,
+                    "date" : self.date.description
             ]
         ]
     }
