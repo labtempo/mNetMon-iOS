@@ -40,6 +40,23 @@ class MyReadsViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let first = Layer.filter("id = 1").first?.reads.first!
+        let last = Layer.filter("id = 1").first?.reads.last!
+        let realm = try! Realm()
+        try! realm.write {
+            first?.isSyncPending = false
+            last?.isSyncPending = false
+        }
+        
+        /*
+        let allReads = Layer.filter("id = 1").first!.reads
+        let realm = try! Realm()
+        for r:Read in allReads{
+            try! realm.write{
+                r.isSyncPending = true;
+            }
+        } */
     }
     
     override func didReceiveMemoryWarning() {

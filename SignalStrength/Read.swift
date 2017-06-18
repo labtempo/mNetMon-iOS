@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import MapKit
 import RealmSwift
+import SwiftyJSON
 
 class Read: Object {
 
@@ -35,6 +36,21 @@ class Read: Object {
             ]
         ]
     }
+    
+    /*
+    func toJson()->JSON{
+        let json:JSON = [
+            "read": [
+                "latitude" : self.latitude.description,
+                "longitude": self.longitude.description,
+                "signalStrength": self.signalStrength.description,
+                "carrierName" : self.carrierName,
+                "date" : self.date.description
+            ]
+        ]
+        return json
+    }*/
+    
     
     
     /* Beginning of RealmSwift data manipulation Methods */

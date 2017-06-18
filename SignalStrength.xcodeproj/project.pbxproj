@@ -11,6 +11,7 @@
 		B00F56F81DCED40700D6488D /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F71DCED40700D6488D /* SyncViewController.swift */; };
 		B00F56FA1DCED85800D6488D /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F56F91DCED85800D6488D /* Synchronizer.swift */; };
 		B0256A8D1CB30895000A9828 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0256A8C1CB30895000A9828 /* Layer.swift */; };
+		B042BA211EF5E7860021C902 /* ReadSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042BA201EF5E7860021C902 /* ReadSerializer.swift */; };
 		B071101E1C034C82005451C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071101D1C034C82005451C3 /* AppDelegate.swift */; };
 		B07110251C034C82005451C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07110241C034C82005451C3 /* Assets.xcassets */; };
 		B07110281C034C82005451C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07110261C034C82005451C3 /* LaunchScreen.storyboard */; };
@@ -70,6 +71,7 @@
 		B00F56F91DCED85800D6488D /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 		B0256A8C1CB30895000A9828 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		B0256A971CB31766000A9828 /* SignalStrengthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignalStrengthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B042BA201EF5E7860021C902 /* ReadSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadSerializer.swift; sourceTree = "<group>"; };
 		B071101A1C034C82005451C3 /* SignalStrength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalStrength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B071101D1C034C82005451C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07110241C034C82005451C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				B0B1C7571D85F9D600BFE73A /* UserDefaultData.swift */,
 				B00F56F91DCED85800D6488D /* Synchronizer.swift */,
 				B08442D81EA6F0310049098B /* ReadService.swift */,
+				B042BA201EF5E7860021C902 /* ReadSerializer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				B083EFDF1EA59C2100F4B764 /* AlertController.swift in Sources */,
 				B08442D41EA6AC3D0049098B /* Server.swift in Sources */,
 				B0B1C7581D85F9D600BFE73A /* UserDefaultData.swift in Sources */,
+				B042BA211EF5E7860021C902 /* ReadSerializer.swift in Sources */,
 				BE7E6A911C1633D00091EF1F /* LocationReader.swift in Sources */,
 				B0B1C7561D85F95C00BFE73A /* LayerSeeds.swift in Sources */,
 				B09218DE1C2CCAC600052BAE /* SignalConverter.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Darwin
 
 class SyncViewController: UIViewController, UITextFieldDelegate {
 
@@ -20,6 +21,7 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var syncConsole: UITextView!
     
     var updateTimer = NSTimer()
+    
     
     
     // BEGIN UIViewController Methods
@@ -81,19 +83,18 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
     
     
     func syncronize(){
-        let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = true")
-        for r:Read in pendingReads{
-            Synchronizer.sharedInstance.syncRead(r, address: (Server.getServer()?.address)!){ (success) in
-                if (success){
-                    self.printString("Leitura enviada sucesso!")
-                    self.setReadAsSyncronized(r)
-                } else {
-                    self.printString("Erro ao enviar leitura!")
-                }
+        let pendingReads = Layer.filter("id = 1").first!.reads.filter("isSyncPending = false")
+        self.configuraStatusSincronizando()
+        Synchronizer.sharedInstance.syncAllReads(pendingReads, address: (Server.getServer()?.address)!){ (success) in
+            if (success){
+                self.printString("Leituras enviadas sucesso!")
+                self.configuraStatusProntoParaSincronizar()
+            } else {
+                self.printString("Erro ao enviar leituras!")
+                self.configuraStatusProntoParaSincronizar()
             }
+            
         }
-        self.configuraStatusProntoParaSincronizar()
-        self.printString("Sincronização finalizada.")
     }
     
     func setReadAsSyncronized(read:Read){
@@ -102,6 +103,8 @@ class SyncViewController: UIViewController, UITextFieldDelegate {
             read.isSyncPending = false
         }
     }
+    
+
     
     
     @IBAction func syncButtonAct(sender: AnyObject) {
